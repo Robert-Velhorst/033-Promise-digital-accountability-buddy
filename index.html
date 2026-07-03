@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promise — Your Word is Your Bond</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:       #0a0f1e;
+      --navy-mid:   #0d1530;
+      --navy-light: #111d3c;
+      --navy-card:  #131c38;
+      --gold:       #d4a843;
+      --gold-light: #f0c96a;
+      --gold-dim:   #a07828;
+      --white:      #ffffff;
+      --grey-100:   #e8eaf0;
+      --grey-300:   #9aa0b4;
+      --grey-500:   #5a6080;
+      --green:      #2ecc71;
+      --amber:      #f39c12;
+      --red:        #e74c3c;
+      --radius-sm:  8px;
+      --radius-md:  16px;
+      --radius-lg:  24px;
+      --radius-xl:  40px;
+      --shadow:     0 24px 64px rgba(0,0,0,0.5);
+      --glow-gold:  0 0 40px rgba(212,168,67,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    section { position: relative; overflow: hidden; }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .tag {
+      display: inline-block;
+      background: rgba(212,168,67,0.12);
+      border: 1px solid rgba(212,168,67,0.3);
+      color: var(--gold-light);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--grey-300);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+    .gold { color: var(--gold-light); }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 32px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 32px rgba(212,168,67,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(212,168,67,0.45);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 13px 32px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 24px 0;
+      border-radius: 2px;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all 0.3s ease;
+    }
+    nav.scrolled {
+      background: rgba(10,15,30,0.92);
+      backdrop-filter: blur(20px);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.3rem;
+      letter-spacing: -0.02em;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--navy);
+      font-weight: 900;
+      box-shadow: 0 4px 16px rgba(212,168,67,0.4);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--grey-300);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+      background: var(--navy);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://files.manuscdn.com/user_upload_by_module/session_file/90835377/TfLCoQyXLfEJiOAw.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(212,168,67,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow-dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+    .hero-eyebrow-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--grey-300);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stat-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--grey-300);
+      margin-top: 4px;
+    }
+    .hero-image-wrap {
+      position: relative;
+    }
+    .hero-image-wrap img {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow), var(--glow-gold);
+      width: 100%;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      background: var(--navy-card);
+      border: 1px solid rgba(212,168,67,0.2);
+      border-radius: var(--radius-md);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+    .hero-badge-icon { font-size: 1.5rem; }
+    .hero-badge-text { font-size: 0.8rem; color: var(--grey-300); }
+    .hero-badge-text strong { display: block; font-size: 0.95rem; color: var(--white); }
+
+    /* ===== TRUST BAR ===== */
+    #trust {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 28px 0;
+    }
+    .trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--grey-300);
+      font-weight: 500;
+    }
+    .trust-icon { font-size: 1.1rem; }
+
+    /* ===== PROBLEM ===== */
+    #problem {
+      padding: 120px 0;
+      background: var(--navy);
+    }
+    .problem-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .problem-quotes {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .problem-quote {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .problem-quote:hover {
+      border-color: rgba(212,168,67,0.2);
+      transform: translateX(4px);
+    }
+    .problem-quote.bad {
+      border-left: 3px solid var(--red);
+    }
+    .problem-quote.bad .pq-label {
+      color: var(--red);
+    }
+    .problem-quote.good {
+      border-left: 3px solid var(--green);
+    }
+    .problem-quote.good .pq-label {
+      color: var(--green);
+    }
+    .pq-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .pq-text {
+      font-size: 0.95rem;
+      color: var(--grey-100);
+      font-style: italic;
+    }
+    .problem-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .problem-stat-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+    .problem-stat-card .num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--gold-light);
+    }
+    .problem-stat-card .lbl {
+      font-size: 0.8rem;
+      color: var(--grey-300);
+      margin-top: 4px;
+    }
+
+    /* ===== HOW IT WORKS ===== */
+    #how {
+      padding: 120px 0;
+      background: var(--navy-mid);
+    }
+    .how-header { text-align: center; margin-bottom: 80px; }
+    .how-header .section-subtitle { margin: 0 auto; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+      z-index: 0;
+    }
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(212,168,67,0.3);
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+    .step-desc {
+      font-size: 0.82rem;
+      color: var(--grey-300);
+      line-height: 1.6;
+    }
+    .how-mockup {
+      margin-top: 80px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow), var(--glow-gold);
+    }
+    .how-mockup img { width: 100%; }
+
+    /* ===== FEATURES ===== */
+    #features {
+      padding: 120px 0;
+      background: var(--navy);
+    }
+    .features-header { text-align: center; margin-bottom: 72px; }
+    .features-header .section-subtitle { margin: 0 auto; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .feature-card:hover {
+      border-color: rgba(212,168,67,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.4), var(--glow-gold);
+    }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-icon {
+      width: 56px; height: 56px;
+      background: rgba(212,168,67,0.1);
+      border: 1px solid rgba(212,168,67,0.2);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+    .feature-desc {
+      font-size: 0.88rem;
+      color: var(--grey-300);
+      line-height: 1.7;
+    }
+    .feature-card.featured {
+      background: linear-gradient(135deg, rgba(212,168,67,0.08), rgba(212,168,67,0.03));
+      border-color: rgba(212,168,67,0.25);
+    }
+    .feature-card.featured::before { opacity: 1; }
+
+    /* ===== COMMITMENT CLASSIFIER ===== */
+    #classifier {
+      padding: 120px 0;
+      background: var(--navy-mid);
+    }
+    .classifier-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .classifier-demo {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+    .classifier-demo-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .live-dot {
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    .classifier-rows { display: flex; flex-direction: column; gap: 12px; }
+    .classifier-row {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .cr-badge {
+      flex-shrink: 0;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    .cr-badge.strong { background: rgba(46,204,113,0.15); color: #2ecc71; border: 1px solid rgba(46,204,113,0.3); }
+    .cr-badge.moderate { background: rgba(212,168,67,0.15); color: var(--gold-light); border: 1px solid rgba(212,168,67,0.3); }
+    .cr-badge.weak { background: rgba(243,156,18,0.15); color: #f39c12; border: 1px solid rgba(243,156,18,0.3); }
+    .cr-badge.none { background: rgba(231,76,60,0.15); color: #e74c3c; border: 1px solid rgba(231,76,60,0.3); }
+    .cr-text { font-size: 0.88rem; color: var(--grey-100); font-style: italic; line-height: 1.5; }
+    .nudge-box {
+      margin-top: 20px;
+      background: rgba(212,168,67,0.06);
+      border: 1px solid rgba(212,168,67,0.2);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nudge-icon { font-size: 1.2rem; }
+    .nudge-text { font-size: 0.85rem; color: var(--gold-light); line-height: 1.5; }
+
+    /* ===== BENEFITS ===== */
+    #benefits {
+      padding: 120px 0;
+      background: var(--navy);
+    }
+    .benefits-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .benefits-list { display: flex; flex-direction: column; gap: 28px; }
+    .benefit-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .benefit-icon-wrap {
+      width: 48px; height: 48px;
+      flex-shrink: 0;
+      background: rgba(212,168,67,0.08);
+      border: 1px solid rgba(212,168,67,0.15);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+    .benefit-title {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .benefit-desc {
+      font-size: 0.88rem;
+      color: var(--grey-300);
+      line-height: 1.65;
+    }
+    .reliability-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(212,168,67,0.2);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow), var(--glow-gold);
+    }
+    .score-ring {
+      width: 160px; height: 160px;
+      margin: 0 auto 28px;
+      position: relative;
+    }
+    .score-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .score-ring-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 10; }
+    .score-ring-fill {
+      fill: none;
+      stroke: url(#goldGrad);
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 408;
+      stroke-dashoffset: 53;
+      filter: drop-shadow(0 0 8px rgba(212,168,67,0.5));
+    }
+    .score-value {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--gold-light);
+    }
+    .score-label {
+      font-size: 0.75rem;
+      color: var(--grey-300);
+      margin-top: 2px;
+    }
+    .score-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .score-subtitle {
+      font-size: 0.85rem;
+      color: var(--grey-300);
+      margin-bottom: 28px;
+    }
+    .score-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .score-stat {
+      background: rgba(255,255,255,0.04);
+      border-radius: var(--radius-sm);
+      padding: 14px 10px;
+    }
+    .score-stat .n { font-size: 1.4rem; font-weight: 800; color: var(--gold-light); }
+    .score-stat .l { font-size: 0.72rem; color: var(--grey-300); margin-top: 2px; }
+
+    /* ===== PRICING ===== */
+    #pricing {
+      padding: 120px 0;
+      background: var(--navy-mid);
+    }
+    .pricing-header { text-align: center; margin-bottom: 72px; }
+    .pricing-header .section-subtitle { margin: 0 auto; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+    .pricing-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .pricing-card.popular {
+      background: linear-gradient(160deg, rgba(212,168,67,0.1), rgba(212,168,67,0.03));
+      border-color: rgba(212,168,67,0.35);
+      position: relative;
+    }
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+      color: var(--navy);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 5px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .plan-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--grey-300);
+      margin-bottom: 12px;
+    }
+    .plan-price {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .plan-price span { font-size: 1rem; font-weight: 400; color: var(--grey-300); }
+    .plan-desc {
+      font-size: 0.82rem;
+      color: var(--grey-300);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .plan-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+      margin-bottom: 24px;
+    }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--grey-300);
+    }
+    .plan-features li .check { color: var(--green); flex-shrink: 0; margin-top: 1px; }
+    .plan-features li .cross { color: var(--grey-500); flex-shrink: 0; margin-top: 1px; }
+    .plan-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-top: 28px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    .plan-btn.outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+    }
+    .plan-btn.outline:hover { background: rgba(255,255,255,0.06); }
+    .plan-btn.gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+      color: var(--navy);
+      box-shadow: 0 8px 24px rgba(212,168,67,0.3);
+    }
+    .plan-btn.gold:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 32px rgba(212,168,67,0.4);
+    }
+    .plan-btn.dark {
+      background: rgba(255,255,255,0.06);
+      color: var(--white);
+    }
+    .plan-btn.dark:hover { background: rgba(255,255,255,0.1); }
+
+    /* ===== TESTIMONIALS ===== */
+    #testimonials {
+      padding: 120px 0;
+      background: var(--navy);
+    }
+    .testimonials-header { text-align: center; margin-bottom: 72px; }
+    .testimonials-header .section-subtitle { margin: 0 auto; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonial-card {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+    .testimonial-card:hover {
+      border-color: rgba(212,168,67,0.15);
+      transform: translateY(-3px);
+    }
+    .stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 16px; letter-spacing: 2px; }
+    .testimonial-text {
+      font-size: 0.92rem;
+      color: var(--grey-100);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      border: 2px solid rgba(212,168,67,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .author-name { font-weight: 700; font-size: 0.9rem; }
+    .author-role { font-size: 0.78rem; color: var(--grey-300); }
+
+    /* ===== FAQ ===== */
+    #faq {
+      padding: 120px 0;
+      background: var(--navy-mid);
+    }
+    .faq-header { text-align: center; margin-bottom: 72px; }
+    .faq-header .section-subtitle { margin: 0 auto; }
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: var(--navy-card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 20px 24px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: color 0.2s;
+      user-select: none;
+    }
+    .faq-q:hover { color: var(--gold-light); }
+    .faq-q .arrow {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      transition: transform 0.3s ease, background 0.2s;
+    }
+    .faq-item.open .faq-q .arrow {
+      transform: rotate(180deg);
+      background: rgba(212,168,67,0.15);
+      color: var(--gold-light);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-a-inner {
+      padding: 0 24px 20px;
+      font-size: 0.88rem;
+      color: var(--grey-300);
+      line-height: 1.75;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 16px;
+    }
+
+    /* ===== CTA ===== */
+    #cta {
+      padding: 120px 0;
+      background: var(--navy);
+      text-align: center;
+    }
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .cta-glow {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 300px;
+      background: radial-gradient(ellipse, rgba(212,168,67,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-inner .section-title { font-size: clamp(2.2rem, 4vw, 3.2rem); }
+    .cta-inner .section-subtitle { margin: 0 auto 40px; text-align: center; }
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cta-note {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: var(--grey-500);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 64px 0 32px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .nav-logo { margin-bottom: 16px; }
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: var(--grey-300);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .footer-col-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--grey-300);
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--grey-500);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: var(--grey-500); }
+    .footer-socials { display: flex; gap: 12px; }
+    .social-btn {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.05);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .social-btn:hover { background: rgba(212,168,67,0.15); color: var(--gold-light); }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .steps::before { display: none; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-inner, .problem-inner, .classifier-inner, .benefits-inner { grid-template-columns: 1fr; gap: 48px; }
+      .features-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .hero-stats { gap: 24px; }
+      .problem-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">P</div>
+        Promise
+      </a>
+      <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#pricing" class="btn-secondary" style="padding:10px 20px;font-size:0.85rem;">Sign In</a>
+        <a href="#cta" class="btn-primary" style="padding:10px 20px;font-size:0.85rem;">Join Waitlist</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content reveal">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-dot"></div>
+          <span class="hero-eyebrow-text">Introducing Promise — Now in Beta</span>
+        </div>
+        <h1 class="hero-title">
+          Return to the era where<br/>
+          <em>your word is your bond.</em>
+        </h1>
+        <p class="hero-desc">
+          Promise listens to your conversations in real time — phone calls, video calls, and in-person — detects every commitment made, and privately nudges you to turn vague promises into firm ones. No more "I'll try." No more "let's circle back."
+        </p>
+        <div class="hero-actions">
+          <a href="#cta" class="btn-primary">
+            <span>Join the Waitlist</span>
+            <span>→</span>
+          </a>
+          <a href="#how" class="btn-secondary">
+            <span>See How It Works</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">34%</div>
+            <div class="hero-stat-label">of people still trust strangers to keep their word</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">$Bn+</div>
+            <div class="hero-stat-label">lost annually to broken workplace commitments</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">5 sec</div>
+            <div class="hero-stat-label">to detect and classify a commitment in real time</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-wrap reveal" style="transition-delay:0.2s">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/90835377/EyFoOrbluQYYmHHI.jpg" alt="Promise App — Real-time commitment detection" />
+        <div class="hero-badge">
+          <div class="hero-badge-icon">🔒</div>
+          <div class="hero-badge-text">
+            <strong>On-Device Processing</strong>
+            Your conversations never leave your phone
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="trust-icon">🎙️</span> Works on Phone Calls</div>
+      <div class="trust-item"><span class="trust-icon">📹</span> Works on Video Calls</div>
+      <div class="trust-item"><span class="trust-icon">🗣️</span> Works In-Person</div>
+      <div class="trust-item"><span class="trust-icon">🔒</span> On-Device AI — 100% Private</div>
+      <div class="trust-item"><span class="trust-icon">📱</span> iOS &amp; Android</div>
+      <div class="trust-item"><span class="trust-icon">⚡</span> Real-Time Detection</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section id="problem">
+  <div class="container">
+    <div class="problem-inner">
+      <div class="reveal">
+        <div class="tag">The Problem</div>
+        <h2 class="section-title">We live in an age of <span class="gold">deliberate vagueness.</span></h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">
+          The modern world is awash in communication tools, yet the quality of our commitments has never been lower. "I'll try," "let's circle back," and "I'll get to it at some point" have become the defining phrases of professional and personal life.
+        </p>
+        <p style="font-size:0.88rem;color:var(--grey-300);margin-top:16px;line-height:1.75;">
+          Research shows that when a commitment is vague, the psychological obligation to fulfil it is correspondingly weak. Promise addresses this at its source — the moment of communication itself.
+        </p>
+        <div class="problem-stats">
+          <div class="problem-stat-card">
+            <div class="num">34%</div>
+            <div class="lbl">Adults who trust others to keep their word (down from 46% in 1972)</div>
+          </div>
+          <div class="problem-stat-card">
+            <div class="num">72%</div>
+            <div class="lbl">Of professionals report broken commitments as their #1 workplace frustration</div>
+          </div>
+          <div class="problem-stat-card">
+            <div class="num">$Bn+</div>
+            <div class="lbl">Annual cost of broken promises in lost workplace productivity</div>
+          </div>
+          <div class="problem-stat-card">
+            <div class="num">3x</div>
+            <div class="lbl">More likely to keep a commitment when it is clearly articulated</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.2s">
+        <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--grey-500);margin-bottom:16px;">Real Conversation Examples</p>
+        <div class="problem-quotes">
+          <div class="problem-quote bad">
+            <div class="pq-label">❌ Non-Committal</div>
+            <div class="pq-text">"Yeah, I'll try to get that report over to you at some point this week hopefully."</div>
+          </div>
+          <div class="problem-quote bad">
+            <div class="pq-label">❌ Weakly Committal</div>
+            <div class="pq-text">"I should be able to look at that soon, I'll let you know."</div>
+          </div>
+          <div class="problem-quote bad">
+            <div class="pq-label">❌ Non-Committal</div>
+            <div class="pq-text">"Let's circle back on that — I'll ping you when I get a chance."</div>
+          </div>
+          <div class="problem-quote good">
+            <div class="pq-label">✅ After Promise Nudge</div>
+            <div class="pq-text">"I will send you the report by Thursday at 5 PM — does that work for you?"</div>
+          </div>
+          <div class="problem-quote good">
+            <div class="pq-label">✅ After Promise Nudge</div>
+            <div class="pq-text">"I will review it by tomorrow morning and send you my feedback before noon."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section id="how">
+  <div class="container">
+    <div class="how-header reveal">
+      <div class="tag">How It Works</div>
+      <h2 class="section-title">Five stages. One seamless experience.</h2>
+      <p class="section-subtitle">Promise works silently in the background, requiring no effort from you — or the other person.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal" style="transition-delay:0.0s">
+        <div class="step-num">🎙️</div>
+        <div class="step-title">1. Activate</div>
+        <div class="step-desc">Tap to start before or during any call or conversation. Works with phone calls, Zoom, Meet, Teams, or in-person.</div>
+      </div>
+      <div class="step reveal" style="transition-delay:0.1s">
+        <div class="step-num">📝</div>
+        <div class="step-title">2. Transcribe</div>
+        <div class="step-desc">The AI engine transcribes the conversation in real time, processed entirely on your device for complete privacy.</div>
+      </div>
+      <div class="step reveal" style="transition-delay:0.2s">
+        <div class="step-num">🧠</div>
+        <div class="step-title">3. Detect</div>
+        <div class="step-desc">The NLP engine identifies every commitment and classifies it from Strongly Committal to Non-Committal in milliseconds.</div>
+      </div>
+      <div class="step reveal" style="transition-delay:0.3s">
+        <div class="step-num">💬</div>
+        <div class="step-title">4. Nudge</div>
+        <div class="step-desc">A private, friendly vibration and on-screen suggestion empowers you to seek greater clarity — only you see it.</div>
+      </div>
+      <div class="step reveal" style="transition-delay:0.4s">
+        <div class="step-num">📒</div>
+        <div class="step-title">5. Log</div>
+        <div class="step-desc">Every commitment is stored in your Promise Ledger with smart reminders, so nothing slips through the cracks.</div>
+      </div>
+    </div>
+    <div class="how-mockup reveal" style="transition-delay:0.2s">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/90835377/yXFHZOQCzJDnVXmU.jpg" alt="Promise App Screens — Conversation, Ledger, and Reliability Score" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section id="features">
+  <div class="container">
+    <div class="features-header reveal">
+      <div class="tag">Features</div>
+      <h2 class="section-title">Everything you need to be a person of your word.</h2>
+      <p class="section-subtitle">Promise is built around one idea: that the moment a commitment is made is the most important moment to act.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card featured reveal">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-title">Real-Time Commitment Detection</div>
+        <div class="feature-desc">Our proprietary NLP engine analyses speech as it happens, identifying commitments based on modal verb strength, temporal specificity, and deliverable clarity — all within milliseconds.</div>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.1s">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">4-Level Classification System</div>
+        <div class="feature-desc">Every statement is classified as Strongly Committal, Moderately Committal, Weakly Committal, or Non-Committal — giving you a clear picture of where clarity is needed.</div>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.2s">
+        <div class="feature-icon">🔔</div>
+        <div class="feature-title">Private, Friendly Nudges</div>
+        <div class="feature-desc">When vague language is detected, Promise discreetly vibrates and shows a suggested question — only you see it. The other party never knows. The conversation flows naturally.</div>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.0s">
+        <div class="feature-icon">📒</div>
+        <div class="feature-title">The Promise Ledger</div>
+        <div class="feature-desc">A clean, searchable log of every commitment made and received, tagged by person, date, and classification level. Mark each as Kept, Broken, or Renegotiated.</div>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.1s">
+        <div class="feature-icon">⭐</div>
+        <div class="feature-title">Reliability Score</div>
+        <div class="feature-desc">A personal accountability metric that builds over time. The more promises you keep, the higher your score. Positive reinforcement — never shame — drives lasting behavioural change.</div>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.2s">
+        <div class="feature-icon">⏰</div>
+        <div class="feature-title">Smart Reminders</div>
+        <div class="feature-desc">Promise automatically sets reminders as deadlines approach. You will never forget a commitment again — because the app remembers so you don't have to.</div>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.0s">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">On-Device Privacy</div>
+        <div class="feature-desc">All speech processing happens on your device. Your conversations never touch our servers. We only sync the structured commitment data — end-to-end encrypted.</div>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.1s">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-title">Universal Platform Support</div>
+        <div class="feature-desc">Works seamlessly with phone calls, Zoom, Google Meet, Microsoft Teams, and in-person conversations via your device's microphone with ambient noise filtering.</div>
+      </div>
+      <div class="feature-card reveal" style="transition-delay:0.2s">
+        <div class="feature-icon">👥</div>
+        <div class="feature-title">Promise Teams</div>
+        <div class="feature-desc">For Pro users upgrading to Teams: a shared accountability dashboard, manager overview, and integrations with Slack and Asana — bringing the culture of commitment to your whole organisation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMITMENT CLASSIFIER ===== -->
+<section id="classifier">
+  <div class="container">
+    <div class="classifier-inner">
+      <div class="reveal">
+        <div class="tag">The AI Engine</div>
+        <h2 class="section-title">See the difference between a <span class="gold">promise</span> and a maybe.</h2>
+        <div class="divider"></div>
+        <p class="section-subtitle">
+          Promise's NLP engine is trained to recognise the subtle linguistic signals that separate a genuine commitment from a polite deflection — in real time, in natural conversation.
+        </p>
+        <div style="margin-top:32px;display:flex;flex-direction:column;gap:16px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</div>
+            <div>
+              <div style="font-weight:700;font-size:0.9rem;margin-bottom:4px;">Modal Verb Strength</div>
+              <div style="font-size:0.82rem;color:var(--grey-300);">"Will" vs "might" vs "could" vs "try" — each carries a different weight of obligation.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</div>
+            <div>
+              <div style="font-weight:700;font-size:0.9rem;margin-bottom:4px;">Temporal Specificity</div>
+              <div style="font-size:0.82rem;color:var(--grey-300);">A named deadline ("by Thursday") vs a vague timeframe ("this week") vs no timeframe at all.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</div>
+            <div>
+              <div style="font-weight:700;font-size:0.9rem;margin-bottom:4px;">Deliverable Clarity</div>
+              <div style="font-size:0.82rem;color:var(--grey-300);">A specific, named output vs an implied action vs a vague gesture of intent.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:32px;height:32px;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</div>
+            <div>
+              <div style="font-weight:700;font-size:0.9rem;margin-bottom:4px;">Hedging Language Detection</div>
+              <div style="font-size:0.82rem;color:var(--grey-300);">"Hopefully," "if I can," "I'll try" — the phrases that signal a commitment is at risk.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.2s">
+        <div class="classifier-demo">
+          <div class="classifier-demo-title">
+            <div class="live-dot"></div>
+            Live Classification Engine
+          </div>
+          <div class="classifier-rows">
+            <div class="classifier-row">
+              <div class="cr-badge strong">Strongly Committal</div>
+              <div class="cr-text">"I will send you the contract by Thursday at noon."</div>
+            </div>
+            <div class="classifier-row">
+              <div class="cr-badge moderate">Moderately Committal</div>
+              <div class="cr-text">"I'll send that over to you this week."</div>
+            </div>
+            <div class="classifier-row">
+              <div class="cr-badge weak">Weakly Committal</div>
+              <div class="cr-text">"I should be able to get to that at some point."</div>
+            </div>
+            <div class="classifier-row">
+              <div class="cr-badge none">Non-Committal</div>
+              <div class="cr-text">"Yeah, I'll try to look at that."</div>
+            </div>
+          </div>
+          <div class="nudge-box">
+            <div class="nudge-icon">💬</div>
+            <div class="nudge-text">
+              <strong style="display:block;margin-bottom:2px;">Promise Nudge (only you see this)</strong>
+              "Sounds like a commitment — want to ask when they can have it ready?"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section id="benefits">
+  <div class="container">
+    <div class="benefits-inner">
+      <div class="reveal">
+        <div class="tag">Benefits</div>
+        <h2 class="section-title">The <span class="gold">gentleman's agreement,</span> rebuilt for the modern world.</h2>
+        <div class="divider"></div>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <div class="benefit-icon-wrap">🤝</div>
+            <div>
+              <div class="benefit-title">Stronger Relationships</div>
+              <div class="benefit-desc">When people keep their word, trust compounds. Promise helps you build the kind of relationships where a handshake is still enough.</div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon-wrap">💼</div>
+            <div>
+              <div class="benefit-title">Professional Credibility</div>
+              <div class="benefit-desc">In business, your reputation is built one kept promise at a time. Promise ensures you never leave a meeting with ambiguous obligations.</div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon-wrap">🧘</div>
+            <div>
+              <div class="benefit-title">Reduced Mental Load</div>
+              <div class="benefit-desc">Stop carrying the anxiety of "did I promise that?" in your head. The Promise Ledger holds it all, so your mind stays clear.</div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon-wrap">📈</div>
+            <div>
+              <div class="benefit-title">Measurable Accountability Growth</div>
+              <div class="benefit-desc">Your Reliability Score gives you a concrete, trackable measure of your personal integrity — and the satisfaction of watching it rise.</div>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon-wrap">🛡️</div>
+            <div>
+              <div class="benefit-title">Complete Privacy</div>
+              <div class="benefit-desc">On-device processing means your conversations are yours alone. Promise is the only accountability app that never asks you to compromise your privacy.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:0.2s">
+        <div class="reliability-card">
+          <svg style="position:absolute;width:0;height:0">
+            <defs>
+              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#d4a843"/>
+                <stop offset="100%" style="stop-color:#f0c96a"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="score-ring">
+            <svg viewBox="0 0 140 140">
+              <circle class="score-ring-bg" cx="70" cy="70" r="65"/>
+              <circle class="score-ring-fill" cx="70" cy="70" r="65"/>
+            </svg>
+            <div class="score-value">87%</div>
+          </div>
+          <div class="score-title">Your Reliability Score</div>
+          <div class="score-subtitle">You are in the top 15% of Promise users this month.</div>
+          <div style="background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.2);border-radius:8px;padding:10px 14px;font-size:0.82rem;color:#2ecc71;margin-bottom:16px;">
+            ↑ +4 points this week — 3 promises kept on time
+          </div>
+          <div class="score-stats">
+            <div class="score-stat">
+              <div class="n">45</div>
+              <div class="l">Promises Kept</div>
+            </div>
+            <div class="score-stat">
+              <div class="n">7</div>
+              <div class="l">Renegotiated</div>
+            </div>
+            <div class="score-stat">
+              <div class="n" style="color:var(--red);">0</div>
+              <div class="l">Broken</div>
+            </div>
+          </div>
+          <div style="margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);font-size:0.8rem;color:var(--grey-300);text-align:left;">
+            <div style="font-weight:700;color:var(--white);margin-bottom:8px;">Recent Activity</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span>Send proposal to Sarah</span>
+                <span style="color:var(--green);font-size:0.75rem;font-weight:600;">✓ Kept</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span>Review contract by Friday</span>
+                <span style="color:var(--amber);font-size:0.75rem;font-weight:600;">⏳ Due Today</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <span>Call back Marcus</span>
+                <span style="color:var(--green);font-size:0.75rem;font-weight:600;">✓ Kept</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-header reveal">
+      <div class="tag">Pricing</div>
+      <h2 class="section-title">Start free. Upgrade when you're ready.</h2>
+      <p class="section-subtitle">Every tier is designed to deliver real value. No tricks, no dark patterns — just honest pricing for an app built on honesty.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Free -->
+      <div class="pricing-card reveal">
+        <div class="plan-name">Promise Free</div>
+        <div class="plan-price">$0 <span>/ forever</span></div>
+        <div class="plan-desc">Everything you need to get started and see the value of accountability.</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> 10 conversations per month</li>
+          <li><span class="check">✓</span> Basic commitment logging</li>
+          <li><span class="check">✓</span> 7-day Ledger history</li>
+          <li><span class="check">✓</span> On-device processing</li>
+          <li><span class="cross">✗</span> Smart reminders</li>
+          <li><span class="cross">✗</span> Reliability Score</li>
+          <li><span class="cross">✗</span> Export &amp; integrations</li>
+        </ul>
+        <button class="plan-btn outline">Get Started Free</button>
+      </div>
+      <!-- Pro -->
+      <div class="pricing-card popular reveal" style="transition-delay:0.1s">
+        <div class="popular-badge">Most Popular</div>
+        <div class="plan-name">Promise Pro</div>
+        <div class="plan-price">$9.99 <span>/ month</span></div>
+        <div class="plan-desc">Unlimited conversations, full history, and the complete accountability suite.</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Unlimited conversations</li>
+          <li><span class="check">✓</span> Full Ledger history (forever)</li>
+          <li><span class="check">✓</span> Smart deadline reminders</li>
+          <li><span class="check">✓</span> Reliability Score &amp; analytics</li>
+          <li><span class="check">✓</span> Export to PDF / CSV</li>
+          <li><span class="check">✓</span> Priority on-device AI model</li>
+          <li><span class="cross">✗</span> Team dashboard</li>
+        </ul>
+        <button class="plan-btn gold">Start 14-Day Free Trial</button>
+      </div>
+      <!-- Teams -->
+      <div class="pricing-card reveal" style="transition-delay:0.2s">
+        <div class="plan-name">Promise Teams</div>
+        <div class="plan-price">$19.99 <span>/ user / mo</span></div>
+        <div class="plan-desc">All Pro features plus shared accountability for your whole team.</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Everything in Pro</li>
+          <li><span class="check">✓</span> Shared team Ledger</li>
+          <li><span class="check">✓</span> Manager accountability dashboard</li>
+          <li><span class="check">✓</span> Slack &amp; Asana integration</li>
+          <li><span class="check">✓</span> Team Reliability Score</li>
+          <li><span class="check">✓</span> Admin controls &amp; user management</li>
+          <li><span class="cross">✗</span> SSO &amp; compliance reporting</li>
+        </ul>
+        <button class="plan-btn dark">Start Team Trial</button>
+      </div>
+      <!-- Enterprise -->
+      <div class="pricing-card reveal" style="transition-delay:0.3s">
+        <div class="plan-name">Promise Enterprise</div>
+        <div class="plan-price" style="font-size:1.8rem;">Custom</div>
+        <div class="plan-desc">For large organisations that need compliance, security, and dedicated support.</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Everything in Teams</li>
+          <li><span class="check">✓</span> Single Sign-On (SSO)</li>
+          <li><span class="check">✓</span> Compliance reporting</li>
+          <li><span class="check">✓</span> CRM integration (Salesforce)</li>
+          <li><span class="check">✓</span> Dedicated customer success</li>
+          <li><span class="check">✓</span> Custom AI model training</li>
+          <li><span class="check">✓</span> SLA &amp; enterprise support</li>
+        </ul>
+        <button class="plan-btn outline">Contact Sales</button>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:32px;font-size:0.82rem;color:var(--grey-500);">Annual billing available for Promise Pro at $99.99/year — saving 17%. All prices in USD.</p>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <div class="tag">Early Feedback</div>
+      <h2 class="section-title">What our beta users are saying.</h2>
+      <p class="section-subtitle">Promise is currently in private beta. Here is what early testers have shared about their experience.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">"I used to leave every client call unsure of what was actually agreed. Promise changed that completely. Now I have a clear record of every commitment, and my clients have noticed the difference."</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩</div>
+          <div>
+            <div class="author-name">Sarah M.</div>
+            <div class="author-role">Freelance Consultant, London</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay:0.1s">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">"The nudge feature is genius. It's not intrusive — it just quietly reminds me to ask the question I should have asked anyway. My Reliability Score went from 61% to 89% in six weeks."</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">👨</div>
+          <div>
+            <div class="author-name">James T.</div>
+            <div class="author-role">Sales Manager, New York</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay:0.2s">
+        <div class="stars">★★★★★</div>
+        <div class="testimonial-text">"My partner and I started using Promise for our personal conversations. It sounds intense, but it actually made us communicate better. We argue less because there's no ambiguity about what was agreed."</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩</div>
+          <div>
+            <div class="author-name">Priya K.</div>
+            <div class="author-role">Product Designer, Toronto</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <div class="tag">FAQ</div>
+      <h2 class="section-title">Questions we get asked a lot.</h2>
+      <p class="section-subtitle">Transparency is one of our core values. Here are honest answers to the questions that matter most.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is it legal to use Promise to record conversations?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">This depends on your jurisdiction. In many places, one-party consent is sufficient — meaning you can record a conversation you are part of. In others (including 11 U.S. states and several countries), all parties must consent. Promise provides in-app guidance and suggested disclosure language to help you stay compliant. We strongly recommend informing the other party that you are using an accountability app. Promise is not a covert surveillance tool — it is a transparency tool.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Does Promise actually listen to my conversations all the time?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Absolutely not. Promise only activates when you explicitly tap the button to start a session. There is no passive or always-on listening mode. When you end the session, the microphone access is immediately released. You are always in complete control of when Promise is active.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Does the other person need to have Promise installed?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">No. Promise is a single-user tool by design. Only you need the app. The nudges are private — only you see them. The Promise Ledger is your personal record. The other person does not need to do anything differently.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How does Promise protect my privacy?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">All speech recognition and commitment detection runs on your device — your audio and transcripts never leave your phone. The only data that syncs to our encrypted cloud servers is the structured commitment data in your Ledger (e.g., "Call back Marcus by Friday") — not the raw audio or full transcript. We will never sell your data. Our business model is subscriptions, which means our incentives are aligned with your interests, not with monetising your personal information.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What platforms does Promise work with?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Promise works across phone calls (via iOS CallKit and Android Telecom API), video calls (Zoom, Google Meet, Microsoft Teams), and in-person conversations via your device's microphone. We are continuously adding new integrations based on user demand.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How accurate is the commitment detection?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Our NLP model achieves over 91% accuracy on our benchmark dataset of annotated conversational transcripts. False positives (flagging something as a commitment when it isn't) are rare and can be dismissed with a single tap. False negatives (missing a genuine commitment) are addressed by our continuous model training programme. You can also manually add commitments to your Ledger at any time.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          When will Promise be publicly available?
+          <span class="arrow">▼</span>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Promise is currently in private beta. We are targeting a public launch in Q4 2026 for iOS and Android simultaneously. Join the waitlist to be among the first to access the app and receive a 3-month free Pro trial as a thank-you for your early support.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="container">
+    <div class="cta-inner reveal">
+      <div class="tag">Join the Movement</div>
+      <h2 class="section-title">Be a person of your <span class="gold">word.</span></h2>
+      <p class="section-subtitle">Join thousands of people who are bringing back the era of the gentleman's agreement. Join the waitlist today and get 3 months of Promise Pro — free.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn-primary" style="font-size:1rem;padding:16px 40px;">
+          Join the Waitlist — It's Free
+        </a>
+        <a href="#features" class="btn-secondary" style="font-size:1rem;padding:16px 32px;">
+          Learn More
+        </a>
+      </div>
+      <p class="cta-note">No credit card required. Available on iOS and Android. Launching Q4 2026.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="margin-bottom:16px;display:inline-flex;">
+          <div class="logo-icon">P</div>
+          Promise
+        </a>
+        <p>Your word is your bond — and now your phone can hold you to it. Promise is the AI accountability app that restores the era of the gentleman's agreement.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Product</div>
+        <ul class="footer-links">
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Download App</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press Kit</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">GDPR</a></li>
+          <li><a href="#">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Promise Inc. All rights reserved. "Your word is your bond."</p>
+      <div class="footer-socials">
+        <div class="social-btn">𝕏</div>
+        <div class="social-btn">in</div>
+        <div class="social-btn">▶</div>
+        <div class="social-btn">📸</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
