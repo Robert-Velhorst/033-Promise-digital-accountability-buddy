@@ -22,7 +22,13 @@ npm test
 npm run check
 ```
 
+GitHub Actions runs these tests and syntax checks on Node.js 22.13 and 24. CodeQL scans the JavaScript on changes to `main` and weekly. Dependabot checks the app's npm manifest and GitHub Actions weekly; this app currently declares no npm dependencies, so npm dependency updates will appear only when dependencies are added.
+
 The app stores its database and encryption key in `app/data/`. Keep that directory private and out of Git. See [app/README.md](app/README.md) for setup, Gmail OAuth configuration, browser-extension installation, privacy and data-handling details, limitations, and backup guidance. Actual Gmail access requires the operator's own Google Cloud OAuth credentials and user consent.
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for vulnerability reporting. Dependabot alerts, security updates, secret scanning, and push protection are repository security settings; review their status under **Settings → Security & quality → Advanced Security**.
 
 ## Product documents
 
