@@ -1,13 +1,35 @@
 # Promise
 
-Promise is a mobile-first AI accountability concept for detecting, clarifying, and tracking promises made in conversations.
+Promise is a privacy-conscious accountability tool for reviewing commitments in existing conversations. This repository includes the product concept and planning documents, a landing page, and a runnable local application.
 
-## Repository contents
+## Runnable local application
 
-- `index.html` - landing page prototype.
-- `docs/Promise_Business_Plan_Final.md` - final business plan.
-- `docs/Promise_Business_Plan_Final.pdf` - PDF version of the business plan.
-- `docs/Promise_Strategic_Vision.md` - strategic vision document.
-- `docs/Promise_Technical_Architecture.md` - technical architecture and system design.
-- `docs/Promise_Domain_and_DNS_Guide.md` - domain and DNS setup guide.
-- `assets/` - diagrams and charts referenced by the documents.
+The current application is in [app/](app/). It imports conversation exports, tracks personal commitments and effort obligations, and offers a read-only Gmail connector plus a browser extension for visible webmail conversations.
+
+Requirements: Node.js 22.13 or newer. No npm dependencies are required.
+
+On Windows, extract the repository and double-click [app/Start-Promise.cmd](app/Start-Promise.cmd). It starts the local server and opens the app at http://localhost:4310. To run it from a terminal:
+
+```sh
+cd app
+node server.mjs
+```
+
+Run the checks from `app/`:
+
+```sh
+npm test
+npm run check
+```
+
+The app stores its database and encryption key in `app/data/`. Keep that directory private and out of Git. See [app/README.md](app/README.md) for setup, Gmail OAuth configuration, browser-extension installation, privacy and data-handling details, limitations, and backup guidance. Actual Gmail access requires the operator's own Google Cloud OAuth credentials and user consent.
+
+## Product documents
+
+- [Business plan](docs/Promise_Business_Plan_Final.md)
+- [Strategic vision](docs/Promise_Strategic_Vision.md)
+- [Technical architecture](docs/Promise_Technical_Architecture.md)
+- [Deployment target](DEPLOYMENT_TARGET.md)
+- [Landing page](index.html)
+
+The app runs locally. Production deployment must follow the Hetzner target documented in [DEPLOYMENT_TARGET.md](DEPLOYMENT_TARGET.md).
