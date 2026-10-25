@@ -1,0 +1,2196 @@
+{
+  "captured_at": "2026-10-25T20:57:52.052802+00:00",
+  "source_and_fixtures": {
+    "parse5": {
+      "package": "parse5",
+      "version": "8.0.1",
+      "repository": "inikulin/parse5",
+      "commit": "0d56627fc924d40f560fd260ade0e1a935e2369c",
+      "archive": "parse5-complete-original-source.tgz",
+      "archive_sha256": "608e9943785e29cd6cec4382363a902ebb3e2e53cdaa8f1622590a8c9092cd0f",
+      "all_source_and_submodule_payloads": 371,
+      "all_payload_sha256": {
+        ".editorconfig": "1aac69c225df853458c6800725eec62699412cea8922361d5d157baea2427150",
+        ".gitattributes": "90e1152fbeabdf2d7ac7998fc10e0bf5c9de006fa8a80f430af0cbda18ed4b9f",
+        ".github/FUNDING.yml": "df417b430602f856246b6d2f36ebf71b7401f2b86e9db8fa304b1f751eb49b5d",
+        ".github/dependabot.yml": "fd0d9f53363a7d47597bc7b2fb3066d34eff42358c1b089ba0c0acde412905c7",
+        ".github/workflows/codeql-analysis.yml": "72b3af24be54a6178bfc967d261ee4ce30360f48f756d612aff173d80778241e",
+        ".github/workflows/dependabot-automerge.yml": "f34c6b19de3d196bb00fd773e88040611a2df31e61ade268b6f6955ea5a2fc33",
+        ".github/workflows/nodejs-test.yml": "ecdc722cdfc0938a2a237bb6e6c5e5b0092ee0996a21a13ff4a8a9c435f394ab",
+        ".github/workflows/pages.yml": "979818e463e3bb52c9377c812004dadebc34f2651f13a8e7778388599791d3ed",
+        ".gitignore": "e1f1dd12c9858ea6f3582ac335d027d025ed57b7d51df45189f8a89080280745",
+        ".gitmodules": "2d3da5b58783f6aaf94abdea31679cde9b892577810b2d2ebc9008e7cf560207",
+        ".husky/pre-commit": "7071b62ab6272fb3ce25fbb5e42e2bc4789258c25db72c775e6fcd733ea92043",
+        ".prettierignore": "a7b0260350e4223099899b2f9c8ee4f90ab0ea7a02bc6fb7cd579f9fd4f8d805",
+        ".prettierrc": "fb19cad5fec02eec2d3a3918f6e7292a98ff61adee7fdb3d3e504b06e7d9c34d",
+        "LICENSE": "8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d",
+        "README.md": "757ee5be9d1b0fd3e3eb6d2aab505ceb710f2943f02bd233af49ef91f65be038",
+        "SECURITY.md": "4507712dccc3d56ea4a8e0f03fe75ea2370f7e08f2ad6d891ab2055fd1025881",
+        "bench/.eslintrc.json": "9ee3042d884b860e6b0fc948934adde50769b2e5ae863974f511e8079408cef5",
+        "bench/memory/sax-parser.js": "a9dc0243a394e5f34582ab052efb9ea8b3a80a1067cadb376e5f825cf084e2f8",
+        "bench/package.json": "22065d8a63715ae6efb0f96851dae48f20958a1c5c596e1100e2bc2d1afe8f80",
+        "bench/perf/index.js": "a99c347e4762b8e96a14f31fe894519337ed87e5cd2b59042bcf5041bf7784b5",
+        "docs/list-of-packages.md": "0609da67753b95724a932e388580f5d5663e1dca072be795abda4a390addd135",
+        "docs/version-history.md": "bf103fd8d4cbba7f648c853fce11eabca60a7842f96f942ba71db5dc21d324cb",
+        "eslint.config.js": "9102b8dc16dea81671f6e2bbf0aa47cedaa1adaf1ca9ab638e79677a5b4132ca",
+        "media/logo.png": "2ee4ae5404648cb6aefd13da0b6f883337fba57dc068048a2bd33df3eee87863",
+        "package-lock.json": "3d128bc0f2f47780c7465b22dcf0729dda6b639c4f68b4536cc101daa490454c",
+        "package.json": "cf5ad5801de58d5c8c7cdc2f861d825ca56010d7d9e75320e8651759000c6b77",
+        "packages/parse5-html-rewriting-stream/LICENSE": "8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d",
+        "packages/parse5-html-rewriting-stream/README.md": "25946c40b14efc8c6fbb28dae9b3c52c74a3b3c9674c9504a87eadea1bf9b9f2",
+        "packages/parse5-html-rewriting-stream/lib/index.ts": "36df5cd1716acd20676ea8a8619b4f9e0bbb2dddba5f8f222d53e6cf3d55585c",
+        "packages/parse5-html-rewriting-stream/package.json": "7ecc63eaeded5f68d2fe481e679668cf0039bc12d1b0699fb10da862a9fa2c34",
+        "packages/parse5-html-rewriting-stream/test/rewriting-stream.test.ts": "5cafda4b49a237b514083ddbafc2b42f1c9e959272c59fdc117f7daeb6652bde",
+        "packages/parse5-html-rewriting-stream/tsconfig.json": "24847e8d035c6c123b625fbc56ee451bd2b73cf5d7610319c2fea8c675530915",
+        "packages/parse5-html-rewriting-stream/typedoc.json": "19b5a4e0d7fb421b55437eb0c2765de3ca2e269e1763bc3ebde51daf33e996c4",
+        "packages/parse5-htmlparser2-tree-adapter/LICENSE": "8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d",
+        "packages/parse5-htmlparser2-tree-adapter/README.md": "674f51698d1d72cf1057d33f985bf1d205d3459eb4bc762da291469533f3565b",
+        "packages/parse5-htmlparser2-tree-adapter/lib/index.ts": "fa47120ecbb2ad252c087340361558246736cf6547af195e50afd5bba8c80e57",
+        "packages/parse5-htmlparser2-tree-adapter/package.json": "fae822220877e74577d7ab76247d2e2ac91b00687703e10df954d06817c7edc4",
+        "packages/parse5-htmlparser2-tree-adapter/tsconfig.json": "fe054e7799d1dd2c25a974a90cd14d6e33bf9ff437b1dfa1a5c7d26547096081",
+        "packages/parse5-htmlparser2-tree-adapter/typedoc.json": "19b5a4e0d7fb421b55437eb0c2765de3ca2e269e1763bc3ebde51daf33e996c4",
+        "packages/parse5-parser-stream/LICENSE": "8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d",
+        "packages/parse5-parser-stream/README.md": "da603796b68e942f9e6e9bf9c264102a7e1469c8f3f675a5c2333b679599237d",
+        "packages/parse5-parser-stream/lib/index.ts": "7dc631ade9939a20ccb77c332fac5761771a5cf0896315754a1c41ded95dd1da",
+        "packages/parse5-parser-stream/package.json": "bed82ffd74c851bc7d21ca3dd4f53d51b55996039d8fbcace7c71853cb716490",
+        "packages/parse5-parser-stream/test/location-info.test.ts": "027eadfb55dfe2912da79f6a12b65e8496bc4ac658624b7e7b58d44a84874ddf",
+        "packages/parse5-parser-stream/test/parser-stream.test.ts": "7396bb9e7aef9304b68999e6d770c91f0ac170ea77b69d6b84c05dc8a296bf15",
+        "packages/parse5-parser-stream/test/scripting.test.ts": "4eadd9f0dfa8af528d38faef0395e963417ef2d19df9d97896edc874955e994f",
+        "packages/parse5-parser-stream/test/utils/parse-chunked.ts": "8c575089d03e3e7efaeef9e48d5acb00cebb4b08fe4f447bb5c67cf12504fe16",
+        "packages/parse5-parser-stream/tsconfig.json": "9c6cdffc4e4193bf05d9ac3bfa600d9a88f23758e9a2a0bf119785c82a05033b",
+        "packages/parse5-parser-stream/typedoc.json": "19b5a4e0d7fb421b55437eb0c2765de3ca2e269e1763bc3ebde51daf33e996c4",
+        "packages/parse5-plain-text-conversion-stream/LICENSE": "8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d",
+        "packages/parse5-plain-text-conversion-stream/README.md": "b7359a6630f142ee483784b73578e998141b3682d01f68b1b01c6612911aaf14",
+        "packages/parse5-plain-text-conversion-stream/lib/index.ts": "a60a46fcfe3c9cd45e17383ea7587e7524d8e8c09ac721c10d48b38db0cc1558",
+        "packages/parse5-plain-text-conversion-stream/package.json": "38ee764335c803229b59959a1665627637f60967c7269c7e56f7eb5b4e2d867c",
+        "packages/parse5-plain-text-conversion-stream/test/plain-text-conversion-stream.test.ts": "19bd6f7052cd85145a08dd7e4f28f4c85f61b16b27d6dff0fa996059fcd4fd45",
+        "packages/parse5-plain-text-conversion-stream/tsconfig.json": "507dfa504ac72a69b974c1e0473602d536950f72bbe9f2671235fc26ca94ea3c",
+        "packages/parse5-plain-text-conversion-stream/typedoc.json": "19b5a4e0d7fb421b55437eb0c2765de3ca2e269e1763bc3ebde51daf33e996c4",
+        "packages/parse5-sax-parser/LICENSE": "8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d",
+        "packages/parse5-sax-parser/README.md": "fd4ee6f485f7629befda315d3c8e9284ff789ba5a9f5ed6b9b2dc4a270a332be",
+        "packages/parse5-sax-parser/lib/dev-null-stream.ts": "eaedda055a54376008aa30424ce5f6068da61afed116b716721a368b5b31533f",
+        "packages/parse5-sax-parser/lib/index.ts": "69f69407f1d2f6ce827e0dcd279abc6f4eee42fb8f29e549fa159191c9d37f3e",
+        "packages/parse5-sax-parser/lib/parser-feedback-simulator.ts": "861f1a7b24487ae513d3d4deb161b103a3900cb3ca8428fb89757a225036d151",
+        "packages/parse5-sax-parser/package.json": "ef0b6c15c46f6180b0cfdbee78e06c06d855ef728d0a64953dfc4e654c4aeb91",
+        "packages/parse5-sax-parser/test/location-info.test.ts": "b4d5c6503d9c71fbb244ed618cc4fb50657f581ac782754643c9dc285e4f2f2a",
+        "packages/parse5-sax-parser/test/parser-feedback-simulator.test.ts": "eb8b2060dd4339dfa917b4845efed2fd1968903e53057077b3aeb73c4962f34d",
+        "packages/parse5-sax-parser/test/sax-parser.test.ts": "384f511e2bbf4792978305f69cdf7bcdbbc3ad781f6355554333c165250d1b83",
+        "packages/parse5-sax-parser/tsconfig.json": "9c6cdffc4e4193bf05d9ac3bfa600d9a88f23758e9a2a0bf119785c82a05033b",
+        "packages/parse5-sax-parser/typedoc.json": "19b5a4e0d7fb421b55437eb0c2765de3ca2e269e1763bc3ebde51daf33e996c4",
+        "packages/parse5/LICENSE": "8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d",
+        "packages/parse5/README.md": "ba4e9702964c97d16212ae3cd9b448b3292a31522e1bd3c86fcfc9cc767fd77c",
+        "packages/parse5/lib/common/doctype.ts": "3e882926c77c99192c5ecdf775ca2e60c7d8ff6f533b7b85a0a72c8d532fd8cb",
+        "packages/parse5/lib/common/error-codes.ts": "9e3c523922b7e713f0e7fe82acf01a67373dc886abef2b50ac132e2b49d2bb77",
+        "packages/parse5/lib/common/foreign-content.ts": "5249a74eacb0d602ba68651733c648e55a901af1b64fe333f23b5edb5f4f313f",
+        "packages/parse5/lib/common/html.ts": "ee4c831a390c0e48fe3f34275d1ea9f7e45dcecdbc7ab9499e81604e5b06ddd2",
+        "packages/parse5/lib/common/token.ts": "b80bf4be6b1ccdce0bca9a392d5dc6ac874a158826249e544b75d8327432f4e7",
+        "packages/parse5/lib/common/unicode.ts": "fc010faa522012ddfa05b4e6ea9374fc69d2d6093c1c28e4a03005295599a474",
+        "packages/parse5/lib/index.ts": "2caa681d7444b373180a8c0ccb16b62555c64e1413d11313211e52cd1d828b4d",
+        "packages/parse5/lib/parser/formatting-element-list.test.ts": "bf0c3131a9da60b028f176eecb9555038dfdf19481beea7b0a6439340f008ffa",
+        "packages/parse5/lib/parser/formatting-element-list.ts": "85a03c9eeed4c00cd8136438e7b95cdb096f06c786e3eafabea47a801981a10f",
+        "packages/parse5/lib/parser/index.test.ts": "07d9a281aad899867b7b6da50eeb39bb3465d2c0f862150b5052972532444ae5",
+        "packages/parse5/lib/parser/index.ts": "5443b872ea102d7e5401337a4d36324dc92f5046c384fd63bfeba31c0856dc59",
+        "packages/parse5/lib/parser/open-element-stack.test.ts": "af943bad40029ba4860db785bfe44fa6fc496302a6efea8e157ab00dcf5503e5",
+        "packages/parse5/lib/parser/open-element-stack.ts": "31e48230b18a77f747ee576d8a1092838f735c742a011439aa3981d1a566d3f2",
+        "packages/parse5/lib/parser/parser-location-info.test.ts": "5a8fe84bc25cedb03d4ee928817c13e998eba814c3ccf492378332b30a57c7f1",
+        "packages/parse5/lib/serializer/index.test.ts": "0cb74cd8965dc8fb782d11a14cdd2470f6574ea965e4e9afb842989e002590e4",
+        "packages/parse5/lib/serializer/index.ts": "c4f3734921cff7bd8ba641b036d437217f836251daab72553057d339a3404eee",
+        "packages/parse5/lib/tokenizer/index.test.ts": "9c0176f2ec8814f4d3860ce96b95955a861dd488aec5cb403027d20c6ddca8b0",
+        "packages/parse5/lib/tokenizer/index.ts": "b261a0f91bd18975462e7770dd419dc148766c4206b4d7d235c2e051ed3cfe54",
+        "packages/parse5/lib/tokenizer/preprocessor.ts": "029caeb53e0f337f48f651bc9bd28b769257aa9c771d45ced940d0af750ff973",
+        "packages/parse5/lib/tokenizer/tokenizer-location-info.test.ts": "40e5a31f254ae50ce8f72c66609b56ad8c91b5baa23ed8746e5f29047b9dffcd",
+        "packages/parse5/lib/tree-adapters/default.ts": "93126fbc75f176dd1cef5a2124486e0f6c5d720d0dca42dce4c8a62069cc4144",
+        "packages/parse5/lib/tree-adapters/interface.ts": "65222614ff03f3e76edb0f92a2f26294c2dc401f4dfc2dd9d156247d5f2d4bc6",
+        "packages/parse5/package.json": "159187fd5c0c0c17456282f4cf7beab91eb46dfc717928522938c947007282b7",
+        "packages/parse5/tsconfig.json": "fe054e7799d1dd2c25a974a90cd14d6e33bf9ff437b1dfa1a5c7d26547096081",
+        "packages/parse5/typedoc.json": "19b5a4e0d7fb421b55437eb0c2765de3ca2e269e1763bc3ebde51daf33e996c4",
+        "scripts/generate-parser-feedback-test/index.ts": "fa79253017e3d8706814b423d14d682cb5fc12c896b1eaa17b9d57d32cccef6f",
+        "test/data/huge-page/huge-page.html": "8558c81f8a2e7bbac6a1510522d295f56c3ed926a03ebc91f9cb399387e65726",
+        "test/data/location-info/cern/data.html": "661f7fd78d69f9d9180837d4a75d89ad88e3e6fea6ee32340dc7fc0c282ed1e2",
+        "test/data/location-info/dx/data.html": "d9ec97719977501ce74a7a6d139197b633c9d639720f5cda0aa6d1e625f8a451",
+        "test/data/location-info/github-parse5/data.html": "7e19a6a26f9f563988f5aa7a79369c846e18e41cf67ff46c311d012116f1777f",
+        "test/data/location-info/whatwg-html/data.html": "7ee346e707d7cc872bfb30ab5586151d588e6b062103c7a121d728cfbe882c85",
+        "test/data/location-info/wiki-42/data.html": "cbe27182a5f181b37c1548cf7a686e2dbb1c80f2b205f16c33cdeaa6be379085",
+        "test/data/parser-feedback/adoption01.test": "24ce4d80bfa9c4fd06a3c1cd924e556c5031d912e442ce69079301f48e7477f9",
+        "test/data/parser-feedback/adoption02.test": "4d4fe7718db52fe566b077a30d3032b516b8a910fee1b790e9fd8b016228520b",
+        "test/data/parser-feedback/blocks.test": "a66842dc27f0437ef99e5be9c86b9fabfef31723b3f70355a159041100e9d993",
+        "test/data/parser-feedback/comments01.test": "1357fd69636f5d5f12295d89b65509bbe5d6d5e59d976db047e0e43147eea8c3",
+        "test/data/parser-feedback/doctype01.test": "97c74d05c4430e10d50ff77ff41712cd5289c9a2e7d094137faf94dff989393d",
+        "test/data/parser-feedback/domjs-unsafe.test": "771226c96c828de03352f8ecaffc0037a0bd99afa9dd40dede9af70c60c53235",
+        "test/data/parser-feedback/entities01.test": "6ea943b183cbbca3fbd8af03172ca8e9caf683a9e4c8010f29f4b2d9e0bf9fdd",
+        "test/data/parser-feedback/entities02.test": "4255a4e82c9efdc719585afd450c0d644b22df1a0c0a89081135df58a5b3f15a",
+        "test/data/parser-feedback/foreign-fragment.test": "2a70dfe5b3d93e0198fc5f5586690e25b827309f078b66777b02a555e91b5c4d",
+        "test/data/parser-feedback/gh40_form_in_template.test": "2e9810702586cbc7fe24c7a3f15e025257349ccbdbbd080a17ef813eb74bc529",
+        "test/data/parser-feedback/html5test-com.test": "6d809c6563e11f706046d846933ea7c7a767784062e6a2770f08a1cfa68c4982",
+        "test/data/parser-feedback/inbody01.test": "076401f8825ac067e953fb6f8d4193334d4b955910b9e0148686befca71ddccd",
+        "test/data/parser-feedback/isindex.test": "4d9deea281eb871c13ff1e470c8d873e7cf76794d44a91d78d1f099878f77c36",
+        "test/data/parser-feedback/main-element.test": "408eaeff64dd11bfc4d87c6cf601647071c09813aea36d3f9e17a1719e3caead",
+        "test/data/parser-feedback/math.test": "3373c0c607904e1da1cfe02000a9c48784fb8e6f179d094c19167a265b48caa0",
+        "test/data/parser-feedback/menuitem-element.test": "db64810faf48acea99115affae06e96880d1c56889636404ccef09fce6e8df0a",
+        "test/data/parser-feedback/namespace-sensitivity.test": "97fce0349e07f1c2e3d72c524d4b918bb1315f7c8ac1c7896358a7d0d991c67b",
+        "test/data/parser-feedback/noscript01.test": "ee95bea4a1a468157c2705a23a39a53d977ad05f7e9acc0e1176a1caf8680fd9",
+        "test/data/parser-feedback/pending-spec-changes-plain-text-unsafe.test": "779b5ae723ec1938b566fdb3e93c4a8b1c01bea566c26f6b95114c51e757cea6",
+        "test/data/parser-feedback/pending-spec-changes.test": "61036f419f17d433eaa4f842f318745d010b6f1d8281df041df8b9e05eba7b21",
+        "test/data/parser-feedback/plain-text-unsafe.test": "41a4d2967e9f71ce67a455337f1c10bc096b6e939008db0002a1286e5906a660",
+        "test/data/parser-feedback/ruby.test": "237d6da5370b547659a7cea134ee8742f3c13fd065abfdc6e801b624406f4eed",
+        "test/data/parser-feedback/scriptdata01.test": "99ed957cc7034a497315f6170579f5ead94045b6cad2232e2eebca7d09f311b5",
+        "test/data/parser-feedback/search-element.test": "18b583166cd5de2833cc901b5ab6cb30ad3841bda1e35fcc0105b8f00faa02fd",
+        "test/data/parser-feedback/svg.test": "bed236f17f4876afc49a0d97728c40ccc11aa11938e6b8ae26858b68ba08fa0e",
+        "test/data/parser-feedback/tables01.test": "dc6ee4f953fdf38fbf4349492b12a10e14c6077fef63f2564d8205b73f27c19d",
+        "test/data/parser-feedback/template.test": "797b43e675277df36100f0a0c1b74a66dea91b88c52ba73d7279f2d0e4cf85cc",
+        "test/data/parser-feedback/tests1.test": "340d74731a0755647e544af007e8771155a71a018de5faa943c8ee44db3e86d7",
+        "test/data/parser-feedback/tests10.test": "0d680603803aa28f709f43cb06223c9516840d6d9d8c2859fea22d89d02f5379",
+        "test/data/parser-feedback/tests11.test": "53e9b4ff314a24460cc31734f910771d1b09ebda42c8620df2ace109a6965e3e",
+        "test/data/parser-feedback/tests12.test": "a6c1860e76ae18653b245900946ffc986591808eeef232be62b1a8e6719fca4b",
+        "test/data/parser-feedback/tests14.test": "ac550cbf6abce656def44c2ab33e9faf2567398e78bac3ebd7e2c6004d975903",
+        "test/data/parser-feedback/tests15.test": "5683859dbf567f749b08ef8510a3224f2b81d25949434ad90c6e5c6505ddfa44",
+        "test/data/parser-feedback/tests16.test": "f6c876eed7b5a7e38843963db47bde38d4be58e496c047dbc2871ce13d78d304",
+        "test/data/parser-feedback/tests17.test": "978562c9df4ae8dfa4f6c66bfd2f733982d74db4656fd94685e67acca7c59df0",
+        "test/data/parser-feedback/tests18.test": "59151d2c57e5861c1d642d785943e4a69281215dde4fd5523efb9e2c71e771f0",
+        "test/data/parser-feedback/tests19.test": "b872e7717fa1d9a141ed40932ff9b376b5099f0fc550fe1d97714022e2c162ae",
+        "test/data/parser-feedback/tests2.test": "d8cb8d00bf48e34f0c09a4d9123f10593675a4b3f087452b2abbf2c70af04986",
+        "test/data/parser-feedback/tests20.test": "ad2a91339d05e36cb6afb3192451b1fcf6d7beff7a5eed9079e0b750fcd891df",
+        "test/data/parser-feedback/tests21.test": "a9d9af2cb1de6cfc42c28c8ebf72ab4841cd7bcd3fe1e9d9586227535d634bde",
+        "test/data/parser-feedback/tests22.test": "8e867d056c5aad73ef2cc4ee4c4fc7983fbcd7e09940006bb8d976eb74d8520c",
+        "test/data/parser-feedback/tests23.test": "0cb48993590e8242b7e0d8fda5cf67a2c751368ee332115f89fa906adf8e9945",
+        "test/data/parser-feedback/tests24.test": "6eadc62d0eef37479a8f49c6db36250300a6a49f78c428abe8e15bcd9cd4f8b6",
+        "test/data/parser-feedback/tests25.test": "54da59f87ff82fcf676478a08c8ef45b78c305e86e61a8411612e3760a05ae9b",
+        "test/data/parser-feedback/tests26.test": "1f4e745db24efb066ee678a0055d1bb5e5a331fb9e6a202c160abacef96861a2",
+        "test/data/parser-feedback/tests3.test": "425f57b2363e96c6d091733c7228383de9d73113294549bafda306073e7f82a7",
+        "test/data/parser-feedback/tests4.test": "63df57fea203e4c6da5cba514727a3a1cbdfb54b8cee85b69a9dafd5fb4a1efe",
+        "test/data/parser-feedback/tests5.test": "0055908a6ef346753a4812379458e092603965b7b3d9f55e207ecd6612b1e347",
+        "test/data/parser-feedback/tests6.test": "bf009c6b33cfa533c1488e26eeb60b7e7eb5983871e0d6f6b3e37bc5f4916950",
+        "test/data/parser-feedback/tests7.test": "2e853a67b8a8d8cbb103e93c86af72f001f3a6a76a5d572f89db342a0cab5d2c",
+        "test/data/parser-feedback/tests8.test": "72941848b1e0fdc0ab15c0474b1070f21ae8f4be2c1585a83505a4d5405c4a93",
+        "test/data/parser-feedback/tests9.test": "a6399240bd5ab3e6e9c035aec5c970e220c09666b325e751b00379b3d9f55f48",
+        "test/data/parser-feedback/tests_innerHTML_1.test": "a42b7eebd4fa91bc045fec52f436b23929a29b10879774ab1a8d1fa6ac030daa",
+        "test/data/parser-feedback/tricky01.test": "dce844e85b21885be54eb4b67d66faa6e12007dc92a52e7a71e7e62198a423b8",
+        "test/data/parser-feedback/webkit01.test": "c2c2ac8daf85dc1889ac961cf5dba48e479de13bad9f1d7562ddbf32c5883704",
+        "test/data/parser-feedback/webkit02.test": "39a34f29923b89af5551997d3e0fbd796105faee88ed7131289d394c6a61afa0",
+        "test/data/sax/lhc/expected.html": "9a01fca52138116da28335776048cc0393e014b6f0e3bf0e9d130c601dad3468",
+        "test/data/sax/lhc/src.html": "6e834f700ac77745987dfbac4e65df6515bd0b72421365e0ef6520ffb741a497",
+        "test/data/sax/nodejsorg/expected.html": "d769fb07141477acc429173d76dac71e62f5771e2a595d4438acf62f57c32f45",
+        "test/data/sax/nodejsorg/src.html": "30cc71fd11e24fdffb50a00a6506cab07f85f1c464ff87c35401840ee536406a",
+        "test/data/sax/npmorg/expected.html": "1da76f788190ecdec8d6a704d081aba1fc0dcf11ebbbfe6ae5c34252be9c57de",
+        "test/data/sax/npmorg/src.html": "b9035e5cc071de937cae7e2eee0820c24b1b99470b5695462c8e049f24ef021c",
+        "test/data/serialization/tests.json": "4debd9e667225ead26d8bca146774aa62210249e7d0f9ca81eb5faf6d07770da",
+        "test/data/tree-construction-scripting/document_write.dat": "2ac39c722d168b8c4737868761f53b927559d0876387b0da9be0f42a3df7f4f6",
+        "test/package.json": "1c76ed7993aa9775101558e3628726d51cbafe1781f06cb12fa5ee0ccd3cae0a",
+        "test/tsconfig.json": "874e91116b6b5163bcecdc7d3bb85ba2724c99d23822d00c49969b22ca76ef0b",
+        "test/utils/common.ts": "fcba0910fc162785d893d3f24c142d29e6db1cc0f14bbda27bc4a158b2517f3d",
+        "test/utils/generate-location-info-parser-tests.ts": "812d711acab461d15811dc9919b46fbc95c837b3f114291e4ca529376eb0d3e1",
+        "test/utils/generate-parsing-tests.ts": "37734b28ae0c6aac465338091c6173dfc575f10c3c70a775afc0cdf6df10a9e3",
+        "test/utils/generate-serializer-tests.ts": "77d4ed4d5fe1853d74d64accca1980a74469dacbaf972a9640dae70fa06bb651",
+        "test/utils/generate-tokenization-tests.ts": "c74535c7c9ba77871bfdd7adb18371467fe30837ce53502fe0d361e21869f6df",
+        "test/utils/load-sax-parser-test-data.ts": "7a716cc0df61bd0d66878da9f3b0076983f06dc1bf63106522fef8b956fde8d7",
+        "test/utils/parse-dat-file.ts": "1b05774bd6ede2101b24fbe8f98e996b46f04dee583f5bdb8142bc87ba596e58",
+        "test/utils/serialize-to-dat-file-format.ts": "f8ce6b9b87df83db08fa58845fb0a7edc54b9eab8d5a3265bea5d375a0452428",
+        "tsconfig.json": "597295b28f08a2e1406fd26a5dbbc0cb04adea06a604ad673bbd9de31390b3a7",
+        "typedoc.base.json": "f8ace53af9b45be95431c792cc27051c7f342fc41cd23e97d31d83336f0f7758",
+        "typedoc.json": "f5d7a2217c1341ba11678af2905c56a15cc5a0b1046665ec8de38ffeb27af6e2",
+        "vitest.config.js": "6ba32a19ed3bd1bfc068bae5e9e965a50237b6e2b21dc591fda2133355f90050",
+        "test/data/html5lib-tests/.gitattributes": "07bb3ab10121198b5c5300fed96e37d94702ff4715b5d56363d9768ec4fafec8",
+        "test/data/html5lib-tests/.github/workflows/downstream.yml": "71909196e6cdf312122c3b8ff5d70c88aec8ff3cae74c09ce5337981376c2677",
+        "test/data/html5lib-tests/.github/workflows/lint.yml": "076add12105ae6ab2a9d926b6dadf24fa35c66eac78246fa3342066055956987",
+        "test/data/html5lib-tests/.gitignore": "12d926aee9f78d0e85f756361966f0bbba9a53a48eae598eb700187395e40b29",
+        "test/data/html5lib-tests/AUTHORS.rst": "ff66841d2cb8863976712fefb8c2f964b649cdca4480ec3faa31ed43c05c8eb1",
+        "test/data/html5lib-tests/LICENSE": "ff512aac9ef231d504be5afaf4429005024e4b2aaf257be39524f37b8402aaf2",
+        "test/data/html5lib-tests/encoding/chardet/test_big5.txt": "910c3b0e03f5ff44e0ad6c1f4a18a328bc5144e61ba97d81165cd08da48b40c6",
+        "test/data/html5lib-tests/encoding/scripted/tests1.dat": "a6ee1080bf863b71163a3213c4b01ca8dabdf2521a2ed00e74348ace8dd13c50",
+        "test/data/html5lib-tests/encoding/test-yahoo-jp.dat": "dc353a7ceaa9428a668e7846e78efd18f7e0a09e768d6be61166c12fc223a432",
+        "test/data/html5lib-tests/encoding/tests1.dat": "ef54dd3d9c256a6830c266808c0277545a156a241b350c613c996a4cea52e5f7",
+        "test/data/html5lib-tests/encoding/tests2.dat": "5e00d81e6207307f1186ea85f85b5f58003af94f5a7c6a3e06ca19c17567f51b",
+        "test/data/html5lib-tests/lint": "7a6e0a6b5408793ea592da3054780836ee612f70bf4311eaf65967dfc2137e4b",
+        "test/data/html5lib-tests/lint_lib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test/data/html5lib-tests/lint_lib/_vendor-patches/funcparserlib.patch": "defcaa54adeee5bf27e094de746d28cc76592914da2086bdd07eca6858b15232",
+        "test/data/html5lib-tests/lint_lib/_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/LICENSE": "2b38372de6b025165cae5a526cb83aa99fba2d851e0f01e69b8ce43add9e6139",
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/lexer.py": "6eb0439ddc9a01d79a5261eff20fe310357bf6fa7ac739ad11461fa7e04a756b",
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/lexer.pyi": "94fd504b4a9683edb0765af79a59d617084040ab33b3e765bcd0c9639b9eadfd",
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/parser.py": "c11f76e3df418a35883d27546ef07e011547ed62da4bdf8717191e3944bf2f4f",
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/parser.pyi": "ff95648dbd2705ae4cceab3e6291bc8db64f201efdf157edaa5f05222d226310",
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/util.py": "147453784d85063713dd8f0aa3df1fce06cbb664f171534e67fc2d135edcc8fa",
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/util.pyi": "f7480ef9d4262db2a3d049cd5415be90301d81a9c8414ef35a3e54e8d04a3dd1",
+        "test/data/html5lib-tests/lint_lib/_vendor/vendor.txt": "9438dbd46f91e5459d22c7614538a27c1e68f12a8b792cd78b15118e50c102d2",
+        "test/data/html5lib-tests/lint_lib/lint.py": "ea743284cfe4043b8024472f15302f4d15d5c302df8dbe55035764993f04b1bf",
+        "test/data/html5lib-tests/lint_lib/parser.py": "55d8a5eedcce3d8819f2610546e3b5270436c989c3a9bbfcd02f577754b689bd",
+        "test/data/html5lib-tests/pyproject.toml": "16db64f09aa92f0b4a226be7ce432689c115ed803134e75d068208f2666b9882",
+        "test/data/html5lib-tests/serializer/core.test": "40763bab05e236278bc88a72d0b91d45cd2aea1f33d51398e581dc71b7ded211",
+        "test/data/html5lib-tests/serializer/injectmeta.test": "971607e59e56e54904313a7e1620e38e8c0f64ae281c8afaff2f0edd1f0d5f1a",
+        "test/data/html5lib-tests/serializer/optionaltags.test": "26e6b849fb843049f5e3e668e55727998a0af0a6a5d87f92a5b68d5e4ecd83dc",
+        "test/data/html5lib-tests/serializer/options.test": "8a40f7378d9701cf29fbbf594de0ae1651984051218a917871bff7dcff74b026",
+        "test/data/html5lib-tests/serializer/whitespace.test": "aabe5a7868a47939719d5ef3886cb2255764331ced5e8dc4642b5236de273462",
+        "test/data/html5lib-tests/tokenizer/README.md": "2eb2365cd3ee8b79ab94c3987363b327601bae64c690bfed896c6c30c21fe543",
+        "test/data/html5lib-tests/tokenizer/contentModelFlags.test": "77784a505a528950761cfb3c76617afade28b27c3be2a8c37dce3c3d8988391d",
+        "test/data/html5lib-tests/tokenizer/domjs.test": "3273e7861bbdb094571e4b0813ffdd934fe2bfd65864600fef62e8e3b807131a",
+        "test/data/html5lib-tests/tokenizer/entities.test": "fe17483810a00247579f5f129ca9c007fbab6755ba839523e29aa9f8875f4085",
+        "test/data/html5lib-tests/tokenizer/escapeFlag.test": "edbd2e070a14fc67f6bbc104e50207f0fe206a21891c260deea3d227b32c93c9",
+        "test/data/html5lib-tests/tokenizer/namedEntities.test": "a7f0e59ff7653820330548776cb3031c18e45f5fd1481a9813d9c7acee89bd6e",
+        "test/data/html5lib-tests/tokenizer/numericEntities.test": "679296c976252322ece27e2b113a5358a0aa3b0b8ecd2d6d9b365f9d1b0f9632",
+        "test/data/html5lib-tests/tokenizer/pendingSpecChanges.test": "6b56d81ca09afa47d8cb0f33e3fb7169010c3a64493e608ebec921ac098ff8e9",
+        "test/data/html5lib-tests/tokenizer/test1.test": "524fcfa4d561a14f0c4e72e0573549abe6341fd4dfb8e16bc2dcf59a608a7219",
+        "test/data/html5lib-tests/tokenizer/test2.test": "f6450e77760cea823258de86f8e08894a1815671dbec0d74e7fbdab075596e37",
+        "test/data/html5lib-tests/tokenizer/test3.test": "9912fa27f03344243f1baa96d9690a5c2a4a9c9426c70da5cbf5c62391d62de4",
+        "test/data/html5lib-tests/tokenizer/test4.test": "c4967118aecbf8eb2ca34d5c5306f536614acca03e58610f75fbd9efa89fbb42",
+        "test/data/html5lib-tests/tokenizer/unicodeChars.test": "22b7263a840da38179b13693bbfe72f0507dcd41951622456a0d3f5300ba42bd",
+        "test/data/html5lib-tests/tokenizer/unicodeCharsProblematic.test": "3c166d5cfa24ee60fd7310ff0f5057e4ae0c649842ec446b5949215759e19a68",
+        "test/data/html5lib-tests/tokenizer/xmlViolation.test": "193a2f52d81adb4df4e056e3489f3bae79b3fc65253ccf31423a0e2f9c128d5c",
+        "test/data/html5lib-tests/tree-construction/README.md": "5935c011ac581c8ab1e20e45bba6373c2a3975255017ec205dfcdb861f7c45c6",
+        "test/data/html5lib-tests/tree-construction/adoption01.dat": "b2aba05bd1d832f73a0c6103b3c8b151b283bab7c56887274d81f3a062c4963e",
+        "test/data/html5lib-tests/tree-construction/adoption02.dat": "6ca94baf47ef9b6756657f40b15a12ac758802faa5003a7659652b8664e1e7d8",
+        "test/data/html5lib-tests/tree-construction/blocks.dat": "e3b7da1b57a4ec6991443dfc7ab3270f41d0f5959092a49be3e0edca0dae2104",
+        "test/data/html5lib-tests/tree-construction/comments01.dat": "79a7a42412b6dc48fa0c779dd8ba48d4d50033e7e9e417619288eec1e59d8db2",
+        "test/data/html5lib-tests/tree-construction/doctype01.dat": "f3a286c09d729eeed9aa63e0aec13ab12336af04590c169543e6d1e1ef4723b2",
+        "test/data/html5lib-tests/tree-construction/domjs-unsafe.dat": "eef4fb719e027ffaadfb854787d172893850fc561c29efe72d90c5bfa3c8b7ac",
+        "test/data/html5lib-tests/tree-construction/entities01.dat": "b73605caac5aed5656184ab8db3f08edff5457ac3186cb04afa28384bca955e3",
+        "test/data/html5lib-tests/tree-construction/entities02.dat": "f4e0cd461204b0184709be040c00811b776fbde1a6d002bb1c75d02056d9e54a",
+        "test/data/html5lib-tests/tree-construction/foreign-fragment.dat": "73e1785753c66420c067e5b29f89b17e7ebe1079687a512040ef19c6d42ac2c2",
+        "test/data/html5lib-tests/tree-construction/html5test-com.dat": "71d2ecbd0947599e82c876ce0300ecfc3a8cafd9d1736b33913f6a6152993bde",
+        "test/data/html5lib-tests/tree-construction/inbody01.dat": "cb722f2853ec9613b71ea68e8bb26f474cc450b64612930591ab2656406222fe",
+        "test/data/html5lib-tests/tree-construction/isindex.dat": "d152de773e276a07a1cfc91e93f01f3ce52c447c110192f2828dab51be2721b6",
+        "test/data/html5lib-tests/tree-construction/main-element.dat": "d56e382994e1a5228ddb2ea49a5ff51ab68487f9a8f79ad34bcad05d40dc1e8f",
+        "test/data/html5lib-tests/tree-construction/math.dat": "3c2ecc07272c175676ecfafa0cf6e18e74c3293075703702a4b7929fcb0d07bd",
+        "test/data/html5lib-tests/tree-construction/menuitem-element.dat": "44a896d206d8fa7c50a60508ffff2ed3a6aef35630b64b6cb09a6f46281d6b42",
+        "test/data/html5lib-tests/tree-construction/namespace-sensitivity.dat": "318fbc9926eddf5863524f1503c711ddaea93b55bcbd1eaab71b7e354ddfeb09",
+        "test/data/html5lib-tests/tree-construction/noscript01.dat": "e82449304a6371c14ed490384b6d814b7b1eeb1022dbc5caa2045fc8400655d7",
+        "test/data/html5lib-tests/tree-construction/pending-spec-changes-plain-text-unsafe.dat": "f45151f8dc7a4fe1a4b36710cf33606ff43cc98a42f1d2f085a77680683b0c99",
+        "test/data/html5lib-tests/tree-construction/pending-spec-changes.dat": "a6b7c4ecccabe70de2f24184245e4a73a8d12ed44ee658c3d5d25cce04c9d27f",
+        "test/data/html5lib-tests/tree-construction/plain-text-unsafe.dat": "1aef5e36b7ea04bb1d70684b33529a183938b7604283c562c698d6dad4e3878d",
+        "test/data/html5lib-tests/tree-construction/quirks01.dat": "b6717cc15d4ed573ccf6755bc9d52073e675b4d09f23bde07961e27592b9717c",
+        "test/data/html5lib-tests/tree-construction/ruby.dat": "5ae76ac4570d40e6648066798dd3ff729231bec98d3e010fdd67e0257f23a742",
+        "test/data/html5lib-tests/tree-construction/scriptdata01.dat": "e32ea3adc3d68c90e62ea50b3a41bf80369d1491958532bf00787b3509667322",
+        "test/data/html5lib-tests/tree-construction/scripted/adoption01.dat": "1203be63238a6effc9cc47e3c9b1fa9a0c7e0126a2f78916514afed2d46f42d8",
+        "test/data/html5lib-tests/tree-construction/scripted/ark.dat": "93365261fd9ea7dd9242613b57c23dba94e66bfd837a5d928f725bed81012dd0",
+        "test/data/html5lib-tests/tree-construction/scripted/webkit01.dat": "9d84f68ffd6e8b7b3924c9211280a70a888576b49074654cc9708236834afc58",
+        "test/data/html5lib-tests/tree-construction/search-element.dat": "30be0e9e8cbeea825e0323a7a3a518ab88f44fcada9b4f82b0cc7bbeb9334b76",
+        "test/data/html5lib-tests/tree-construction/svg.dat": "4c819b8dbdfbd98cfbce9a535a304b0a16597eb29ccc04077131a62810f309cd",
+        "test/data/html5lib-tests/tree-construction/tables01.dat": "8a0f7a62674fc332883c2eee71b36e89b88e1a78b39a1523ae63e9b9bae86384",
+        "test/data/html5lib-tests/tree-construction/template.dat": "74bc8308e673589d81b63eb71411a6f8ecea6fd6af649b5802c22615b7102a03",
+        "test/data/html5lib-tests/tree-construction/tests1.dat": "a7397a4944c2a3c9a70f199a18eaa62233a9f3af0b4ed7b01525f353db487f20",
+        "test/data/html5lib-tests/tree-construction/tests10.dat": "b657343b1d00bec1ac089888f5586a7b42fd964c7d03344e3670115dbc7af594",
+        "test/data/html5lib-tests/tree-construction/tests11.dat": "276190e2a7b97e8fcf3bd863a4b4b5346b555a8336c00143cb1d0e8956b94a07",
+        "test/data/html5lib-tests/tree-construction/tests12.dat": "e6c506cea74979a0d6ca47f6b175c7b6177d6e57db708920a89694e31dfd8a42",
+        "test/data/html5lib-tests/tree-construction/tests14.dat": "d151b2426f38de40a5d4ae726e2a56dbc7742a9b1c95299d60c1e2e0fdad1f98",
+        "test/data/html5lib-tests/tree-construction/tests15.dat": "ef784ece74cbd760da3a6947aaf4478810246b73c753f25a04be4d11dd806b2d",
+        "test/data/html5lib-tests/tree-construction/tests16.dat": "3350be682713afc1f6dad37059f2551709497a3643c38c26e1fe36fd07d23745",
+        "test/data/html5lib-tests/tree-construction/tests17.dat": "f73203c4785ee32f699358f9ec4973e42d0f03338ccdaf2bc6cdbfef1570849d",
+        "test/data/html5lib-tests/tree-construction/tests18.dat": "c468dd7498aa1a2523a740e359169d517f7fe88f9ce52f48b5bdd4d5a4ff096c",
+        "test/data/html5lib-tests/tree-construction/tests19.dat": "a9316b1eb4d2821a18e2c840394c6218bfcdb598857b92631490d9c3c1840ce4",
+        "test/data/html5lib-tests/tree-construction/tests2.dat": "9db834c7feda185e4050fe7c3ed3ec421b7a01f7d51df3da4aadafdd43a4c5be",
+        "test/data/html5lib-tests/tree-construction/tests20.dat": "07f7661690c4cd7cc0bbb0f1b9c1e1d65135e07c4dde8bbf106692f687e7d33d",
+        "test/data/html5lib-tests/tree-construction/tests21.dat": "b1a67420c79a5131002fefc987084ffb6b6094a3a74b272c6f545a47df06452c",
+        "test/data/html5lib-tests/tree-construction/tests22.dat": "78488328181d0f82f34b1a5e9e456ff7c713b3ff86dab6ace1530f6f07d5370d",
+        "test/data/html5lib-tests/tree-construction/tests23.dat": "2e4752ff4ef898e4a0cf9a450e481440095163d45075a662846a062552afe148",
+        "test/data/html5lib-tests/tree-construction/tests24.dat": "fdd5c21f60f42235ded224a03e7182d289088328f460525adaf3c14e772a24ac",
+        "test/data/html5lib-tests/tree-construction/tests25.dat": "f2e08fda6d15a08faf9ff0001ec38560d942069cee6b4e264aeedbbacde7da8d",
+        "test/data/html5lib-tests/tree-construction/tests26.dat": "d55d24dfca2444fba759d59346cbab21f7e70340dbb14e2c7af8da3d44abd4ab",
+        "test/data/html5lib-tests/tree-construction/tests3.dat": "c4b4d8e0ea3d978c49d1e6a985d427164858b71ec980153c4526ed0c398f43b9",
+        "test/data/html5lib-tests/tree-construction/tests4.dat": "e6003a52e1cbffc361eca7c739cdd4459074ac8c59766d1eb171b9c9eb42f517",
+        "test/data/html5lib-tests/tree-construction/tests5.dat": "bf80b927082290541781844906abdcb72f091488f7a11e8b7d9ac00076dd4fce",
+        "test/data/html5lib-tests/tree-construction/tests6.dat": "be16c74d2a9862283262968439c95b9bfce6182ea61055a3c886c28d14f3e01a",
+        "test/data/html5lib-tests/tree-construction/tests7.dat": "82b52dcb02b0c230690fc49355d5f476e74d92345d85e02eec63ad0d7d212e60",
+        "test/data/html5lib-tests/tree-construction/tests8.dat": "f3c8b1baece162e7e8c394540cdf9057266bb738bb0ad539a9d9b2f9d365f162",
+        "test/data/html5lib-tests/tree-construction/tests9.dat": "61df76e69def26a7b7461760349f3d7dcbe5e360f8907410678aec083948a752",
+        "test/data/html5lib-tests/tree-construction/tests_innerHTML_1.dat": "adb68da3dc5ffaf1f6f463e85367d0b5b85f5f7e0a05eb294531c9a83e999304",
+        "test/data/html5lib-tests/tree-construction/tricky01.dat": "3fb6d24c5e371860d096ef07f5fff38be3ceaa85f1239bee35cce548b596198a",
+        "test/data/html5lib-tests/tree-construction/webkit01.dat": "1afb8e5bc2eeb7ff51a57a3bfaec1e883927cf91281423f425cf839b38c04e79",
+        "test/data/html5lib-tests/tree-construction/webkit02.dat": "66eb676f39e0ca54f15f8a47b30e8d73b5c38feaf768a29ffcae80e9e588ffb0",
+        "test/data/html5lib-tests-fork/.gitattributes": "07bb3ab10121198b5c5300fed96e37d94702ff4715b5d56363d9768ec4fafec8",
+        "test/data/html5lib-tests-fork/AUTHORS.rst": "ff66841d2cb8863976712fefb8c2f964b649cdca4480ec3faa31ed43c05c8eb1",
+        "test/data/html5lib-tests-fork/LICENSE": "ff512aac9ef231d504be5afaf4429005024e4b2aaf257be39524f37b8402aaf2",
+        "test/data/html5lib-tests-fork/encoding/chardet/test_big5.txt": "910c3b0e03f5ff44e0ad6c1f4a18a328bc5144e61ba97d81165cd08da48b40c6",
+        "test/data/html5lib-tests-fork/encoding/test-yahoo-jp.dat": "dc353a7ceaa9428a668e7846e78efd18f7e0a09e768d6be61166c12fc223a432",
+        "test/data/html5lib-tests-fork/encoding/tests1.dat": "6a798fec48673dfbc2612383560a946ab980f419b3917ac1041fbc1d802c904c",
+        "test/data/html5lib-tests-fork/encoding/tests2.dat": "5e00d81e6207307f1186ea85f85b5f58003af94f5a7c6a3e06ca19c17567f51b",
+        "test/data/html5lib-tests-fork/serializer/core.test": "36c925c0b92edc0a064f83f9e7504ae1291f9a901b10b8741f8bf8f31d1f9edb",
+        "test/data/html5lib-tests-fork/serializer/injectmeta.test": "971607e59e56e54904313a7e1620e38e8c0f64ae281c8afaff2f0edd1f0d5f1a",
+        "test/data/html5lib-tests-fork/serializer/optionaltags.test": "26e6b849fb843049f5e3e668e55727998a0af0a6a5d87f92a5b68d5e4ecd83dc",
+        "test/data/html5lib-tests-fork/serializer/options.test": "8a40f7378d9701cf29fbbf594de0ae1651984051218a917871bff7dcff74b026",
+        "test/data/html5lib-tests-fork/serializer/whitespace.test": "aabe5a7868a47939719d5ef3886cb2255764331ced5e8dc4642b5236de273462",
+        "test/data/html5lib-tests-fork/tokenizer/README.md": "2eb2365cd3ee8b79ab94c3987363b327601bae64c690bfed896c6c30c21fe543",
+        "test/data/html5lib-tests-fork/tokenizer/contentModelFlags.test": "90797e1f62d15e255a5216bc5dc49abfa8292f997e7b38107566c11cf796330d",
+        "test/data/html5lib-tests-fork/tokenizer/domjs.test": "0e5682a65466a7bba5772fa6a008bf71f12bab944beb6c125a15e35a82885e1b",
+        "test/data/html5lib-tests-fork/tokenizer/entities.test": "9d64945de6e7c6e5969979ca612af6913dda06d420a717cc61da5329b21c899f",
+        "test/data/html5lib-tests-fork/tokenizer/escapeFlag.test": "edbd2e070a14fc67f6bbc104e50207f0fe206a21891c260deea3d227b32c93c9",
+        "test/data/html5lib-tests-fork/tokenizer/namedEntities.test": "a7f0e59ff7653820330548776cb3031c18e45f5fd1481a9813d9c7acee89bd6e",
+        "test/data/html5lib-tests-fork/tokenizer/numericEntities.test": "679296c976252322ece27e2b113a5358a0aa3b0b8ecd2d6d9b365f9d1b0f9632",
+        "test/data/html5lib-tests-fork/tokenizer/pendingSpecChanges.test": "6b56d81ca09afa47d8cb0f33e3fb7169010c3a64493e608ebec921ac098ff8e9",
+        "test/data/html5lib-tests-fork/tokenizer/test1.test": "1e3aaa318ccf3d8c9dc409429d54f6e30aba80fba69b467417728f7e164918f6",
+        "test/data/html5lib-tests-fork/tokenizer/test2.test": "231d3ee21c71d39165ade6acb6a2028ecec9a4a90b0001895c91bc90f0714376",
+        "test/data/html5lib-tests-fork/tokenizer/test3.test": "6826961139e8424c05c4222018db56f9451043bee79edf19a5e0683e3a156fbf",
+        "test/data/html5lib-tests-fork/tokenizer/test4.test": "548bbd8f84c335f86f8262bd0de10cc1c076260cc558b2760881e99154b57f1e",
+        "test/data/html5lib-tests-fork/tokenizer/unicodeChars.test": "22b7263a840da38179b13693bbfe72f0507dcd41951622456a0d3f5300ba42bd",
+        "test/data/html5lib-tests-fork/tokenizer/unicodeCharsProblematic.test": "3c166d5cfa24ee60fd7310ff0f5057e4ae0c649842ec446b5949215759e19a68",
+        "test/data/html5lib-tests-fork/tokenizer/xmlViolation.test": "193a2f52d81adb4df4e056e3489f3bae79b3fc65253ccf31423a0e2f9c128d5c",
+        "test/data/html5lib-tests-fork/tree-construction/README.md": "e214a19fb2dd9451c26cea34bc6731b85b9f7a1860960fb960407e3a4c0cc29c",
+        "test/data/html5lib-tests-fork/tree-construction/adoption01.dat": "11688237fa568cf69ed2eec2118843aa8baea78c24449c1c275606908fed731a",
+        "test/data/html5lib-tests-fork/tree-construction/adoption02.dat": "45e0d980e1ef4c042c9bc6064a0e011b3f2f35384df79f00364490e287366277",
+        "test/data/html5lib-tests-fork/tree-construction/blocks.dat": "e66f9b7a5cae2f3ceb17b0ac30ab913d2da7bbc312dd5831b32ab6f13dbed4b9",
+        "test/data/html5lib-tests-fork/tree-construction/comments01.dat": "6bf5b41b8bd32defe8b09764aba761da0ffafd5f2e4b13c78a0793ad5f99f080",
+        "test/data/html5lib-tests-fork/tree-construction/doctype01.dat": "433011796582d6eacb883c320c7ebbdf9248a34848f6eacc5a3e3819c6d7da2f",
+        "test/data/html5lib-tests-fork/tree-construction/domjs-unsafe.dat": "604885dfa851fe960dbc0b52c8215b09ed3817334fc4802cdb36c38e5f4ae7e0",
+        "test/data/html5lib-tests-fork/tree-construction/entities01.dat": "c4601d9b54fefec7cc42ca103d5dcc10d541057e2266bea20bd21e3a467560a5",
+        "test/data/html5lib-tests-fork/tree-construction/entities02.dat": "4c609b770575af8fcd263e24c323f5cf4930eb3aeaf4d90db526091f73a17fb5",
+        "test/data/html5lib-tests-fork/tree-construction/foreign-fragment.dat": "9b0787edfded9037fee16976767a90bdc0b879e0c1d01ea78fa23c17604b8816",
+        "test/data/html5lib-tests-fork/tree-construction/html5test-com.dat": "db5ff960fcbdec6b8961de4efd8accf6acd9336c35fc110ab553ff921c90f32c",
+        "test/data/html5lib-tests-fork/tree-construction/inbody01.dat": "cad9d79c5a4207b3ebc93186af0610c974f00a733213f44954950014caaea34e",
+        "test/data/html5lib-tests-fork/tree-construction/isindex.dat": "b10425cbcce29fef48215959fd52dbafac38d5bf4f7b46fd1caccb86eb78ad6a",
+        "test/data/html5lib-tests-fork/tree-construction/main-element.dat": "d56e382994e1a5228ddb2ea49a5ff51ab68487f9a8f79ad34bcad05d40dc1e8f",
+        "test/data/html5lib-tests-fork/tree-construction/math.dat": "e317ecf1b511548f05da51a2d9c8c98f66c5c5bd6a2d96370833829b6e031db8",
+        "test/data/html5lib-tests-fork/tree-construction/menuitem-element.dat": "8ae2cf686f47761ae228da683d7221678f1b9aad5cc962c6b4420ae875c68813",
+        "test/data/html5lib-tests-fork/tree-construction/namespace-sensitivity.dat": "862437a5215a783be59666c8a00c0b450b5af8a4c0521378e8b9a4bc85ea2520",
+        "test/data/html5lib-tests-fork/tree-construction/noscript01.dat": "e63a6ed777e466e3f007992ce2928555533b7d83d217f37b428b4140e3935397",
+        "test/data/html5lib-tests-fork/tree-construction/pending-spec-changes-plain-text-unsafe.dat": "8523b4dc9dc6ee0ef4a1e2c1bb9a77d7080aa00568b72b0338d6953f58fac60b",
+        "test/data/html5lib-tests-fork/tree-construction/pending-spec-changes.dat": "ce04f565386e7dd130c73caef64155dd6e41a1105c42179db7e8df9cac5842b1",
+        "test/data/html5lib-tests-fork/tree-construction/plain-text-unsafe.dat": "387ba6f8d7b32cb80cfefae6c8ca0bb458ba8d5fbdd4857c301f10a1d9eec9a1",
+        "test/data/html5lib-tests-fork/tree-construction/ruby.dat": "196bf7fe2214854e9bf4d4692b1568def08c230be873dd55f52d2d1c92d97c58",
+        "test/data/html5lib-tests-fork/tree-construction/scriptdata01.dat": "28d263d1e44d403f15ce55dfe31de8f94e71946b9709ca72373cfdc3f1f10ab5",
+        "test/data/html5lib-tests-fork/tree-construction/scripted/adoption01.dat": "1203be63238a6effc9cc47e3c9b1fa9a0c7e0126a2f78916514afed2d46f42d8",
+        "test/data/html5lib-tests-fork/tree-construction/scripted/ark.dat": "93365261fd9ea7dd9242613b57c23dba94e66bfd837a5d928f725bed81012dd0",
+        "test/data/html5lib-tests-fork/tree-construction/scripted/webkit01.dat": "9d84f68ffd6e8b7b3924c9211280a70a888576b49074654cc9708236834afc58",
+        "test/data/html5lib-tests-fork/tree-construction/tables01.dat": "e32abb575bf85d043d061bc844d5b78a75cae47e31c4706382fe6477791a3f91",
+        "test/data/html5lib-tests-fork/tree-construction/template.dat": "8ac76ebe86cf16dea7094be1b80b2ca1a277fe6a33f2b1f19f7e3714c37779cb",
+        "test/data/html5lib-tests-fork/tree-construction/tests1.dat": "c14223483eca64e35fc0114c78758e1b01ab3237d30310a4d89f0f4c78d5873f",
+        "test/data/html5lib-tests-fork/tree-construction/tests10.dat": "b6fefd493ce64810c7272dd9d37cf7df9083370c2a9cf173fe1381c82248f030",
+        "test/data/html5lib-tests-fork/tree-construction/tests11.dat": "276190e2a7b97e8fcf3bd863a4b4b5346b555a8336c00143cb1d0e8956b94a07",
+        "test/data/html5lib-tests-fork/tree-construction/tests12.dat": "e6c506cea74979a0d6ca47f6b175c7b6177d6e57db708920a89694e31dfd8a42",
+        "test/data/html5lib-tests-fork/tree-construction/tests14.dat": "d151b2426f38de40a5d4ae726e2a56dbc7742a9b1c95299d60c1e2e0fdad1f98",
+        "test/data/html5lib-tests-fork/tree-construction/tests15.dat": "9d6f2389018a86ae1bc2c861e7b81f7caa6d560f8b1fba8a07f37d476ca24c48",
+        "test/data/html5lib-tests-fork/tree-construction/tests16.dat": "87c0a4400ff3a0524d1719b7eecfb0917fdbb0d900b8ae3e6e8ed74543845449",
+        "test/data/html5lib-tests-fork/tree-construction/tests17.dat": "f73203c4785ee32f699358f9ec4973e42d0f03338ccdaf2bc6cdbfef1570849d",
+        "test/data/html5lib-tests-fork/tree-construction/tests18.dat": "7a45f64d9208c6d27fdfa29bb3adccb89e909d753daf10ce4ac053856dc343c0",
+        "test/data/html5lib-tests-fork/tree-construction/tests19.dat": "ad8134fbcf1b5a348a669895d74961d8b7a4ae44aa61650fe422ead66a8ee661",
+        "test/data/html5lib-tests-fork/tree-construction/tests2.dat": "cbf09ee0859fa759e1fed6eee0cdc826ce0783269766b1895e6f4a3117eba496",
+        "test/data/html5lib-tests-fork/tree-construction/tests20.dat": "27d88ec8effe3a93e2aa40e9d3634dfb9f04181ea4c903ac979301db60686195",
+        "test/data/html5lib-tests-fork/tree-construction/tests21.dat": "b5486dea3bb856e281b6ce2fae63c27c4ec835074d0aeb729acc9d5c6f89ec45",
+        "test/data/html5lib-tests-fork/tree-construction/tests22.dat": "8960ccd8106a3ce6e657bbb9133af664b16da03623d706b4e44df76b9ebc3188",
+        "test/data/html5lib-tests-fork/tree-construction/tests23.dat": "99f7fb3708f2c65cb4d4d03860b796ed0e46a9dd915b89cdd5d4d7ca8a08df5f",
+        "test/data/html5lib-tests-fork/tree-construction/tests24.dat": "fdd5c21f60f42235ded224a03e7182d289088328f460525adaf3c14e772a24ac",
+        "test/data/html5lib-tests-fork/tree-construction/tests25.dat": "7a3e4321147f3f3a60ef91a7f2306f3b20faf229dad12dc54c9d4e934d2ed772",
+        "test/data/html5lib-tests-fork/tree-construction/tests26.dat": "dd15cf9a61e3c5338012b519f39b67061b86f0c68c22ab8f1da750d18970f3e5",
+        "test/data/html5lib-tests-fork/tree-construction/tests3.dat": "b18eb1297891a31b48fe172fb692954c004d6b53772157935b4151af9deb05b0",
+        "test/data/html5lib-tests-fork/tree-construction/tests4.dat": "1deb00e8e19e395ffec6230f928cda2a32d9a4876233de58d8a620c47ab16f05",
+        "test/data/html5lib-tests-fork/tree-construction/tests5.dat": "b7e85a0cee727d8cdbbd4a31aabc49484c97c55800bfa84ed32b81342fece1bf",
+        "test/data/html5lib-tests-fork/tree-construction/tests6.dat": "42bfeaafdf281bab7f2f4b7c8842f91fd3a63e0879e2a2bcaccc26cbdeec4ba0",
+        "test/data/html5lib-tests-fork/tree-construction/tests7.dat": "9ab709edb6a5ede382b57b8d2ac531cc1327c987c72218bb90b19822d2b2c844",
+        "test/data/html5lib-tests-fork/tree-construction/tests8.dat": "558555a4cba2df3526b3a813a1937718b01b09f3e53ee6f01291f7df5fdf762c",
+        "test/data/html5lib-tests-fork/tree-construction/tests9.dat": "61df76e69def26a7b7461760349f3d7dcbe5e360f8907410678aec083948a752",
+        "test/data/html5lib-tests-fork/tree-construction/tests_innerHTML_1.dat": "f549c5e171052daf49c7505a3aee5f303b767ba0d4c78ee22d338511f6f035c6",
+        "test/data/html5lib-tests-fork/tree-construction/tricky01.dat": "753df0353476c3fbfcc2e44ffaef07fed88379eb72ed3f026f21d2a6cc0e42ab",
+        "test/data/html5lib-tests-fork/tree-construction/webkit01.dat": "af41ad70ee2c356a331b989836c3821884734ea5fc5563ad53f5b2ce32ca616b",
+        "test/data/html5lib-tests-fork/tree-construction/webkit02.dat": "336e6cc27ce7b6031810f6854496b075b1658df4e18ef0017c5714a3eccc34ff"
+      },
+      "symbolic_links": {},
+      "submodule_provenance": {
+        "test/data/html5lib-tests/.gitattributes": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "897831b2e58d895fc8a368057d1b0f84f6cf3096"
+        },
+        "test/data/html5lib-tests/.github/workflows/downstream.yml": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "59f121f0d487e3eb2dab6e1013310aecdcec8e42"
+        },
+        "test/data/html5lib-tests/.github/workflows/lint.yml": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "99f67c50e31789589966a01b05099db76529fc3e"
+        },
+        "test/data/html5lib-tests/.gitignore": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "f8b56708691e62c365881ea7b8b0da7f73d83a12"
+        },
+        "test/data/html5lib-tests/AUTHORS.rst": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "4a7de17ad456c9ac661a31c5daf9b62a5933c0b2"
+        },
+        "test/data/html5lib-tests/LICENSE": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "8812371b41cfc6d2de3eac8c0b2a7a90f9b03428"
+        },
+        "test/data/html5lib-tests/encoding/chardet/test_big5.txt": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "91074c98d210d6d3335456c8fee0ae6845f66d57"
+        },
+        "test/data/html5lib-tests/encoding/scripted/tests1.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "04d18bb968f077ec5da7c7f6a9990b4e692b5e9f"
+        },
+        "test/data/html5lib-tests/encoding/test-yahoo-jp.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "3629278931ce0842fb15ff6b1123a8b0b521410b"
+        },
+        "test/data/html5lib-tests/encoding/tests1.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "7aa9586ddc8e3f3d8dc0de09da3703ee7ed035ac"
+        },
+        "test/data/html5lib-tests/encoding/tests2.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "d31b387fb5dd19ef65d3994ff449fdd33847d269"
+        },
+        "test/data/html5lib-tests/lint": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "19b7f50c4662c86bc9c4f9118b2e9497be31b844"
+        },
+        "test/data/html5lib-tests/lint_lib/__init__.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor-patches/funcparserlib.patch": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "fc294880b761e832183d9c27aec2aa22131fc36c"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/__init__.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/LICENSE": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "31d3a95b9fcbe8bd6b8c15bbc8daed93dba8048f"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/__init__.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/lexer.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "0a5b5e9efd9a266e23b755bde719868476c39ee6"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/lexer.pyi": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "b1e88fe7293051936079e268a94ee75163f04c8e"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/parser.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "0bbac7f56fc87f0215ece84b43822b0b6d55e3da"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/parser.pyi": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e21ded5ab353b876ba381db2a971cd193a38be3b"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/py.typed": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/util.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "5c9ea51ec9220bbb1cb9e73b9a663e6f863f9107"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/funcparserlib/util.pyi": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "cf6a3d48f3d415c17bc1e62a26af14a9b55fcb34"
+        },
+        "test/data/html5lib-tests/lint_lib/_vendor/vendor.txt": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "8af787f176ed404dc8553e77f9cb568f6575e4d0"
+        },
+        "test/data/html5lib-tests/lint_lib/lint.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "de4ccd094cebea77a92a2c31f7cb8b6cc1e89502"
+        },
+        "test/data/html5lib-tests/lint_lib/parser.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "d18605a681f68da964d3cfded7c767a288978f76"
+        },
+        "test/data/html5lib-tests/pyproject.toml": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "a68f7874040604f189b15504132d43d0364c80da"
+        },
+        "test/data/html5lib-tests/serializer/core.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "a6fa07548dd2b92a55d0e7163b990d2cf57b9493"
+        },
+        "test/data/html5lib-tests/serializer/injectmeta.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "feaaa44f839a7bcb77c9d41b0da683b099671a2a"
+        },
+        "test/data/html5lib-tests/serializer/optionaltags.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "80a5edf89684c815ac697880685a2547ddfe8a0f"
+        },
+        "test/data/html5lib-tests/serializer/options.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "6f342dd3f73ea09f79de530058b01d0e7f324d48"
+        },
+        "test/data/html5lib-tests/serializer/whitespace.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e5d050d3beedfa17588b1078cef57b3bcc6a1a1d"
+        },
+        "test/data/html5lib-tests/tokenizer/README.md": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "66b81e8f873c4076a7ce69187c87df00bb373c7f"
+        },
+        "test/data/html5lib-tests/tokenizer/contentModelFlags.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "9cf7c8bd9e70dfbd0037726d6a840e67d3aa5e12"
+        },
+        "test/data/html5lib-tests/tokenizer/domjs.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "1a0824d789b767792286c98e92843d388eb6b5ce"
+        },
+        "test/data/html5lib-tests/tokenizer/entities.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "a6469cd0dc533d0c3b60d0ec8e8b3726524a98d7"
+        },
+        "test/data/html5lib-tests/tokenizer/escapeFlag.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "d7d2c490bfd161681df4a846a454d588b94e3d19"
+        },
+        "test/data/html5lib-tests/tokenizer/namedEntities.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "f74f5bff6d6513ca832da5dd12437d3f5d5861a5"
+        },
+        "test/data/html5lib-tests/tokenizer/numericEntities.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "085109b797acc6657dea2ccf7c29d31942cc7214"
+        },
+        "test/data/html5lib-tests/tokenizer/pendingSpecChanges.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "191434f1b13532b03c1bc8519d6c4a1247ac2582"
+        },
+        "test/data/html5lib-tests/tokenizer/test1.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "5323fbbeae2c6116aab14a716c8df1174e7870fb"
+        },
+        "test/data/html5lib-tests/tokenizer/test2.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "c29e4c315a66e9cb17f6629816331de4421af15a"
+        },
+        "test/data/html5lib-tests/tokenizer/test3.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "901a581e35cd64fafec2db0b4d5b2390ec12534f"
+        },
+        "test/data/html5lib-tests/tokenizer/test4.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "8963c7471184e53446afaa31e9cc7a74624a3812"
+        },
+        "test/data/html5lib-tests/tokenizer/unicodeChars.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "49a8098528ea9771f42c619cb6a63d7bb4b6be86"
+        },
+        "test/data/html5lib-tests/tokenizer/unicodeCharsProblematic.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "3ddb96c011b77706b80ff98f54bc4b1288bc8cf2"
+        },
+        "test/data/html5lib-tests/tokenizer/xmlViolation.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "da6159e2ea7418684db258cd9fd7aad48f24af25"
+        },
+        "test/data/html5lib-tests/tree-construction/README.md": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "4737a3a867e86cfdc4c7bd2b8a45360a53dbe39c"
+        },
+        "test/data/html5lib-tests/tree-construction/adoption01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "38f98efded0ae8a4f096f4c1cebba64a914241ea"
+        },
+        "test/data/html5lib-tests/tree-construction/adoption02.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e54d8033bac7197de04c202a1c4d556f090f809d"
+        },
+        "test/data/html5lib-tests/tree-construction/blocks.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "a1a9c75218865eaad103a1cbb77263e566868ad2"
+        },
+        "test/data/html5lib-tests/tree-construction/comments01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "4b9ff95711ee97b6971afb88abd310fc4b3183b7"
+        },
+        "test/data/html5lib-tests/tree-construction/doctype01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "9efdaf704bc3c55a36db4cad06e1b323d51486bf"
+        },
+        "test/data/html5lib-tests/tree-construction/domjs-unsafe.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "0a1b10f96d9d62a67d631c640cf0bd68637da63d"
+        },
+        "test/data/html5lib-tests/tree-construction/entities01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "9bacebea050d93acf8ddea2bac5d9e4dbd3efbdf"
+        },
+        "test/data/html5lib-tests/tree-construction/entities02.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "74965a35f76509d1cd5306112e8d51851d1d6fef"
+        },
+        "test/data/html5lib-tests/tree-construction/foreign-fragment.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e562c6b8ff62c32ccefcf4c4666a1c9dfb45dd85"
+        },
+        "test/data/html5lib-tests/tree-construction/html5test-com.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "48d0bf95b55720b57cf46198c5903cb51b3df9e5"
+        },
+        "test/data/html5lib-tests/tree-construction/inbody01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "10f6520f6fe0c64ac57ebee89bdbbbeac1a3849c"
+        },
+        "test/data/html5lib-tests/tree-construction/isindex.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "733f82ea8eef7314b41711d938e056f75a440ca1"
+        },
+        "test/data/html5lib-tests/tree-construction/main-element.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "4b103bb0fa34ce745afe2a995c8020a90018bfa0"
+        },
+        "test/data/html5lib-tests/tree-construction/math.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "d6a8ae56f24f4608c57bbb497c08e19831746ac6"
+        },
+        "test/data/html5lib-tests/tree-construction/menuitem-element.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "fb13c3c33b0ab2c1be2accbfe1a8be3a830d6385"
+        },
+        "test/data/html5lib-tests/tree-construction/namespace-sensitivity.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "050dca752284fbbee72942aa156cc260f784e5c2"
+        },
+        "test/data/html5lib-tests/tree-construction/noscript01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "ec3496ce92fee5878f3455025978c09624cf693a"
+        },
+        "test/data/html5lib-tests/tree-construction/pending-spec-changes-plain-text-unsafe.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "2c546d40b8b1d8a918878a64d19d36dc7fe29204"
+        },
+        "test/data/html5lib-tests/tree-construction/pending-spec-changes.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "1647d7f23a96e03d085c03e6a7c87ddd439c0d2d"
+        },
+        "test/data/html5lib-tests/tree-construction/plain-text-unsafe.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e904eff0b73aab1f2611501a76bb865e4b086d60"
+        },
+        "test/data/html5lib-tests/tree-construction/quirks01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "bc58de5ca0b6f77461708fff88b06c2f5a4d3780"
+        },
+        "test/data/html5lib-tests/tree-construction/ruby.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "f4e5e4e48d72f3cd67a56766d898ea5b9f4ce338"
+        },
+        "test/data/html5lib-tests/tree-construction/scriptdata01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "6abcb6571cf59aa10984e3dced97932f35f74065"
+        },
+        "test/data/html5lib-tests/tree-construction/scripted/adoption01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "5cc0f07496a658ef7a91dbcdb652f88e212e93d1"
+        },
+        "test/data/html5lib-tests/tree-construction/scripted/ark.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "feebeadba1d8a08a136be74ccfe9352587026989"
+        },
+        "test/data/html5lib-tests/tree-construction/scripted/webkit01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "3e71c1baccc9bc26200de9d17698f10f01224a6e"
+        },
+        "test/data/html5lib-tests/tree-construction/search-element.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "2866d7ece907ead900d375ca4f680ca4a55df511"
+        },
+        "test/data/html5lib-tests/tree-construction/svg.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "a452e7afa00d3bc62cf0af746a6375d4eec6c39e"
+        },
+        "test/data/html5lib-tests/tree-construction/tables01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "aa7915ebba7ea648da7b10a65334e619b9c227b3"
+        },
+        "test/data/html5lib-tests/tree-construction/template.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "45fb507c6b9d63564ff423fc8c47e214564a5642"
+        },
+        "test/data/html5lib-tests/tree-construction/tests1.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e80e64016d919e089dcb9558db760880da8f2cca"
+        },
+        "test/data/html5lib-tests/tree-construction/tests10.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "f84e2d546fab64d7c5633bad46c1e7377601f985"
+        },
+        "test/data/html5lib-tests/tree-construction/tests11.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "b9901e79ec4054762a2bdf134b991dea8829b009"
+        },
+        "test/data/html5lib-tests/tree-construction/tests12.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "63107d277b6a7f1597155ad2527868bbc2c323de"
+        },
+        "test/data/html5lib-tests/tree-construction/tests14.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "a08b7649ebab76276be3c38d19e75bb9598e5731"
+        },
+        "test/data/html5lib-tests/tree-construction/tests15.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "93d06a871708a2929e900c331adec80d3697709e"
+        },
+        "test/data/html5lib-tests/tree-construction/tests16.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "05f34c13e33d3329ee9a4acdbc29d14c84d7d7c5"
+        },
+        "test/data/html5lib-tests/tree-construction/tests17.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "e49bcf03142dc30cacae4a770b1aa9d3febb0713"
+        },
+        "test/data/html5lib-tests/tree-construction/tests18.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "0b6d5dc404a9db9ca0b37a6de14d45fc671afc64"
+        },
+        "test/data/html5lib-tests/tree-construction/tests19.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "20cdeabcc83c63610814598ceed6c21391967421"
+        },
+        "test/data/html5lib-tests/tree-construction/tests2.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "11ef9b1643ff408d5df242769a32376614a5486c"
+        },
+        "test/data/html5lib-tests/tree-construction/tests20.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "80c57d1aaa7219c70f5eb63e0625525492a1a828"
+        },
+        "test/data/html5lib-tests/tree-construction/tests21.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "a926b1384e9798fd7ba7e1620b3a2de541ed9bc0"
+        },
+        "test/data/html5lib-tests/tree-construction/tests22.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "31e6d9e331042da8dc42c1d46776691ff30f1fb3"
+        },
+        "test/data/html5lib-tests/tree-construction/tests23.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "49e4a4ace58be40162fbeb8c900a4c0053fa8b58"
+        },
+        "test/data/html5lib-tests/tree-construction/tests24.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "f6dc7eb48a53d7417418f8827c9a24031b5edcd7"
+        },
+        "test/data/html5lib-tests/tree-construction/tests25.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "5bb369b262660dd58d1ae606717cab6359b3c421"
+        },
+        "test/data/html5lib-tests/tree-construction/tests26.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "1ba2be2dc86699794285b2481b87c54efeb89004"
+        },
+        "test/data/html5lib-tests/tree-construction/tests3.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "c7583d99e8b698287e1a45042126485c42d3c174"
+        },
+        "test/data/html5lib-tests/tree-construction/tests4.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "4f0cf70e28cea9be6bc0b47de3ba515b32516949"
+        },
+        "test/data/html5lib-tests/tree-construction/tests5.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "1ef8cae421386e5d1faaae4a2be85c267aa8f9b8"
+        },
+        "test/data/html5lib-tests/tree-construction/tests6.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "8c36dd3d56c0573112e770f0dc7239fa957d1654"
+        },
+        "test/data/html5lib-tests/tree-construction/tests7.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "b2db4de1f3bdf381ecda891a6d702054abe28b4c"
+        },
+        "test/data/html5lib-tests/tree-construction/tests8.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "d532801e497da812cc7eb2ac89bdc9299829a33e"
+        },
+        "test/data/html5lib-tests/tree-construction/tests9.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "f8d04b23bc0bef55c822503a71b15de97450e88c"
+        },
+        "test/data/html5lib-tests/tree-construction/tests_innerHTML_1.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "1a37ee520ae34aba04d968d3195b826741e6a62c"
+        },
+        "test/data/html5lib-tests/tree-construction/tricky01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "753502a2619e0ba75fcb93957c6d2e544183f561"
+        },
+        "test/data/html5lib-tests/tree-construction/webkit01.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "d30e12e52766eedad158b7a07ee6ff2ab35ce8a3"
+        },
+        "test/data/html5lib-tests/tree-construction/webkit02.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "a9f44960a9fedf265093d22b2aa3c7ca123727b9",
+          "Git_blob": "7d817ec69a700f4d40c113b89bba2274de387635"
+        },
+        "test/data/html5lib-tests-fork/.gitattributes": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "897831b2e58d895fc8a368057d1b0f84f6cf3096"
+        },
+        "test/data/html5lib-tests-fork/AUTHORS.rst": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "4a7de17ad456c9ac661a31c5daf9b62a5933c0b2"
+        },
+        "test/data/html5lib-tests-fork/LICENSE": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "8812371b41cfc6d2de3eac8c0b2a7a90f9b03428"
+        },
+        "test/data/html5lib-tests-fork/encoding/chardet/test_big5.txt": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "91074c98d210d6d3335456c8fee0ae6845f66d57"
+        },
+        "test/data/html5lib-tests-fork/encoding/test-yahoo-jp.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "3629278931ce0842fb15ff6b1123a8b0b521410b"
+        },
+        "test/data/html5lib-tests-fork/encoding/tests1.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "77b0e41d671296dc710f969cc5ac6c3936524d15"
+        },
+        "test/data/html5lib-tests-fork/encoding/tests2.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "d31b387fb5dd19ef65d3994ff449fdd33847d269"
+        },
+        "test/data/html5lib-tests-fork/serializer/core.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "c0b4222d2d9a57008f6f6f58a07add8cd7599d69"
+        },
+        "test/data/html5lib-tests-fork/serializer/injectmeta.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "feaaa44f839a7bcb77c9d41b0da683b099671a2a"
+        },
+        "test/data/html5lib-tests-fork/serializer/optionaltags.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "80a5edf89684c815ac697880685a2547ddfe8a0f"
+        },
+        "test/data/html5lib-tests-fork/serializer/options.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "6f342dd3f73ea09f79de530058b01d0e7f324d48"
+        },
+        "test/data/html5lib-tests-fork/serializer/whitespace.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "e5d050d3beedfa17588b1078cef57b3bcc6a1a1d"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/README.md": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "66b81e8f873c4076a7ce69187c87df00bb373c7f"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/contentModelFlags.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "5197b68e8b3a12e33c839eea91d9da83fce46fcd"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/domjs.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "b17a5df52c72bc614b740b5a4721ffc02290c377"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/entities.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "7c5145636df07aa206d8de00d796bdd8ebe8da5b"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/escapeFlag.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "d7d2c490bfd161681df4a846a454d588b94e3d19"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/namedEntities.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "f74f5bff6d6513ca832da5dd12437d3f5d5861a5"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/numericEntities.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "085109b797acc6657dea2ccf7c29d31942cc7214"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/pendingSpecChanges.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "191434f1b13532b03c1bc8519d6c4a1247ac2582"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/test1.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "8b85050f4c0690e2a9e04f6ef0959349dee6fb57"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/test2.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "521694ca19adb5003de11669ce9375eb75b93bec"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/test3.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "cb04d037b763cbdaf7a910efd0b9043675125cda"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/test4.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "77706b72befa2487aa28b68909ffc8fa9f60893b"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/unicodeChars.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "49a8098528ea9771f42c619cb6a63d7bb4b6be86"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/unicodeCharsProblematic.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "3ddb96c011b77706b80ff98f54bc4b1288bc8cf2"
+        },
+        "test/data/html5lib-tests-fork/tokenizer/xmlViolation.test": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "da6159e2ea7418684db258cd9fd7aad48f24af25"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/README.md": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "18a85ecffc1c1e008270f92163e4c9977661b89c"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/adoption01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "b348679a6a6bc53e4fc853f31ea8019b29acde49"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/adoption02.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "8ffffff8954399a27cea4c5d411c1ba0e65c6589"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/blocks.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "5d3871ea12547d069082866148db3984081d3c06"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/comments01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "8d627f1e6fc643d97ab66e2ac0383e4bf1ee94f9"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/doctype01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "633ed3768abbd93458c46ef816d1c749e35e55c0"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/domjs-unsafe.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "47c5d8351cb418986c7c1276ef93aef56aa36211"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/entities01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "7c8598a374d76cd3fd5b331193cc1f0e15a82854"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/entities02.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "218f7fb0b49b02e116501a38e88bbd15e485c71d"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/foreign-fragment.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "c81ae8171255f3a82a0b99f4227f046c099088b1"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/html5test-com.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "ab325791811c59a94741be162df00e3691afb4a5"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/inbody01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "3da79395bbcca59f32682f147bea9139d472236b"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/isindex.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "871cccc61856b7be53aa8bf3e88ab4cfc8467192"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/main-element.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "4b103bb0fa34ce745afe2a995c8020a90018bfa0"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/math.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "ae9cd7c612e47ec2ea8a7c5eca703a17e6857f02"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/menuitem-element.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "b536368afee853c86052b13a9e10b02255ee31e7"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/namespace-sensitivity.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "e01a48ededa04f2f86f4c33eb7a0dfbb8fae34ef"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/noscript01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "adc483319e59d99aa8d8b28440312777604f8ee8"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/pending-spec-changes-plain-text-unsafe.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "fe9b96b22ba98b668b495df6d4682d4066c2a4be"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/pending-spec-changes.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "f540e172ac0e74d9883a928531743f2cd0f8730a"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/plain-text-unsafe.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "acbbb5010a51ad7bd813aa730922e8d148379419"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/ruby.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "2838bc3f5af0e3da9f7c2f522d25f7381f56b782"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/scriptdata01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "9adaca088fb2ae10c89a1685375846949d33a528"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/scripted/adoption01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "5cc0f07496a658ef7a91dbcdb652f88e212e93d1"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/scripted/ark.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "feebeadba1d8a08a136be74ccfe9352587026989"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/scripted/webkit01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "3e71c1baccc9bc26200de9d17698f10f01224a6e"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tables01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "6a2f803a47ee2aed19628a91abbe304ab05ea582"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/template.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "cbe2a97a4fcec8785f2117a1cc6b20599a0d44be"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests1.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "3f0fd9e1eda408d627561a424a8e628c331d4c29"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests10.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "7e6fc08d689e34a547c2c409fde7f4b73f3e8c80"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests11.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "b9901e79ec4054762a2bdf134b991dea8829b009"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests12.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "63107d277b6a7f1597155ad2527868bbc2c323de"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests14.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "a08b7649ebab76276be3c38d19e75bb9598e5731"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests15.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "4b5c6e190edca1e762737ec4d1954895fc5a016c"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests16.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "33ab4369ec65a1be47c74d1edf4a58c00d73f1d5"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests17.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "e49bcf03142dc30cacae4a770b1aa9d3febb0713"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests18.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "6b43b94a2231fcbd9c23d587df9179657b7b9ae6"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests19.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "2eda94af069deee556a65c00e29b2e9674515089"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests2.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "4616b22bf7bab0ee84a90f177e81d867154daafe"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests20.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "919868d0b82264e6c107548d4b687a28b8759431"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests21.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "5b1de1be16306eaa1c2b550cdf8fd507e5f8f699"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests22.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "44f0d3a848a4bd60bf9cc6272039a02bf88c8574"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests23.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "cf8fd7e5ce48d211115a6ab30e185fc756973f9e"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests24.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "f6dc7eb48a53d7417418f8827c9a24031b5edcd7"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests25.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "7b74430358a40266b3a51795b2713a864caea77d"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests26.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "1326070f42b88709759038ce3c565475e7962b27"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests3.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "e2c66c56344dabd4c333992a8c1a590c119b71c6"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests4.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "0a6174c36c0e6ddc6cae2e911a0c030895c4f4ad"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests5.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "90a31feb40aa4be040f032835ddb0d7bcc0af069"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests6.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "ab7a77a6846acc4bdea7db0fa83bd172903cda66"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests7.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "dd0fdfd02bc81a2d3f81b0a87abeb9acf4bcf5d2"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests8.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "17e50b31f68d919e14ffdf92d856e5190c58ecc2"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests9.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "f8d04b23bc0bef55c822503a71b15de97450e88c"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tests_innerHTML_1.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "54f436848c9fa2d62d2384898c9cdd11316e0ba5"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/tricky01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "3832f0272e1857c8c3df3278fc59cc2f8be5957f"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/webkit01.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "4c04e4687cb937275152787778394f97174317ef"
+        },
+        "test/data/html5lib-tests-fork/tree-construction/webkit02.dat": {
+          "repository": "HTMLParseErrorWG/html5lib-tests",
+          "commit": "11c3216c8ec790dbda1494a84f580e0ea41d55a1",
+          "Git_blob": "b81bcc776222d946410ffcd175dfb104a0670625"
+        }
+      },
+      "all_original_cases_helpers_fixtures_and_configs_unchanged": true,
+      "application_or_vendor_suite_execution": false,
+      "published_archive": "parse5-8.0.1.tgz",
+      "published_archive_sha256": "d94ec8606e3cef24b8ec001ac121df5d7938f015be69615da27b53a082f86832",
+      "published_file_sha256": {
+        "package/LICENSE": "8c535800331e1e4439835555b3f9edc7fe9dee2fab0d8bbbd5a982e8b8343d4d",
+        "package/dist/tree-adapters/default.js": "14b6408b0abb1c041e645644f977db34da280239be8a59a2eb3c9e282e89b7c4",
+        "package/dist/common/doctype.js": "855d8cd764782cdc73003a9847d03ed261c5158f6a6901e563ccd4d3b92c8b16",
+        "package/dist/common/error-codes.js": "b38ae5ac4f2a31ce2e1cfeca35cf7b89cc66736cd5be068cc433a3ccaca78be2",
+        "package/dist/common/foreign-content.js": "129a84a9d04b6050b6896de45a70e1ee468434e19bdd6486e3aef3405d137cac",
+        "package/dist/parser/formatting-element-list.js": "a6e04b000b228a0bf7eba4e5462b343ec1e13dbfbe40bce913ade646bbde4461",
+        "package/dist/common/html.js": "e6cf93f387be70ddcd4f2bec67fbeb53161094f6306d834de461ec888a9dab76",
+        "package/dist/index.js": "b825162aced2e79be8d68d45efb1f89ec34ed4189467195a071a0d7b694a19d4",
+        "package/dist/parser/index.js": "23eb8e0f6b45abc36132c08f067899e0e615acbe9069762ba7780a66db78e65d",
+        "package/dist/serializer/index.js": "bb11a62d05d463bf756814d89227ea889733d3808fe7ebe27cb4f607ed85a4c7",
+        "package/dist/tokenizer/index.js": "810ebc73056d41c9ed5e4718d0973b87bc90306ca010d0c8533ed81669f58a58",
+        "package/dist/tree-adapters/interface.js": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881",
+        "package/dist/parser/open-element-stack.js": "fe4b609a572c9aa06fbd45ac53632b3ad565168903f4126a6f98d5a9d1f42999",
+        "package/dist/tokenizer/preprocessor.js": "12199175a31eb461dcecefa10ce2536c69ab92cdd2a1f67da3ea20b214599ac1",
+        "package/dist/common/token.js": "52dac9efba3a637771818d633a5cf1df30c7913d05ff23235150c88319ea035a",
+        "package/dist/common/unicode.js": "69a0a52be895d2bcf88850beead4a098c5305c0b5669d1e8a0fe26f621ea25c6",
+        "package/package.json": "159187fd5c0c0c17456282f4cf7beab91eb46dfc717928522938c947007282b7",
+        "package/README.md": "ba4e9702964c97d16212ae3cd9b448b3292a31522e1bd3c86fcfc9cc767fd77c",
+        "package/dist/tree-adapters/default.d.ts": "91f5dbcdb25d145a56cffe957ec665256827892d779ef108eb2f3864faff523b",
+        "package/dist/common/doctype.d.ts": "c1b8c6b45e12993a18bf4936c0bb15a05d31fa504f03c284d9e3a0d025b73cd2",
+        "package/dist/common/error-codes.d.ts": "66995b0c991b5c5d42eff1d950733f85482c7419f7296ab8952e03718169e379",
+        "package/dist/common/foreign-content.d.ts": "927955a3de5857e0a1c575ced5a4245e74e6821d720ed213141347dd1870197f",
+        "package/dist/parser/formatting-element-list.d.ts": "a77be6fc44c876bc10c897107f84eaba10790913ebdcad40fcda7e47469b2160",
+        "package/dist/common/html.d.ts": "19990350fca066265b2c190c9b6cde1229f35002ea2d4df8c9e397e9942f6c89",
+        "package/dist/index.d.ts": "fec804d54cd97dd77e956232fc37dc13f53e160d4bbeeb5489e86eeaa91f7ebd",
+        "package/dist/parser/index.d.ts": "06cf55b6da5cef54eaaf51cdc3d4e5ebf16adfdd9ebd20cec7fe719be9ced017",
+        "package/dist/serializer/index.d.ts": "052ba354bab8fb943e0bc05a0769f7b81d7c3b3c6cd0f5cfa53c7b2da2a525c5",
+        "package/dist/tokenizer/index.d.ts": "b4c6184d78303b0816e779a48bef779b15aea4a66028eb819aac0abee8407dea",
+        "package/dist/tree-adapters/interface.d.ts": "db085d2171d48938a99e851dafe0e486dce9859e5dfa73c21de5ed3d4d6fb0c5",
+        "package/dist/parser/open-element-stack.d.ts": "62a3ad1ddd1f5974b3bf105680b3e09420f2230711d6520a521fab2be1a32838",
+        "package/dist/tokenizer/preprocessor.d.ts": "9863f888da357e35e013ca3465b794a490a198226bd8232c2f81fb44e16ff323",
+        "package/dist/common/token.d.ts": "8fb8fdda477cd7382477ffda92c2bb7d9f7ef583b1aa531eb6b2dc2f0a206c10",
+        "package/dist/common/unicode.d.ts": "19e02a7ba0b88ea7cdfc447c6b0ffecb7f65ce4d260dec7ffce86b3d2aa9e5a8"
+      },
+      "published_manifest": {
+        "name": "parse5",
+        "type": "module",
+        "description": "HTML parser and serializer.",
+        "version": "8.0.1",
+        "author": "Ivan Nikulin <ifaaan@gmail.com> (https://github.com/inikulin)",
+        "contributors": [
+          "James Garbutt (https://github.com/43081j)",
+          "Felix Boehm (https://github.com/fb55)",
+          "Ivan Nikulin (https://github.com/inikulin)",
+          "Titus (https://github.com/wooorm)"
+        ],
+        "homepage": "https://parse5.js.org",
+        "funding": "https://github.com/inikulin/parse5?sponsor=1",
+        "dependencies": {
+          "entities": "^8.0.0"
+        },
+        "keywords": [
+          "html",
+          "parser",
+          "html5",
+          "WHATWG",
+          "specification",
+          "fast",
+          "html parser",
+          "html5 parser",
+          "htmlparser",
+          "parse5",
+          "serializer",
+          "html serializer",
+          "htmlserializer",
+          "parse",
+          "serialize"
+        ],
+        "license": "MIT",
+        "main": "dist/index.js",
+        "module": "dist/index.js",
+        "types": "dist/index.d.ts",
+        "exports": {
+          ".": {
+            "default": "./dist/index.js"
+          }
+        },
+        "scripts": {},
+        "repository": {
+          "type": "git",
+          "url": "git://github.com/inikulin/parse5.git"
+        },
+        "files": [
+          "dist/**/*.js",
+          "dist/**/*.d.ts"
+        ]
+      }
+    },
+    "entities": {
+      "package": "entities",
+      "version": "8.1.0",
+      "repository": "fb55/entities",
+      "commit": "c71f5625c6bb604c63fb62ff500736b4563c4c00",
+      "archive": "entities-complete-original-source.tgz",
+      "archive_sha256": "f9f5d5f3cf1e724f53f1648fe3653860f3b3c503377eac0ff403f3698e4eebb6",
+      "all_source_and_submodule_payloads": 99,
+      "all_payload_sha256": {
+        ".github/FUNDING.yml": "8ad2b9e7549366260293f7b781ed1e75ff9eb5e0e71762f649f2555813b1d90f",
+        ".github/dependabot.yml": "ebafa1dffee1d89014cb008419a38b89689b83d4cb33863f41917d1698003b66",
+        ".github/workflows/codeql-analysis.yml": "a8fb9192c1835a8cde6b49f8e1a60fd978440f668a55d076b57d13f854ac3b79",
+        ".github/workflows/dependabot-automerge.yml": "6ba08f8252af05395468d6e4ad3e61d476bf2dbd1833d69daa194d4149b7b621",
+        ".github/workflows/gh-pages.yml": "7a039079558e569a111601ff46277ffd1f56255ac80bca35ed88d8d4c9fb1733",
+        ".github/workflows/nodejs-test.yml": "57680cc29d5577343877abdbd714ee77c214ed5f2ee1367c48af80190db3c267",
+        ".github/workflows/publish.yml": "ee81bacf6149535f7246d9dde941e5010732ae8d03d50766ba5e1d143129003e",
+        ".gitignore": "77cedae907355961c3fda5bf49ad7dbfb19617710b7eae23c71d6021cf8d4cdc",
+        ".gitmodules": "cc212cddc07ecd1eb4c41b9ead9103bf3ad25f781391d6c7f93cf2a078bb2936",
+        "LICENSE": "cb992345949ccd6e8394b2cd6c465f7b897c864f845937dbf64e8997f389e164",
+        "SECURITY.md": "29590ab6de0fbd56e9e2577fef21560bf342c6efae5456eaf4492f13e1dd0abe",
+        "biome.json": "a112d19964318c17df98c347dbea102039014985aed1cb78ece49dd76a6679b3",
+        "eslint.config.mjs": "a74dc04d1550bdc9abd4566a21bdf6691985785fc1788a20ac9f90f79dc84da3",
+        "maps/entities.json": "d43e0484a302ac1b84636250ff65cc735811b52bf99525b3d30a81b75436a9a8",
+        "maps/legacy.json": "8e6534b42af11c92375665a8614d05f7d3c0118ad69f201936771f35c8db44ff",
+        "maps/xml.json": "a80b9c83313152339eb77459b32a284d36eb6fd8ca848c0c42c85d25d29a61f0",
+        "package-lock.json": "c60426c4a15ebc38ca05d6d51ac3fa5b6d75438383c7a947bb52f1763daacf38",
+        "package.json": "b6ff1175be0fa103f032d52e42af95d95c674e3cba08d93670cc8944697bcc42",
+        "readme.md": "ec0f59ca389c284d126a24bae2b5f28dc7e2a6244e50d6ce28baea1b2f3518f6",
+        "scripts/benchmark.ts": "66f74f4418a85c8e07f290026bf2cf0358b424e9d2a518f243091518b96599e4",
+        "scripts/trie/README.md": "8112612e9ec2071fb71156ee24e84aff9614a5e53d87ca1cd7d833adc34a5165",
+        "scripts/trie/compact-run.spec.ts": "7b2e0b091f4d6d835412b4130953d7c5cfd86be23ef026c602410d880686a882",
+        "scripts/trie/decode-trie.spec.ts": "24489077fb6902ba97fa59c8601231a2d8e985b29db59feb54c515b2712d49da",
+        "scripts/trie/decode-trie.ts": "6bed004dd8b3b2c68931ee26206a0bca9544426449591423aaef278d38472d2a",
+        "scripts/trie/encode-dict.spec.ts": "d4b8db4d889b53428ca4495b84568d73feecbe2dea8b6f75e4ed3d29e7675bb5",
+        "scripts/trie/encode-dict.ts": "eb62286a47abf0a979a4228c199f225d70da5235de63d531377d9e6d8b0cf2f6",
+        "scripts/trie/encode-trie.spec.ts": "9e097fd2a4448c871dcb082bc665fa24fa3377b579acd52e2d042de5d0cb4d8f",
+        "scripts/trie/encode-trie.ts": "0cd391e27c56d2b99a00a43c27cf3056b0bb72571504a30c3e4bd8ad2729e7b3",
+        "scripts/trie/trie.ts": "15710aa694d55cfeab6c61206bd4365df7882f50ec69f46d5d90cd04c1e56bc3",
+        "scripts/write-decode-map.ts": "20c9dc90dbe79ba79e91ca18012fa2691b23f002bfbf4ece3e88b921332a3c10",
+        "scripts/write-encode-map.ts": "d3a982a6b20a493c8162f6db254f6891ae99b8b3eb74af52390df0e10891e910",
+        "src/decode-codepoint.spec.ts": "8c04ed60665199102a0e6a698a000830d271572aa262b53518f2986b5fb46577",
+        "src/decode-codepoint.ts": "c03b4370101814e1697ec2aab72afaff2f6953da93a0f51f9d03d76dcd7e499e",
+        "src/decode-stream.spec.ts": "0e30910f5e71b9debea76ef0b99aea9752cbcfab35e5c85671e16447ae634311",
+        "src/decode.spec.ts": "8ea6e062d4d7a11f5772c50b17bd62def3c0cccd7243289da993a0301853bab3",
+        "src/decode.ts": "705c06120853183cb4b6dbd6ae66351319df719183d9e276df63c6b055227949",
+        "src/encode.spec.ts": "7d1699d80331fc4a5ef7fb6671e2314b30d4cd6388efb14fe75924b294b825da",
+        "src/encode.ts": "0e4ab26d5f0b3ebc0040ba82051b1efa65cddc3f92766242a01bf49bd19597d3",
+        "src/escape.spec.ts": "e4d9e00972c547f434c27a6d10618c18ad6feaebcf51c26f20861a234f0d6cfb",
+        "src/escape.ts": "7a2de64eeae4f45b0eacc0e90a690d28954824a79c903560651c49a837dacff2",
+        "src/generated/decode-data-html.ts": "311abce9ef15f739e302c7c561f81f796afef4f3759f12594cfe7c7a2a8881f3",
+        "src/generated/decode-data-xml.ts": "bd20498d9fcd8687c57c3fd553b39bafe1533d7997518abe17bf678357dcd8e4",
+        "src/generated/encode-html.ts": "f0c091d10188502f3a909bf2a8e75771229a4bad8c11e13fb5153b99b27a6b66",
+        "src/html5lib.spec.ts": "816414c2fa9ca82d99df23e93b0b578786303cb4eaae8d8c081545ff6d1974fe",
+        "src/index.spec.ts": "fef9f603f1b1e53ac41f16d84722022609409bdb6dd57274c699832282beed66",
+        "src/index.ts": "da3479534abbec48270f2798fe662510e221af2d150dba6633b91571403e01d8",
+        "src/internal/bin-trie-flags.ts": "3b86ee5c63f159fed9059c2534d4137b5c5e0e060920bed44c80e77beb2048ff",
+        "src/internal/decode-shared.ts": "f26884f6f693a7ea5dacd1bc68fe38ee9729f4bcc1adafe1951a0a29d9a2321f",
+        "tsconfig.eslint.json": "bedb50b2c05b0b193824bc31df88e89d648f1b62a4e932a80f1d86d2931f2a66",
+        "tsconfig.json": "ca0ad400b66275bfad57fc5d27c2c7474991df46b9f3ba0caa5e93486c6f4ae6",
+        "test/fixtures/html5lib-tests/.gitattributes": "07bb3ab10121198b5c5300fed96e37d94702ff4715b5d56363d9768ec4fafec8",
+        "test/fixtures/html5lib-tests/.github/workflows/downstream.yml": "71909196e6cdf312122c3b8ff5d70c88aec8ff3cae74c09ce5337981376c2677",
+        "test/fixtures/html5lib-tests/.github/workflows/lint.yml": "076add12105ae6ab2a9d926b6dadf24fa35c66eac78246fa3342066055956987",
+        "test/fixtures/html5lib-tests/.gitignore": "12d926aee9f78d0e85f756361966f0bbba9a53a48eae598eb700187395e40b29",
+        "test/fixtures/html5lib-tests/AUTHORS.rst": "ff66841d2cb8863976712fefb8c2f964b649cdca4480ec3faa31ed43c05c8eb1",
+        "test/fixtures/html5lib-tests/LICENSE": "ff512aac9ef231d504be5afaf4429005024e4b2aaf257be39524f37b8402aaf2",
+        "test/fixtures/html5lib-tests/README.md": "098090c5e4034d364989cb294d8b809a08412f5978ec434ab58939b82464e1df",
+        "test/fixtures/html5lib-tests/encoding/chardet/test_big5.txt": "910c3b0e03f5ff44e0ad6c1f4a18a328bc5144e61ba97d81165cd08da48b40c6",
+        "test/fixtures/html5lib-tests/encoding/scripted/tests1.dat": "a6ee1080bf863b71163a3213c4b01ca8dabdf2521a2ed00e74348ace8dd13c50",
+        "test/fixtures/html5lib-tests/encoding/test-yahoo-jp.dat": "dc353a7ceaa9428a668e7846e78efd18f7e0a09e768d6be61166c12fc223a432",
+        "test/fixtures/html5lib-tests/encoding/tests1.dat": "ef54dd3d9c256a6830c266808c0277545a156a241b350c613c996a4cea52e5f7",
+        "test/fixtures/html5lib-tests/encoding/tests2.dat": "5e00d81e6207307f1186ea85f85b5f58003af94f5a7c6a3e06ca19c17567f51b",
+        "test/fixtures/html5lib-tests/lint": "7a6e0a6b5408793ea592da3054780836ee612f70bf4311eaf65967dfc2137e4b",
+        "test/fixtures/html5lib-tests/lint_lib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor-patches/funcparserlib.patch": "defcaa54adeee5bf27e094de746d28cc76592914da2086bdd07eca6858b15232",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/LICENSE": "2b38372de6b025165cae5a526cb83aa99fba2d851e0f01e69b8ce43add9e6139",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/lexer.py": "6eb0439ddc9a01d79a5261eff20fe310357bf6fa7ac739ad11461fa7e04a756b",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/lexer.pyi": "94fd504b4a9683edb0765af79a59d617084040ab33b3e765bcd0c9639b9eadfd",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/parser.py": "c11f76e3df418a35883d27546ef07e011547ed62da4bdf8717191e3944bf2f4f",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/parser.pyi": "ff95648dbd2705ae4cceab3e6291bc8db64f201efdf157edaa5f05222d226310",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/util.py": "147453784d85063713dd8f0aa3df1fce06cbb664f171534e67fc2d135edcc8fa",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/util.pyi": "f7480ef9d4262db2a3d049cd5415be90301d81a9c8414ef35a3e54e8d04a3dd1",
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/vendor.txt": "9438dbd46f91e5459d22c7614538a27c1e68f12a8b792cd78b15118e50c102d2",
+        "test/fixtures/html5lib-tests/lint_lib/lint.py": "ea743284cfe4043b8024472f15302f4d15d5c302df8dbe55035764993f04b1bf",
+        "test/fixtures/html5lib-tests/lint_lib/parser.py": "55d8a5eedcce3d8819f2610546e3b5270436c989c3a9bbfcd02f577754b689bd",
+        "test/fixtures/html5lib-tests/pyproject.toml": "16db64f09aa92f0b4a226be7ce432689c115ed803134e75d068208f2666b9882",
+        "test/fixtures/html5lib-tests/serializer/core.test": "bf9450217dcf361f5c48919b70e16feeffbe9f785a629f6ebecf9f812774a9ce",
+        "test/fixtures/html5lib-tests/serializer/injectmeta.test": "971607e59e56e54904313a7e1620e38e8c0f64ae281c8afaff2f0edd1f0d5f1a",
+        "test/fixtures/html5lib-tests/serializer/optionaltags.test": "26e6b849fb843049f5e3e668e55727998a0af0a6a5d87f92a5b68d5e4ecd83dc",
+        "test/fixtures/html5lib-tests/serializer/options.test": "0022ab4391a69cf3d60f80abf8e3758629510e86752845da1ff01c43690f47c3",
+        "test/fixtures/html5lib-tests/serializer/whitespace.test": "aabe5a7868a47939719d5ef3886cb2255764331ced5e8dc4642b5236de273462",
+        "test/fixtures/html5lib-tests/tokenizer/README.md": "2eb2365cd3ee8b79ab94c3987363b327601bae64c690bfed896c6c30c21fe543",
+        "test/fixtures/html5lib-tests/tokenizer/contentModelFlags.test": "77784a505a528950761cfb3c76617afade28b27c3be2a8c37dce3c3d8988391d",
+        "test/fixtures/html5lib-tests/tokenizer/domjs.test": "3273e7861bbdb094571e4b0813ffdd934fe2bfd65864600fef62e8e3b807131a",
+        "test/fixtures/html5lib-tests/tokenizer/entities.test": "fe17483810a00247579f5f129ca9c007fbab6755ba839523e29aa9f8875f4085",
+        "test/fixtures/html5lib-tests/tokenizer/escapeFlag.test": "edbd2e070a14fc67f6bbc104e50207f0fe206a21891c260deea3d227b32c93c9",
+        "test/fixtures/html5lib-tests/tokenizer/namedEntities.test": "a7f0e59ff7653820330548776cb3031c18e45f5fd1481a9813d9c7acee89bd6e",
+        "test/fixtures/html5lib-tests/tokenizer/numericEntities.test": "679296c976252322ece27e2b113a5358a0aa3b0b8ecd2d6d9b365f9d1b0f9632",
+        "test/fixtures/html5lib-tests/tokenizer/pendingSpecChanges.test": "6b56d81ca09afa47d8cb0f33e3fb7169010c3a64493e608ebec921ac098ff8e9",
+        "test/fixtures/html5lib-tests/tokenizer/test1.test": "524fcfa4d561a14f0c4e72e0573549abe6341fd4dfb8e16bc2dcf59a608a7219",
+        "test/fixtures/html5lib-tests/tokenizer/test2.test": "f6450e77760cea823258de86f8e08894a1815671dbec0d74e7fbdab075596e37",
+        "test/fixtures/html5lib-tests/tokenizer/test3.test": "9912fa27f03344243f1baa96d9690a5c2a4a9c9426c70da5cbf5c62391d62de4",
+        "test/fixtures/html5lib-tests/tokenizer/test4.test": "c4967118aecbf8eb2ca34d5c5306f536614acca03e58610f75fbd9efa89fbb42",
+        "test/fixtures/html5lib-tests/tokenizer/unicodeChars.test": "22b7263a840da38179b13693bbfe72f0507dcd41951622456a0d3f5300ba42bd",
+        "test/fixtures/html5lib-tests/tokenizer/unicodeCharsProblematic.test": "3c166d5cfa24ee60fd7310ff0f5057e4ae0c649842ec446b5949215759e19a68",
+        "test/fixtures/html5lib-tests/tokenizer/xmlViolation.test": "193a2f52d81adb4df4e056e3489f3bae79b3fc65253ccf31423a0e2f9c128d5c"
+      },
+      "symbolic_links": {},
+      "submodule_provenance": {
+        "test/fixtures/html5lib-tests/.gitattributes": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "897831b2e58d895fc8a368057d1b0f84f6cf3096"
+        },
+        "test/fixtures/html5lib-tests/.github/workflows/downstream.yml": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "59f121f0d487e3eb2dab6e1013310aecdcec8e42"
+        },
+        "test/fixtures/html5lib-tests/.github/workflows/lint.yml": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "99f67c50e31789589966a01b05099db76529fc3e"
+        },
+        "test/fixtures/html5lib-tests/.gitignore": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "f8b56708691e62c365881ea7b8b0da7f73d83a12"
+        },
+        "test/fixtures/html5lib-tests/AUTHORS.rst": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "4a7de17ad456c9ac661a31c5daf9b62a5933c0b2"
+        },
+        "test/fixtures/html5lib-tests/LICENSE": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "8812371b41cfc6d2de3eac8c0b2a7a90f9b03428"
+        },
+        "test/fixtures/html5lib-tests/README.md": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "54556b705f30e6f253f8a911185f200158f46027"
+        },
+        "test/fixtures/html5lib-tests/encoding/chardet/test_big5.txt": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "91074c98d210d6d3335456c8fee0ae6845f66d57"
+        },
+        "test/fixtures/html5lib-tests/encoding/scripted/tests1.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "04d18bb968f077ec5da7c7f6a9990b4e692b5e9f"
+        },
+        "test/fixtures/html5lib-tests/encoding/test-yahoo-jp.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "3629278931ce0842fb15ff6b1123a8b0b521410b"
+        },
+        "test/fixtures/html5lib-tests/encoding/tests1.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "7aa9586ddc8e3f3d8dc0de09da3703ee7ed035ac"
+        },
+        "test/fixtures/html5lib-tests/encoding/tests2.dat": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "d31b387fb5dd19ef65d3994ff449fdd33847d269"
+        },
+        "test/fixtures/html5lib-tests/lint": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "19b7f50c4662c86bc9c4f9118b2e9497be31b844"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/__init__.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor-patches/funcparserlib.patch": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "fc294880b761e832183d9c27aec2aa22131fc36c"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/__init__.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/LICENSE": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "31d3a95b9fcbe8bd6b8c15bbc8daed93dba8048f"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/__init__.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/lexer.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "0a5b5e9efd9a266e23b755bde719868476c39ee6"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/lexer.pyi": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "b1e88fe7293051936079e268a94ee75163f04c8e"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/parser.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "0bbac7f56fc87f0215ece84b43822b0b6d55e3da"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/parser.pyi": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "e21ded5ab353b876ba381db2a971cd193a38be3b"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/py.typed": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/util.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "5c9ea51ec9220bbb1cb9e73b9a663e6f863f9107"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/funcparserlib/util.pyi": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "cf6a3d48f3d415c17bc1e62a26af14a9b55fcb34"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/_vendor/vendor.txt": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "8af787f176ed404dc8553e77f9cb568f6575e4d0"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/lint.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "de4ccd094cebea77a92a2c31f7cb8b6cc1e89502"
+        },
+        "test/fixtures/html5lib-tests/lint_lib/parser.py": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "d18605a681f68da964d3cfded7c767a288978f76"
+        },
+        "test/fixtures/html5lib-tests/pyproject.toml": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "a68f7874040604f189b15504132d43d0364c80da"
+        },
+        "test/fixtures/html5lib-tests/serializer/core.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "1d53b75b5da55955de48ffb8a051f3569c7e2cea"
+        },
+        "test/fixtures/html5lib-tests/serializer/injectmeta.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "feaaa44f839a7bcb77c9d41b0da683b099671a2a"
+        },
+        "test/fixtures/html5lib-tests/serializer/optionaltags.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "80a5edf89684c815ac697880685a2547ddfe8a0f"
+        },
+        "test/fixtures/html5lib-tests/serializer/options.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "41eb1c84b2b1ed1c3c1607228a5977f24282759a"
+        },
+        "test/fixtures/html5lib-tests/serializer/whitespace.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "e5d050d3beedfa17588b1078cef57b3bcc6a1a1d"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/README.md": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "66b81e8f873c4076a7ce69187c87df00bb373c7f"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/contentModelFlags.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "9cf7c8bd9e70dfbd0037726d6a840e67d3aa5e12"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/domjs.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "1a0824d789b767792286c98e92843d388eb6b5ce"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/entities.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "a6469cd0dc533d0c3b60d0ec8e8b3726524a98d7"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/escapeFlag.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "d7d2c490bfd161681df4a846a454d588b94e3d19"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/namedEntities.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "f74f5bff6d6513ca832da5dd12437d3f5d5861a5"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/numericEntities.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "085109b797acc6657dea2ccf7c29d31942cc7214"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/pendingSpecChanges.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "191434f1b13532b03c1bc8519d6c4a1247ac2582"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/test1.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "5323fbbeae2c6116aab14a716c8df1174e7870fb"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/test2.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "c29e4c315a66e9cb17f6629816331de4421af15a"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/test3.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "901a581e35cd64fafec2db0b4d5b2390ec12534f"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/test4.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "8963c7471184e53446afaa31e9cc7a74624a3812"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/unicodeChars.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "49a8098528ea9771f42c619cb6a63d7bb4b6be86"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/unicodeCharsProblematic.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "3ddb96c011b77706b80ff98f54bc4b1288bc8cf2"
+        },
+        "test/fixtures/html5lib-tests/tokenizer/xmlViolation.test": {
+          "repository": "html5lib/html5lib-tests",
+          "commit": "224991ec10db04f056a89eed8b0bd8695fd2950e",
+          "Git_blob": "da6159e2ea7418684db258cd9fd7aad48f24af25"
+        }
+      },
+      "all_original_cases_helpers_fixtures_and_configs_unchanged": true,
+      "application_or_vendor_suite_execution": false,
+      "published_archive": "entities-8.1.0.tgz",
+      "published_archive_sha256": "e9a27d66db0d0a6f2d76454219d94f5729ae2a29f08ab06c92e5f6eaa37cbe68",
+      "published_file_sha256": {
+        "package/LICENSE": "cb992345949ccd6e8394b2cd6c465f7b897c864f845937dbf64e8997f389e164",
+        "package/dist/internal/bin-trie-flags.js": "8bb285f9ab41b9fd2525c83902c99b36e7c36da7cb7fa3be574d68f328183de5",
+        "package/dist/decode-codepoint.js": "dddf76e72987697316e647f046b2755dafe16308fe83159969b3155e0ebf3beb",
+        "package/dist/generated/decode-data-html.js": "1ff1226550125bb8976dd032b2dcfc37ba311863dbf9ae69b4b16922f5a38ead",
+        "package/dist/generated/decode-data-xml.js": "e549a5fd573d540a4652c81fab6655f3418c34c1613a30ed245ca017d9a5b730",
+        "package/dist/internal/decode-shared.js": "cd26388e8ec3fdc2c4b212883e9ae460a4fe6dd37d80d0dacffd6b0087171b6b",
+        "package/dist/decode.js": "6ce0048039ae0f9dab6e21dd1309661bcfe7e3beabfab1f15cdd61adb91e20b7",
+        "package/dist/generated/encode-html.js": "b5fcf3d4d73f5bd5f6a49c9c9da3cc6b824b2e2e5068f74c108649b1185d0a1c",
+        "package/dist/encode.js": "af4b217937b364425a6303b2febfda0a2d1282b73e1d7a3e6381ac2072b7d0ea",
+        "package/dist/escape.js": "880426162e6e6a1c65cb67cca4824c529c37192b51b0571927a81d33074f7302",
+        "package/dist/index.js": "4ce5bc47aa7a5f3958bc4d42e450d62156efdd043cbad6b7edbdf9604d85dc4f",
+        "package/package.json": "b6ff1175be0fa103f032d52e42af95d95c674e3cba08d93670cc8944697bcc42",
+        "package/dist/internal/bin-trie-flags.d.ts.map": "de4c203c623f110bfbd42691a2f36227dbdbf7a7a627418ee2c2b24f6f7da492",
+        "package/dist/internal/bin-trie-flags.js.map": "a6c9089127499b755a7708bfb7ef75c5f1ee0aa2a3e29c0ff9c8fdea0942e7ba",
+        "package/dist/decode-codepoint.d.ts.map": "9a8363a2f09b5665daa45fdedad4e3c89f52053df80e69438f9cffb403a61f80",
+        "package/dist/decode-codepoint.js.map": "e86d216b631af957f33e46bea4b4a6fcdbcbb6468048f47eda1a25ace7f86317",
+        "package/dist/generated/decode-data-html.d.ts.map": "9dd9ea889ff6eaaa32d12881cdc41499395781ccccc7e2050dc1976f9055444a",
+        "package/dist/generated/decode-data-html.js.map": "9e32dad499882db79d6364147958726804774071b09537fb1b9fd9e3dd6d3c88",
+        "package/dist/generated/decode-data-xml.d.ts.map": "3d2168dd79184f7682f2e283d803bc386a2daed18ef0c19c5c8e798e9281f916",
+        "package/dist/generated/decode-data-xml.js.map": "dc23bba80a5f95aa08fd78973650d6ee84dc8d0c94164b7b12654b9d8a0d7efc",
+        "package/dist/internal/decode-shared.d.ts.map": "52790a6b16eeb690f4309ea30c99fc3f19a73fa4811ddf702cfb266856c75ddf",
+        "package/dist/internal/decode-shared.js.map": "5da63314c91aff57408f6b7c847152a78c89f911387602876e5c3a8688be3189",
+        "package/dist/decode.d.ts.map": "5ada403c2b1e37cd496d76562ea5f7e6774563e445a64d80ba66e29c03c443cc",
+        "package/dist/decode.js.map": "a7e611b71802b1e9d3fdfb0e52845087e1b8a6de8c52fb56aa9a772d862db163",
+        "package/dist/generated/encode-html.d.ts.map": "7ae42f32c18c633a7045d0bcf4632213d04f5dfa4ac6ea67cfa86a2c97665bae",
+        "package/dist/generated/encode-html.js.map": "1e9efac288c2ea658f9d237f32885e064bb08343d7a32b990b9b5728920c28f4",
+        "package/dist/encode.d.ts.map": "9630adaaf10a646f813abaef9cc50daa614ec7d83a665351f63a2161735a57c4",
+        "package/dist/encode.js.map": "152af19caff63d0a0177a8cbac36acf6fca070747d58b5f5488dcfb19d31f2e4",
+        "package/dist/escape.d.ts.map": "a6c82213e7b1d780866bfe4b793843c15f1ad01c42e5fcf53766d1bdcb42e734",
+        "package/dist/escape.js.map": "f8ff47b45a3cd74d779c42310d98dddb1dc7a5d96a582c8fd42cf47e14d577a0",
+        "package/dist/index.d.ts.map": "3f9f381e924ab70ba0c82d931c04e923fc35a196de9af9e80c9f3826ddccdbf0",
+        "package/dist/index.js.map": "5da1a92ec62496c7980bb6b1f61a14c38173ac6db72cbbf45dd162089b59c8db",
+        "package/readme.md": "ec0f59ca389c284d126a24bae2b5f28dc7e2a6244e50d6ce28baea1b2f3518f6",
+        "package/dist/internal/bin-trie-flags.d.ts": "15e43c923d296396131fdcb9eb66babf158b3b62f9e79e9c19d19820e09bcb94",
+        "package/src/internal/bin-trie-flags.ts": "3b86ee5c63f159fed9059c2534d4137b5c5e0e060920bed44c80e77beb2048ff",
+        "package/dist/decode-codepoint.d.ts": "d9f14caab5594397d69d789849772b45ab727f074f0c71d6b5b3f6c3f4278b20",
+        "package/src/decode-codepoint.ts": "c03b4370101814e1697ec2aab72afaff2f6953da93a0f51f9d03d76dcd7e499e",
+        "package/dist/generated/decode-data-html.d.ts": "b7d93c698f801b98c48953443ce741244a695f27ff2934d135c6689730022b19",
+        "package/src/generated/decode-data-html.ts": "311abce9ef15f739e302c7c561f81f796afef4f3759f12594cfe7c7a2a8881f3",
+        "package/dist/generated/decode-data-xml.d.ts": "29d8aa980b3ced0f40d5a1f9821cb17568f078edea29f9dcf6708e1efdf886b0",
+        "package/src/generated/decode-data-xml.ts": "bd20498d9fcd8687c57c3fd553b39bafe1533d7997518abe17bf678357dcd8e4",
+        "package/dist/internal/decode-shared.d.ts": "4a520a1537e754b8ee0973d9ce81ecf2bbcd914e02ccd336c99dd0daa278296e",
+        "package/src/internal/decode-shared.ts": "f26884f6f693a7ea5dacd1bc68fe38ee9729f4bcc1adafe1951a0a29d9a2321f",
+        "package/dist/decode.d.ts": "94f2d36b0657fa554f412c5b318993310bf7f5e58986acf8baa7579cdb792e54",
+        "package/src/decode.ts": "705c06120853183cb4b6dbd6ae66351319df719183d9e276df63c6b055227949",
+        "package/dist/generated/encode-html.d.ts": "fdcc22a53b9182ec28b933d66c199acd9067eddf3c6292ef9ae78c1fafce9e91",
+        "package/src/generated/encode-html.ts": "f0c091d10188502f3a909bf2a8e75771229a4bad8c11e13fb5153b99b27a6b66",
+        "package/dist/encode.d.ts": "afb564062cb1f972ee2e5e83faa5e3b7f3aece6690fae3c0e676eaf64b3e4bb7",
+        "package/src/encode.ts": "0e4ab26d5f0b3ebc0040ba82051b1efa65cddc3f92766242a01bf49bd19597d3",
+        "package/dist/escape.d.ts": "8a1089bdd5380823fccbc57189ed28106d272a01881dc4610c8dd8dd6ea340ea",
+        "package/src/escape.ts": "7a2de64eeae4f45b0eacc0e90a690d28954824a79c903560651c49a837dacff2",
+        "package/dist/index.d.ts": "7d826aab9b5db8367de2c279da26e3f8286e900115c882023444f7f665dcf4b3",
+        "package/src/index.ts": "da3479534abbec48270f2798fe662510e221af2d150dba6633b91571403e01d8"
+      },
+      "published_manifest": {
+        "name": "entities",
+        "version": "8.1.0",
+        "description": "Encode & decode XML and HTML entities with ease & speed",
+        "keywords": [
+          "html entities",
+          "entity decoder",
+          "entity encoding",
+          "html decoding",
+          "html encoding",
+          "xml decoding",
+          "xml encoding"
+        ],
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/fb55/entities.git"
+        },
+        "funding": "https://github.com/fb55/entities?sponsor=1",
+        "license": "BSD-2-Clause",
+        "author": "Felix Boehm <me@feedic.com>",
+        "sideEffects": false,
+        "type": "module",
+        "exports": {
+          ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+          },
+          "./decode": {
+            "types": "./dist/decode.d.ts",
+            "default": "./dist/decode.js"
+          },
+          "./escape": {
+            "types": "./dist/escape.d.ts",
+            "default": "./dist/escape.js"
+          }
+        },
+        "main": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "files": [
+          "dist",
+          "src",
+          "!**/*.spec.ts"
+        ],
+        "scripts": {
+          "benchmark": "node --import=tsx scripts/benchmark.ts",
+          "build": "tsc",
+          "build:docs": "typedoc --hideGenerator src/index.ts",
+          "build:encode-trie": "node --import=tsx scripts/write-encode-map.ts",
+          "build:trie": "node --import=tsx scripts/write-decode-map.ts",
+          "format": "npm run format:es && npm run format:biome",
+          "format:biome": "biome check --fix .",
+          "format:es": "npm run lint:es -- --fix",
+          "lint": "npm run lint:es && npm run lint:ts && npm run lint:biome",
+          "lint:biome": "biome check .",
+          "lint:es": "eslint .",
+          "lint:ts": "tsc --noEmit -p tsconfig.eslint.json",
+          "prepublishOnly": "npm run build",
+          "test": "npm run test:vi && npm run lint",
+          "test:vi": "vitest run"
+        },
+        "devDependencies": {
+          "@biomejs/biome": "^2.5.12",
+          "@eslint/compat": "^2.1.1",
+          "@feedic/eslint-config": "^0.5.0",
+          "@types/he": "^1.2.3",
+          "@types/node": "^26.4.1",
+          "eslint": "^10.10.0",
+          "eslint-config-biome": "^2.1.3",
+          "globals": "^17.12.0",
+          "he": "^1.2.0",
+          "html-entities": "^2.6.0",
+          "parse-entities": "^4.0.2",
+          "tinybench": "^6.1.5",
+          "tsx": "^4.23.13",
+          "typedoc": "^0.28.20",
+          "typescript": "^6.0.3",
+          "typescript-eslint": "^8.69.0",
+          "vitest": "^5.0.0"
+        },
+        "engines": {
+          "node": ">=20.19.0"
+        }
+      }
+    }
+  },
+  "latest_stable_catalog": {
+    "@biomejs/biome": {
+      "version": "2.6.3",
+      "registry_metadata_sha256": "1aecd1d5df1dfdc1ba857dca1b3df05604796c0f901fc82c84368c810a838410",
+      "integrity": "sha512-va/0xPku7wnfzv+D8Zpdm5uKiGJWiV8neqoEPnRjvNQQwhl4tVXS4fETs4H0CCB2rGeqJ4cu9y4iOZOnOYKAUA=="
+    },
+    "@eslint/compat": {
+      "version": "2.1.1",
+      "registry_metadata_sha256": "b9ed5f966a898bdae1d89868d1256b04019c3e06b03f17c4df5bbe48386bae43",
+      "integrity": "sha512-rMcy8GSrwNzcISX/BlTDY/GLB4eCopEuy9woIls3To+15OLxykZrxxq+WUcylCPCQ6F4MujjBM1DX5V1aqI3Vw=="
+    },
+    "@eslint/js": {
+      "version": "10.0.1",
+      "registry_metadata_sha256": "75eeba3862a04516865e8797781aaed448dec1815f3cd37ac871284079b768ff",
+      "integrity": "sha512-zeR9k5pd4gxjZ0abRoIaxdc7I3nDktoXZk2qOv9gCNWx3mVwEn32VRhyLaRsDiJjTs0xq/T8mfPtyuXu7GWBcA=="
+    },
+    "@feedic/eslint-config": {
+      "version": "0.5.0",
+      "registry_metadata_sha256": "afa1072299ad3790d46ce5282103d9bd0b86d50173031ed50b8ee7bb7c6c6eae",
+      "integrity": "sha512-j3rj0vDAGJ/FpgYKiHgrknWx2vEzdIvTcE6/jCWsYmCI8YV6Mpkn9gzpmkBsomQ4XgiDXD6nQeaz0m83I9oGog=="
+    },
+    "@types/he": {
+      "version": "1.2.3",
+      "registry_metadata_sha256": "e8c29641b165379ef654e2c3b54d70eecd7a5d724d58088137db8bdc43b3b643",
+      "integrity": "sha512-q67/qwlxblDzEDvzHhVkwc1gzVWxaNxeyHUBF4xElrvjL11O+Ytze+1fGpBHlr/H9myiBUaUXNnNPmBHxxfAcA=="
+    },
+    "@types/node": {
+      "version": "26.6.5",
+      "registry_metadata_sha256": "c7b04c1f31c47dc6589284644d790ded395526d47fc08c9732885e9818a7b9c4",
+      "integrity": "sha512-uMzsv9stDdofIZBx4UGh4Z9ZgXnGC9seRDscilBcTHAeOFk67MZg/k9bWVfO+bk4qZmG+l52hRnLwUiH2LnJTg=="
+    },
+    "@vitest/coverage-v8": {
+      "version": "5.0.5",
+      "registry_metadata_sha256": "7a3838e657d4ee022bd29506eb20e7f14a300424da044227a97faf551e097ed8",
+      "integrity": "sha512-4KpkGdIrSqBihx/JyP/e+S+IKB98etg1XDQiLAxksLfcShnwi1VReGeOT9NI43hLHbknosKp/1CCLn9Zgcs8mg=="
+    },
+    "benchmark": {
+      "version": "2.1.4",
+      "registry_metadata_sha256": "6446cd200ad6e288994823d638bb2f50efdaec1b36bf954d7e0c6be5410cacad",
+      "integrity": "sha512-l9MlfN4M1K/H2fbhfMy3B7vJd6AGKJVQn2h6Sg/Yx+KckoUA7ewS5Vv6TjSq18ooE1kS9hhAlQRH3AkXIh/aOQ=="
+    },
+    "domhandler": {
+      "version": "6.0.1",
+      "registry_metadata_sha256": "7b7840c71914400cad28e05c6e239baeae02f4e93854ade45ca6761fcc472382",
+      "integrity": "sha512-gYzvtM72ZtxQO0T048kd6HWSbbGCNOUwcnfQ01cqIJ4X2IYKFFHZ5mKvrQETcFXxsRObZulDaKmy//R7TPtsBg=="
+    },
+    "entities": {
+      "version": "8.1.0",
+      "registry_metadata_sha256": "76a7262e9c2dd3d916d31e651d85d3703b2b8ffc7db3e78c770b4404ca21f523",
+      "integrity": "sha512-kxL7msIffSuh9aaFAMD7rxAIuTRMAHMeBtgHW2yUdWw732ZNh4MehkF2gdjvtdmikkaIP9bFDDJOPlsvm7avrA=="
+    },
+    "eslint": {
+      "version": "10.13.0",
+      "registry_metadata_sha256": "1c53c5fad93e009f1315838f82bfb41e2bbf9c6da7ed8b90a5570d58c47e3f99",
+      "integrity": "sha512-UohDjD4zSzEwhf58M3O7vc/ycc8O1I7dNlhtD0WxE8Px8EHNJKtUwzBqrzeGhisRuv2ag4sAYswszCJRgKXYUg=="
+    },
+    "eslint-config-biome": {
+      "version": "2.1.3",
+      "registry_metadata_sha256": "62a230c726985fabf3f96a58e1e37065111d3cd1402677a3d53c658cedb22af4",
+      "integrity": "sha512-IL720kAN79egw8KyaoZsC0UMLn+NlVdPeX2ZmL0CIEcQdLJCf6d1ELCQTKnJ9Lpe6dzfP5ZF8yZ0PTMOirtT+w=="
+    },
+    "eslint-config-prettier": {
+      "version": "10.1.8",
+      "registry_metadata_sha256": "e765759472290fc203b2881299165bd29456daf62f3f425be93c1b49887935ea",
+      "integrity": "sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w=="
+    },
+    "eslint-plugin-unicorn-x": {
+      "version": "3.2.1",
+      "registry_metadata_sha256": "b65c471015c4e2acbd820899aab767036e6f26ecc3194ebb9d00afc23479ce99",
+      "integrity": "sha512-58raUuh+Rb+7xvlSRbjSHvEhqNqUphuEQU3YwkD6sB2TUiWium6JKbkHdBIdUa4jZp+MnpyakQpEqHT1OJF8Vw=="
+    },
+    "globals": {
+      "version": "17.13.0",
+      "registry_metadata_sha256": "b5a1040b814eafd80e2749fbd9957ee6e3952dcc149af93aaf7832c7a6aae5ae",
+      "integrity": "sha512-RwMTC61u7hrG3ZJMkZQOK4JLJrKS8QtoTii63EmWvFXHqycY9FObBJQCbsLxSO8kjKhWE5kV1GC+Vb1g3RI0Zg=="
+    },
+    "he": {
+      "version": "2.0.0",
+      "registry_metadata_sha256": "1edd3a0583b9b04af66072b38d676ef8453eac286e329052d3f4f9ffdfb86cf1",
+      "integrity": "sha512-0jE+JPv08nhXWmI1dULybzqNt34RbkH6Ul6V4cmDONpjYx1SfyObKF38FJLaJ1K7WWD93LWL9lewzk4E1Ria4A=="
+    },
+    "html-entities": {
+      "version": "2.6.0",
+      "registry_metadata_sha256": "55fffed039cab874325fef081e2801ed67ca988a93a0e1e336793563a64809ee",
+      "integrity": "sha512-kig+rMn/QOVRvr7c86gQ8lWXq+Hkv6CbAH1hLu+RG338StTpE8Z0b44SDVaqVu7HGKf27frdmUYEs9hTUX/cLQ=="
+    },
+    "human-format": {
+      "version": "1.4.0",
+      "registry_metadata_sha256": "0ee28f511818efb46938930df686a178d4d6c63c7f9b136e1934e83ddef72a9d",
+      "integrity": "sha512-c7nc9W5j1NsYwJJG5SUEwsZb5yvZNeHEdQspQTx3Q8uLvGYjS+7Oyoh/giaGd0aZN4kBIzGhlqmAvl4MEypJig=="
+    },
+    "husky": {
+      "version": "9.1.7",
+      "registry_metadata_sha256": "405857547bf9285fcc30d66c8a37ba2316fc2f0daa0e052136868ef65a516212",
+      "integrity": "sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA=="
+    },
+    "nano-staged": {
+      "version": "1.0.2",
+      "registry_metadata_sha256": "7c9c03d6d77694a596fa23f90ebe38bce1b5d22420789172ef6896b430aa45d6",
+      "integrity": "sha512-Fytar3zHLY99nlMfqPPbraxZodqQAHPpdPRyYaplL+lB9DCR6pUrafxbG+Btz4+7fO5Rm/+DO4ZeDO/nLSUMhw=="
+    },
+    "outdent": {
+      "version": "0.8.0",
+      "registry_metadata_sha256": "15492fc25ad0ab9b27ffcf9f9b61e5ab742b1ede91284e11132b5f10a75c3770",
+      "integrity": "sha512-KiOAIsdpUTcAXuykya5fnVVT+/5uS0Q1mrkRHcF89tpieSmY33O/tmc54CqwA+bfhbtEfZUNLHaPUiB9X3jt1A=="
+    },
+    "parse-entities": {
+      "version": "4.0.2",
+      "registry_metadata_sha256": "725fd753befa21d600717c1b1b6202a32cee2046dbd9cb386187930f13351438",
+      "integrity": "sha512-GG2AQYWoLgL877gQIKeRPGO1xF9+eG1ujIb5soS5gPvLQ1y2o8FL90w2QWNdf9I361Mpp7726c+lj3U0qK1uGw=="
+    },
+    "parse5": {
+      "version": "8.0.1",
+      "registry_metadata_sha256": "84d53f636c6da77153f63907b05763dde0fa9b4476d18198ee539de5b345785a",
+      "integrity": "sha512-z1e/HMG90obSGeidlli3hj7cbocou0/wa5HacvI3ASx34PecNjNQeaHNo5WIZpWofN9kgkqV1q5YvXe3F0FoPw=="
+    },
+    "parse5-html-rewriting-stream": {
+      "version": "8.0.1",
+      "registry_metadata_sha256": "92b4cc428d77ba84dfcd4fac90829289b2402e7b5234e83d16b00b2fae1b50d9",
+      "integrity": "sha512-NaRku2aMpUN1Sh1Gyk1KWUh2A7EJx2c6qYzvwsPtqhoHoaURshdrceYK3LunVCm3WHhm6FS7Vcczbvdh3/UIVw=="
+    },
+    "parse5-htmlparser2-tree-adapter": {
+      "version": "8.0.1",
+      "registry_metadata_sha256": "9fddc60bdce090ba4c893aff4369b4683bdf80b58493b5fb5d97418eb54ad7de",
+      "integrity": "sha512-aqkH+xQxX+QGZtP5GIMmqqp16Y0v9muEf2VVeypv35kFsD5bqP1UeBanSshdfjMY+RTh2vN4mmK6nEOVRMEvHg=="
+    },
+    "parse5-parser-stream": {
+      "version": "8.0.0",
+      "registry_metadata_sha256": "b8a1a6bca9c4a9f307350eb5cfa86d49783b7cecb5c23f7d9b99a3bcf5a37c6f",
+      "integrity": "sha512-b+std4I3eeGJcO5OlBYdwBsw1FNaF+qEzzq2XGfRm1dZdqUBUirsVscPCW9X4oJU0q/0C8NqMpgokLywkgxT0A=="
+    },
+    "parse5-plain-text-conversion-stream": {
+      "version": "8.0.0",
+      "registry_metadata_sha256": "85bf58bc5349e3901047f0df1ef9ebe5cadbc8c3764201d9bdc6851d2a39d6a8",
+      "integrity": "sha512-HWvlCMTSVZzs1A4AJhQOmRUjwUxvCwkZGquciphou4+CUXgsqUAuY3iPYj3kWsEjPCLD00FCG9PV4qWBkYYVRA=="
+    },
+    "parse5-sax-parser": {
+      "version": "8.0.0",
+      "registry_metadata_sha256": "d98731eb110772d863709109a0e49545a9a4cbed74b924b86a96218a015f8098",
+      "integrity": "sha512-/dQ8UzHZwnrzs3EvDj6IkKrD/jIZyTlB+8XrHJvcjNgRdmWruNdN9i9RK/JtxakmlUdPwKubKPTCqvbTgzGhrw=="
+    },
+    "prettier": {
+      "version": "3.9.10",
+      "registry_metadata_sha256": "15fc5a88d57d228acc4daca70370496b5c547f9b27060278a0ca804c4fd75e04",
+      "integrity": "sha512-skGHTH1Yb9QvaTC4hWnRTzEYtCpApF0UMBPz+t/0ZPzP8ihefo/btKd+QA7pUE0fEwA1SbS/NmhyEcstdXOIdA=="
+    },
+    "tinybench": {
+      "version": "6.2.2",
+      "registry_metadata_sha256": "1e80392263e3c1f25046352c983e0ebe6414b3162605536206f5fef9b8937e32",
+      "integrity": "sha512-nIZ2N2dFpjBsg2hgitKu7mA+FvsIJuGJOwysRngmVRRmWgR/UyPjwJj8c/fT/dhm8EkHnF5EOogRf+0Z2qrimA=="
+    },
+    "ts-node": {
+      "version": "10.9.2",
+      "registry_metadata_sha256": "9f90ab5d4c50dee32e2034b35a1ff1a8405797b49dfb4c54871400d08b010a44",
+      "integrity": "sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ=="
+    },
+    "tsx": {
+      "version": "4.23.15",
+      "registry_metadata_sha256": "45091304122fbbf3b69f1a8d516f97425a6ce8c66527a7e677566bcddd5ebf44",
+      "integrity": "sha512-Yiex1Ovn8z2xPpOWckIiysV1SSyRMY9BkLF++q0yKiDxCqRhosKfMg3janKkiLBwZ5c/YryloKwGZcrEmtwxKw=="
+    },
+    "typedoc": {
+      "version": "0.28.20",
+      "registry_metadata_sha256": "efa3b1497eb01d1063731df1b1e43a5aa6f310ad55e208b365323cd382faf0f9",
+      "integrity": "sha512-uSKqkh8Cr48vllnEy+jdaAgOeR6Y+QCBW7usgUsKj7gJEfR7stw9U/fE49LBnj2tPRKPY0c0EBJSWe9Appmplg=="
+    },
+    "typescript": {
+      "version": "7.0.2",
+      "registry_metadata_sha256": "28a8ef314c6bbc3fddb831088f80eb2fcac6351cb618c8ac029f7229f587b8aa",
+      "integrity": "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA=="
+    },
+    "typescript-eslint": {
+      "version": "8.72.0",
+      "registry_metadata_sha256": "3af26e40360030187a06edddfacfdaecc33e32c1d6185658a37b01518fdbd376",
+      "integrity": "sha512-r26Fkc8As+mZvqp7SLsMmNFyYUup/6CjK7/eHBHmhOw6GH6n6YFxHVFrG0jN1c5CMpDzelLPxvgeCOzx7BjN+A=="
+    },
+    "vitest": {
+      "version": "5.0.5",
+      "registry_metadata_sha256": "161da05d413b8aca31ebb7763625d66086cb47057057f00d24d69147a343ef62",
+      "integrity": "sha512-cPODOMF8YnkiiYtDdHo6n4wWmBrOBBbOIYH2d33M4l3CdNn72h+qMmO6uXffUN6A5AZFXNND/d+krS9mgkXRfg=="
+    }
+  },
+  "ordinary_external_declaration_overlays": {
+    "parse5": {
+      "bench/package.json": {
+        "dependencies": {
+          "benchmark": "2.1.4",
+          "human-format": "1.4.0",
+          "parse5": "npm:parse5@8.0.1"
+        }
+      },
+      "package.json": {
+        "devDependencies": {
+          "@eslint/js": "10.0.1",
+          "@vitest/coverage-v8": "5.0.5",
+          "eslint": "10.13.0",
+          "eslint-config-prettier": "10.1.8",
+          "eslint-plugin-unicorn-x": "3.2.1",
+          "globals": "17.13.0",
+          "husky": "9.1.7",
+          "nano-staged": "1.0.2",
+          "outdent": "0.8.0",
+          "prettier": "3.9.10",
+          "ts-node": "10.9.2",
+          "typedoc": "0.28.20",
+          "typescript": "7.0.2",
+          "typescript-eslint": "8.72.0",
+          "vitest": "5.0.5"
+        }
+      },
+      "packages/parse5-html-rewriting-stream/package.json": {
+        "dependencies": {
+          "entities": "8.1.0"
+        }
+      },
+      "packages/parse5-htmlparser2-tree-adapter/package.json": {
+        "dependencies": {
+          "domhandler": "6.0.1"
+        }
+      },
+      "packages/parse5/package.json": {
+        "dependencies": {
+          "entities": "8.1.0"
+        }
+      }
+    },
+    "entities": {
+      "package.json": {
+        "devDependencies": {
+          "@biomejs/biome": "2.6.3",
+          "@eslint/compat": "2.1.1",
+          "@feedic/eslint-config": "0.5.0",
+          "@types/he": "1.2.3",
+          "@types/node": "26.6.5",
+          "eslint": "10.13.0",
+          "eslint-config-biome": "2.1.3",
+          "globals": "17.13.0",
+          "he": "2.0.0",
+          "html-entities": "2.6.0",
+          "parse-entities": "4.0.2",
+          "tinybench": "6.2.2",
+          "tsx": "4.23.15",
+          "typedoc": "0.28.20",
+          "typescript": "7.0.2",
+          "typescript-eslint": "8.72.0",
+          "vitest": "5.0.5"
+        }
+      }
+    }
+  },
+  "original_internal_workspace_versions_and_contracts_retained": true,
+  "all_original_scripts_configs_cases_helpers_and_fixtures_unchanged": true,
+  "local_package_manager_compiler_or_suite_execution": false,
+  "complete_SDK_qualification": false
+}
