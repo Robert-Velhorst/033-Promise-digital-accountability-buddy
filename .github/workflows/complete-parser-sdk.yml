@@ -1,0 +1,229 @@
+name: Complete mail parser source and SDK
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  complete-source:
+    name: Application and complete public parser source
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CODEQL_VERSION: 2.27.3
+      CODEQL_EXTRACTOR_JAVASCRIPT_ALLOW_MINIFIED_FILES: 'true'
+      CODEQL_BUNDLE_SHA256: 95a1de65ac7f234ebbc49786eda82135819e2b0ac3b2c5d3263277ec5c020711
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Extract and hash every original source, fixture and published package file
+        run: python3 .github/parser-reference.py references
+      - name: Record source and verify the official stable CLI bundle
+        run: |
+          set -euo pipefail
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          mkdir -p "$RUNNER_TEMP/promise-codeql/evidence"
+          cp "$RUNNER_TEMP/parser-sdk-evidence/reference-source-sha256.json" "$RUNNER_TEMP/promise-codeql/evidence/"
+          git rev-parse HEAD > "$RUNNER_TEMP/promise-codeql/evidence/tested-head.txt"
+          printf '%s\n' "$GITHUB_WORKSPACE" > "$RUNNER_TEMP/promise-codeql/evidence/source-root.txt"
+          git rev-parse HEAD^{tree} > "$RUNNER_TEMP/promise-codeql/evidence/tested-tree.txt"
+          git ls-files -z | xargs -0 sha256sum > "$RUNNER_TEMP/promise-codeql/evidence/source-sha256.txt"
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/promise-codeql/bundle.tar.zst" \
+            "https://github.com/github/codeql-action/releases/download/codeql-bundle-v${CODEQL_VERSION}/codeql-bundle-javascript-linux64.tar.zst"
+          printf '%s  %s\n' "$CODEQL_BUNDLE_SHA256" "$RUNNER_TEMP/promise-codeql/bundle.tar.zst" | sha256sum --check
+          tar --zstd -xf "$RUNNER_TEMP/promise-codeql/bundle.tar.zst" -C "$RUNNER_TEMP/promise-codeql"
+          "$RUNNER_TEMP/promise-codeql/codeql/codeql" version --format=json > "$RUNNER_TEMP/promise-codeql/evidence/cli-version.json"
+      - name: Create a fresh database from the complete source tree
+        run: |
+          set -euo pipefail
+          # Preserve the root walk and explicitly include every tracked file, including hidden directories.
+          export LGTM_INDEX_INCLUDE="$(printf '.\n'; git -c core.quotePath=false ls-files; find .parser-reference -type f)"
+          "$RUNNER_TEMP/promise-codeql/codeql/codeql" database create "$RUNNER_TEMP/promise-codeql/database" \
+            --language=javascript-typescript --build-mode=none --source-root="$GITHUB_WORKSPACE" \
+            --threads=2 --ram=6000 2>&1 | tee "$RUNNER_TEMP/promise-codeql/evidence/create.log"
+          cp "$RUNNER_TEMP/promise-codeql/database/src.zip" "$RUNNER_TEMP/promise-codeql/evidence/extracted-source.zip"
+      - name: Analyze the complete standard security suite without PR diff extensions
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/promise-codeql/codeql/codeql" database analyze "$RUNNER_TEMP/promise-codeql/database" \
+            codeql/javascript-queries:codeql-suites/javascript-code-scanning.qls \
+            --format=sarifv2.1.0 --output="$RUNNER_TEMP/promise-codeql/evidence/full-source.sarif" \
+            --threads=2 --ram=6000 2>&1 | tee "$RUNNER_TEMP/promise-codeql/evidence/analyze.log"
+      - name: Require the full suite and zero findings at every severity
+        run: |
+          python3 - <<'PY'
+          import json, os, hashlib, zipfile
+          from pathlib import Path
+          folder = Path(os.environ['RUNNER_TEMP']) / 'promise-codeql/evidence'
+          sarif = json.loads((folder / 'full-source.sarif').read_text())
+          assert sarif['version'] == '2.1.0' and len(sarif['runs']) == 1
+          run = sarif['runs'][0]
+          components = [run['tool']['driver'], *run['tool'].get('extensions', [])]
+          assert not any('pr-diff-range' in item.get('name', '') for item in components)
+          rules = {rule['id'] for item in components for rule in item.get('rules', [])}
+          assert len(rules) >= 87
+          assert {'js/polynomial-redos', 'js/missing-rate-limiting', 'js/sql-injection'} <= rules
+          expected = {}
+          for line in (folder / 'source-sha256.txt').read_text().splitlines():
+              digest, path = line.split('  ', 1)
+              if path.endswith(('.js', '.jsx', '.mjs', '.cjs', '.ts', '.tsx', '.mts', '.cts')):
+                  expected[path] = digest
+          reference = json.loads((folder / 'reference-source-sha256.json').read_text())
+          expected.update({p:h for p,h in reference.items() if p.endswith(('.js','.jsx','.mjs','.cjs','.ts','.tsx','.mts','.cts'))})
+          source_root = (folder / 'source-root.txt').read_text().strip()
+          assert source_root == os.environ['GITHUB_WORKSPACE']
+          assert Path(source_root).resolve() == Path.cwd().resolve()
+          prefix = source_root.lstrip('/') + '/'
+          missing = []
+          with zipfile.ZipFile(folder / 'extracted-source.zip') as source:
+              names = source.namelist()
+              for path, digest in expected.items():
+                  exact_path = prefix + path
+                  if exact_path not in names:
+                      missing.append(path)
+                      continue
+                  assert names.count(exact_path) == 1
+                  assert hashlib.sha256(source.read(exact_path)).hexdigest() == digest
+          assert not missing, 'Tracked source missing from the extraction archive: ' + repr(missing)
+          findings = run.get('results', [])
+          summary = {'scope': 'complete source; no PR diff restriction', 'rules': sorted(rules),
+                     'finding_count': len(findings), 'all_results_retained': True,
+                     'every_tracked_and_reference_JS_TS_extracted_with_matching_hash': len(expected), 'all_reference_source_fixture_and_published_payloads': len(reference),
+                     'zero_findings_required_at_every_severity': True}
+          (folder / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+          print(json.dumps(summary))
+          assert not findings, 'Full-source CodeQL findings remain; inspect the complete retained SARIF'
+          PY
+      - name: Retain complete source, extraction, scanner and finding evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: complete-source-codeql
+          path: ${{ runner.temp }}/promise-codeql/evidence/
+          if-no-files-found: error
+
+  installed-publisher:
+    name: Every physically installed parser publisher file
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '26.12.1'
+      - name: Install the public stable package manager
+        run: npm install --global npm@12.2.1
+      - run: npm ci --ignore-scripts
+        working-directory: app
+      - run: python3 .github/parser-reference.py installed
+      - run: npm audit --audit-level=low
+        working-directory: app
+      - run: npm audit signatures
+        working-directory: app
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: physical-installed-publisher-files
+          path: ${{ runner.temp }}/parser-sdk-evidence/
+          if-no-files-found: error
+
+  upstream:
+    name: Original ${{ matrix.sdk }} suite with current public tools
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        sdk: [parse5, entities]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '26.12.1'
+      - name: Install the public stable package manager
+        run: npm install --global npm@12.2.1
+      - name: Prepare complete source and reviewed external declaration updates
+        id: prepare
+        run: python3 .github/parser-reference.py prepare '${{ matrix.sdk }}'
+      - name: Resolve updated declared contracts normally with original lifecycle scripts
+        id: install
+        working-directory: ${{ steps.prepare.outputs.source }}
+        run: |
+          set -euo pipefail
+          npm install 2>&1 | tee "$RUNNER_TEMP/parser-sdk-evidence/${{ matrix.sdk }}-normal-install.log"
+      - name: Build with the original command
+        if: always() && steps.install.outcome == 'success'
+        working-directory: ${{ steps.prepare.outputs.source }}
+        run: |
+          set -euo pipefail
+          npm run build 2>&1 | tee "$RUNNER_TEMP/parser-sdk-evidence/${{ matrix.sdk }}-original-build.log"
+      - name: Run the complete original test and lint command
+        id: test
+        if: always() && steps.install.outcome == 'success'
+        working-directory: ${{ steps.prepare.outputs.source }}
+        run: |
+          set -euo pipefail
+          npm test 2>&1 | tee "$RUNNER_TEMP/parser-sdk-evidence/${{ matrix.sdk }}-original-test.log"
+      - name: Run original parser coverage without altering its configuration
+        if: always() && matrix.sdk == 'parse5' && steps.install.outcome == 'success'
+        working-directory: ${{ steps.prepare.outputs.source }}
+        run: |
+          set -euo pipefail
+          npm run unit-tests-coverage 2>&1 | tee "$RUNNER_TEMP/parser-sdk-evidence/parse5-original-coverage.log"
+      - name: Run the original entities lint command if earlier assertions failed
+        if: always() && matrix.sdk == 'entities' && steps.install.outcome == 'success' && steps.test.outcome == 'failure'
+        working-directory: ${{ steps.prepare.outputs.source }}
+        run: npm run lint
+      - name: Full development graph advisory audit
+        if: always() && steps.install.outcome == 'success'
+        working-directory: ${{ steps.prepare.outputs.source }}
+        run: |
+          set -euo pipefail
+          npm audit --json > "$RUNNER_TEMP/parser-sdk-evidence/${{ matrix.sdk }}-full-audit.json"
+      - name: Verify every installed SDK registry signature
+        if: always() && steps.install.outcome == 'success'
+        working-directory: ${{ steps.prepare.outputs.source }}
+        run: npm audit signatures
+      - name: Require every normal dependency graph entry to be current public stable
+        if: always() && steps.install.outcome == 'success'
+        run: python3 .github/parser-reference.py catalog '${{ matrix.sdk }}'
+      - name: Verify unchanged original source cases helpers and fixtures after commands
+        if: always() && steps.prepare.outcome == 'success'
+        run: python3 .github/parser-reference.py verify '${{ matrix.sdk }}'
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: complete-original-${{ matrix.sdk }}-SDK
+          path: ${{ runner.temp }}/parser-sdk-evidence/
+          if-no-files-found: error
+
+  application-original:
+    name: Original application cases Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22.13.0, 22.23.3, 24.22.0, 26.12.0, 22.23.4, 24.22.1, 26.12.1]
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run check
