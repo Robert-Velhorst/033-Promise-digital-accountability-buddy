@@ -4,7 +4,7 @@ Promise draait lokaal en bewaakt eigen toezeggingen en ontvangen beloftes. Een t
 
 ## Starten
 
-Pak het hele pakket uit en dubbelklik **Start-Promise.cmd**. De launcher start de lokale server verborgen en opent http://localhost:4310. Vereist Node.js 22.13 of nieuwer; op de ontwikkelcomputer is 25.2.1 gebruikt. Er zijn geen npm-dependencies nodig.
+Pak het hele pakket uit en dubbelklik **Start-Promise.cmd**. De launcher start de lokale server verborgen en opent http://localhost:4310. Vereist Node.js 22.13 of nieuwer en npm. De app gebruikt parse5 8.0.1 en de vastgelegde entities-dependency voor HTML-e-mail. Voordat een gestopte server start, installeert de launcher deze pakketten uit het lockbestand, bij voorkeur uit de lokale npm-cache. Voor de eerste installatie is toegang tot het npm-register nodig.
 
 Maak een lokale werkruimte met je naam, e-mailadres en een wachtwoord van minimaal 10 tekens. Er wordt geen registratie-e-mail verzonden. Er is geen wachtwoordherstel via e-mail. Bewaar het wachtwoord.
 
@@ -13,6 +13,7 @@ Als een eerdere Promise-server vanuit dezelfde map draait, herstart de launcher 
 Alternatief, in een terminal in deze map:
 
 ```sh
+npm ci --omit=dev --ignore-scripts
 node server.mjs
 ```
 

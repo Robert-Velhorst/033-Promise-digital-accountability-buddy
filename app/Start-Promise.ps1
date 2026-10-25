@@ -8,6 +8,12 @@ $promiseProbe = "fetch('http://127.0.0.1:4310/api/version',{signal:AbortSignal.t
 & $promiseNode -e $promiseProbe
 $promiseRunning = $LASTEXITCODE -eq 0
 if (-not $promiseRunning) {
+    $promiseNpm = (Get-Command npm.cmd -ErrorAction Stop).Source
+    Push-Location -LiteralPath $promiseRoot
+    try {
+        & $promiseNpm ci --omit=dev --ignore-scripts --prefer-offline
+        if ($LASTEXITCODE -ne 0) { throw 'Promise dependencies could not be installed. Check the npm output and try again. The server has not been stopped or started.' }
+    } finally { Pop-Location }
     $promiseListener = Get-NetTCPConnection -LocalPort 4310 -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1
     if ($promiseListener) {
         $promiseProcess = Get-CimInstance Win32_Process -Filter ('ProcessId = ' + $promiseListener.OwningProcess)

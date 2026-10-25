@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { AppError } from './store.mjs';
+import { htmlText } from './html-text.mjs';
 export const digest = s => createHash('sha256').update(s).digest('hex');
 export function zonedTime(year, month, day, hour, minute, timezone = 'Europe/Amsterdam') {
   const utc = Date.UTC(year, month - 1, day, hour, minute);
@@ -34,7 +35,7 @@ export function emailPayload(raw) {
   const body=raw.slice(split).trimStart(), boundary=headers['content-type']?.match(/boundary="?([^";\s]+)/i)?.[1];
   if(boundary){const texts=body.split('--'+boundary).slice(1,-1).flatMap(part=>{try {return [emailPayload(part.trimStart())];}catch{return [];}}); const plain=texts.find(x=>x.contentType?.startsWith('text/plain')); return {...headers,text:plain?.text || texts.find(x=>x.text)?.text || '',contentType:headers['content-type']};}
   if(/attachment/i.test(headers['content-disposition']||'')) return {text:'',contentType:headers['content-type']};
-  let text=decodeBody(body,headers['content-transfer-encoding']); if(/text\/html/i.test(headers['content-type']||'')) text=text.replace(/<(script|style)[\s\S]*?<\/\1>/gi,'').replace(/<br\s*\/?\s*>|<\/p>/gi,'\n').replace(/<[^>]*>/g,'').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');
+  let text=decodeBody(body,headers['content-transfer-encoding']); if(/text\/html/i.test(headers['content-type']||'')) text=htmlText(text);
   return {...headers,text,contentType:headers['content-type']};
 }
 export function parseImport(input) {
