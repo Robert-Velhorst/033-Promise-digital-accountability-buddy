@@ -1,0 +1,195 @@
+name: Complete Promise source security
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  complete-source:
+    name: Complete source and every reported finding
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CODEQL_VERSION: 2.27.3
+      CODEQL_EXTRACTOR_JAVASCRIPT_ALLOW_MINIFIED_FILES: 'true'
+      CODEQL_BUNDLE_SHA256: 95a1de65ac7f234ebbc49786eda82135819e2b0ac3b2c5d3263277ec5c020711
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Record source and verify the official stable CLI bundle
+        run: |
+          set -euo pipefail
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          mkdir -p "$RUNNER_TEMP/promise-codeql/evidence"
+          git rev-parse HEAD > "$RUNNER_TEMP/promise-codeql/evidence/tested-head.txt"
+          printf '%s\n' "$GITHUB_WORKSPACE" > "$RUNNER_TEMP/promise-codeql/evidence/source-root.txt"
+          git rev-parse HEAD^{tree} > "$RUNNER_TEMP/promise-codeql/evidence/tested-tree.txt"
+          git ls-files -z | xargs -0 sha256sum > "$RUNNER_TEMP/promise-codeql/evidence/source-sha256.txt"
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/promise-codeql/bundle.tar.zst" \
+            "https://github.com/github/codeql-action/releases/download/codeql-bundle-v${CODEQL_VERSION}/codeql-bundle-javascript-linux64.tar.zst"
+          printf '%s  %s\n' "$CODEQL_BUNDLE_SHA256" "$RUNNER_TEMP/promise-codeql/bundle.tar.zst" | sha256sum --check
+          tar --zstd -xf "$RUNNER_TEMP/promise-codeql/bundle.tar.zst" -C "$RUNNER_TEMP/promise-codeql"
+          "$RUNNER_TEMP/promise-codeql/codeql/codeql" version --format=json > "$RUNNER_TEMP/promise-codeql/evidence/cli-version.json"
+      - name: Create a fresh database from the complete source tree
+        run: |
+          set -euo pipefail
+          # Preserve the root walk and explicitly include every tracked file, including hidden directories.
+          export LGTM_INDEX_INCLUDE="$(printf '.\n'; git -c core.quotePath=false ls-files)"
+          "$RUNNER_TEMP/promise-codeql/codeql/codeql" database create "$RUNNER_TEMP/promise-codeql/database" \
+            --language=javascript-typescript --build-mode=none --source-root="$GITHUB_WORKSPACE" \
+            --threads=2 --ram=6000 2>&1 | tee "$RUNNER_TEMP/promise-codeql/evidence/create.log"
+          cp "$RUNNER_TEMP/promise-codeql/database/src.zip" "$RUNNER_TEMP/promise-codeql/evidence/extracted-source.zip"
+      - name: Analyze the complete standard security suite without PR diff extensions
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/promise-codeql/codeql/codeql" database analyze "$RUNNER_TEMP/promise-codeql/database" \
+            codeql/javascript-queries:codeql-suites/javascript-code-scanning.qls \
+            --format=sarifv2.1.0 --output="$RUNNER_TEMP/promise-codeql/evidence/full-source.sarif" \
+            --threads=2 --ram=6000 2>&1 | tee "$RUNNER_TEMP/promise-codeql/evidence/analyze.log"
+      - name: Require the full suite and zero findings at every severity
+        run: |
+          python3 - <<'PY'
+          import json, os, hashlib, zipfile
+          from pathlib import Path
+          folder = Path(os.environ['RUNNER_TEMP']) / 'promise-codeql/evidence'
+          sarif = json.loads((folder / 'full-source.sarif').read_text())
+          assert sarif['version'] == '2.1.0' and len(sarif['runs']) == 1
+          run = sarif['runs'][0]
+          components = [run['tool']['driver'], *run['tool'].get('extensions', [])]
+          assert not any('pr-diff-range' in item.get('name', '') for item in components)
+          rules = {rule['id'] for item in components for rule in item.get('rules', [])}
+          assert len(rules) >= 87
+          assert {'js/polynomial-redos', 'js/missing-rate-limiting', 'js/sql-injection'} <= rules
+          expected = {}
+          for line in (folder / 'source-sha256.txt').read_text().splitlines():
+              digest, path = line.split('  ', 1)
+              if path.endswith(('.js', '.jsx', '.mjs', '.cjs', '.ts', '.tsx', '.mts', '.cts')):
+                  expected[path] = digest
+          source_root = (folder / 'source-root.txt').read_text().strip()
+          assert source_root == os.environ['GITHUB_WORKSPACE']
+          assert Path(source_root).resolve() == Path.cwd().resolve()
+          prefix = source_root.lstrip('/') + '/'
+          missing = []
+          with zipfile.ZipFile(folder / 'extracted-source.zip') as source:
+              names = source.namelist()
+              for path, digest in expected.items():
+                  exact_path = prefix + path
+                  if exact_path not in names:
+                      missing.append(path)
+                      continue
+                  assert names.count(exact_path) == 1
+                  assert hashlib.sha256(source.read(exact_path)).hexdigest() == digest
+          assert not missing, 'Tracked source missing from the extraction archive: ' + repr(missing)
+          findings = run.get('results', [])
+          summary = {'scope': 'complete source; no PR diff restriction', 'rules': sorted(rules),
+                     'finding_count': len(findings), 'all_results_retained': True,
+                     'every_tracked_JS_TS_extracted_with_matching_hash': len(expected),
+                     'zero_findings_required_at_every_severity': True}
+          (folder / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
+          print(json.dumps(summary))
+          assert not findings, 'Full-source CodeQL findings remain; inspect the complete retained SARIF'
+          PY
+      - name: Retain complete source, extraction, scanner and finding evidence
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: complete-source-codeql
+          path: ${{ runner.temp }}/promise-codeql/evidence/
+          if-no-files-found: error
+
+  parser-integrity:
+    name: Frozen parser graph and publisher signatures
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '26.12.1'
+      - run: npm ci --ignore-scripts
+      - run: npm audit --audit-level=low
+      - run: npm audit signatures
+      - name: Record the complete installed parser graph
+        run: |
+          npm ls --all --json > parser-installed-graph.json
+          node --version > parser-tool-versions.txt
+          npm --version >> parser-tool-versions.txt
+          sha256sum package.json package-lock.json > parser-lock-sha256.txt
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: frozen-parser-graph
+          path: |
+            app/parser-installed-graph.json
+            app/parser-tool-versions.txt
+            app/parser-lock-sha256.txt
+          if-no-files-found: error
+
+  windows-original:
+    name: Original cases and launcher syntax on Windows
+    runs-on: windows-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '26.12.1'
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run check
+      - name: Parse the launcher without starting a local service
+        shell: pwsh
+        run: |
+          $promiseTokens = $null
+          $promiseErrors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile((Join-Path $PWD 'Start-Promise.ps1'), [ref]$promiseTokens, [ref]$promiseErrors) | Out-Null
+          if ($promiseErrors.Count -ne 0) { throw ($promiseErrors | Out-String) }
+
+  original-browser:
+    name: Original browser QA unchanged
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '26.12.1'
+      - run: npm ci --ignore-scripts
+      - name: Install the public stable browser QA tool separately
+        run: |
+          npm install --prefix "$RUNNER_TEMP/promise-browser-tools" playwright@1.64.1
+          npm audit --prefix "$RUNNER_TEMP/promise-browser-tools" --audit-level=low
+          npm audit signatures --prefix "$RUNNER_TEMP/promise-browser-tools"
+          "$RUNNER_TEMP/promise-browser-tools/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Run every original browser QA assertion
+        run: |
+          export PROMISE_PLAYWRIGHT_MODULE="$RUNNER_TEMP/promise-browser-tools/node_modules/playwright"
+          node test/browser.qa.cjs
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+        if: always()
+        with:
+          name: original-browser-qa
+          path: |
+            app/qa-output/
+            ${{ runner.temp }}/promise-browser-tools/package-lock.json
+          if-no-files-found: error

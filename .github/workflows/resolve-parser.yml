@@ -1,0 +1,49 @@
+name: Resolve ordinary stable mail parser graph
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '26.12.1'
+      - name: Use the public stable package manager
+        run: npm install --global npm@12.2.1
+      - name: Resolve declared ranges normally
+        run: npm install --package-lock-only --ignore-scripts
+      - name: Install the resulting frozen graph
+        run: npm ci --ignore-scripts
+      - name: Audit every dependency and registry signature
+        run: |
+          npm audit --audit-level=low
+          npm audit signatures
+      - name: Retain actual resolution metadata
+        if: always()
+        run: |
+          node --version > parser-tool-versions.txt
+          npm --version >> parser-tool-versions.txt
+          npm ls --all --json > parser-installed-graph.json
+          sha256sum package.json package-lock.json > parser-lock-sha256.txt
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: ordinary-parser-graph
+          path: |
+            app/package-lock.json
+            app/parser-tool-versions.txt
+            app/parser-installed-graph.json
+            app/parser-lock-sha256.txt
+          if-no-files-found: error
